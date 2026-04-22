@@ -11,144 +11,84 @@
   <link rel="stylesheet" href="./site.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="./index.html" aria-label="Orbit home">
-      <img src="./assets/orbit-app-icon-rendered.png" alt="Orbit app icon" />
-      <span class="brand-name">Orbit</span>
-    </a>
-    <nav class="top-nav" aria-label="Main" id="site-nav">
-      <a href="#stories">Stories</a>
-      <a href="./support.html">Support</a>
-      <a href="./privacy.html">Privacy</a>
-    </nav>
-    <div class="header-actions">
-      <a class="nav-cta" href="https://apps.apple.com/" target="_blank" rel="noreferrer">
-        <span>Get the app</span>
-        <span class="cta-icon" aria-hidden="true">􀟜</span>
-      </a>
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="site-nav"
-        aria-label="Open menu"
-      >
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
-  <main>
-    <section class="hero hero-dark">
-      <div class="hero-copy">
-        <p class="hero-kicker">Made for the night sky</p>
-        <h1>Everything you want to track. All in Orbit.</h1>
-        <p>
-          Live satellites, pass predictions, launches, and reentries,
-          brought together in one calm, deeply visual iPhone experience.
-        </p>
-      </div>
-      <div class="product-grid" aria-hidden="true">
-        <article class="product-card reveal-on-scroll">
-          <div class="card-visual visual-globe"></div>
-          <div class="card-copy">
-            <strong>Live Globe</strong>
-            <p>Track satellites in motion with a crisp, cinematic view of the sky.</p>
-          </div>
-        </article>
-        <article class="product-card reveal-on-scroll">
-          <div class="card-visual visual-pass"></div>
-          <div class="card-copy">
-            <strong>Pass Predictions</strong>
-            <p>Know when to look up with clear timing, visibility, and flight path detail.</p>
-          </div>
-        </article>
-        <article class="product-card reveal-on-scroll">
-          <div class="card-visual visual-events"></div>
-          <div class="card-copy">
-            <strong>Launches and Reentries</strong>
-            <p>Follow what is new, what is returning, and what is worth watching next.</p>
-          </div>
-        </article>
-      </div>
-    </section>
+  <div class="page">
+    <header class="site-header">
+      <div class="nav-pill" role="navigation" aria-label="Primary">
+        <a class="brand" href="./index.html" aria-label="Orbit home">
+          <img src="./assets/orbit-app-icon-rendered.png" alt="" />
+          <span class="brand-name">Orbit</span>
+        </a>
 
-    <section id="stories" class="placeholder-section section-dark">
-      <div class="section-intro reveal-on-scroll">
-        <p class="section-kicker">Framework section</p>
-        <h2>Large cards. Long scroll. Better rhythm.</h2>
-        <p>
-          This is just the structure pass. The cards stay intentionally empty for now so we can judge layout, pacing,
-          motion, and overall feel before real content goes in.
-        </p>
-      </div>
-      <div class="mosaic-layout">
-        <article class="apple-card apple-card-tall reveal-on-scroll parallax-card" data-speed="0.08">
-          <div class="card-sheen"></div>
-        </article>
-        <article class="apple-card apple-card-wide reveal-on-scroll parallax-card" data-speed="0.04">
-          <div class="card-sheen"></div>
-        </article>
-        <article class="apple-card apple-card-square reveal-on-scroll parallax-card" data-speed="0.1">
-          <div class="card-sheen"></div>
-        </article>
-        <article class="apple-card apple-card-square reveal-on-scroll parallax-card" data-speed="0.06">
-          <div class="card-sheen"></div>
-        </article>
-      </div>
-    </section>
+        <nav class="top-nav" aria-label="Main">
+          <a href="#foundation">Foundation</a>
+          <a href="./support.html">Support</a>
+          <a href="./privacy.html">Privacy</a>
+        </nav>
 
-    <section class="placeholder-section section-light">
-      <div class="section-intro reveal-on-scroll">
-        <p class="section-kicker">Framework section</p>
-        <h2>Not a grid. More like a scene.</h2>
-        <p>
-          Instead of repeating the same row over and over, the cards can shift scale, depth, and position to make the
-          scroll feel more cinematic.
-        </p>
-      </div>
-      <div class="orbital-layout reveal-on-scroll">
-        <div class="orbital-center parallax-card" data-speed="0.05">
-          <article class="apple-card apple-card-orbital">
-            <div class="card-sheen"></div>
-          </article>
+        <div class="header-actions">
+          <a class="nav-cta" href="https://apps.apple.com/" target="_blank" rel="noreferrer">
+            <span>Get the app</span>
+            <span class="cta-icon" aria-hidden="true">􀟜</span>
+          </a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu">
+            <span></span>
+            <span></span>
+          </button>
         </div>
-        <article class="apple-card apple-card-float apple-card-float-a reveal-on-scroll parallax-card" data-speed="0.12"><div class="card-sheen"></div></article>
-        <article class="apple-card apple-card-float apple-card-float-b reveal-on-scroll parallax-card" data-speed="0.09"><div class="card-sheen"></div></article>
-        <article class="apple-card apple-card-float apple-card-float-c reveal-on-scroll parallax-card" data-speed="0.14"><div class="card-sheen"></div></article>
       </div>
-    </section>
 
-    <section class="placeholder-section section-dark">
-      <div class="section-intro reveal-on-scroll">
-        <p class="section-kicker">Framework section</p>
-        <h2>Stacked moments can guide the scroll.</h2>
-        <p>
-          These can later become feature stories. For now they just help us tune density, spacing, and movement across
-          a longer page.
-        </p>
-      </div>
-      <div class="cascade-layout">
-        <article class="apple-card apple-card-cascade reveal-on-scroll parallax-card" data-speed="0.05"><div class="card-sheen"></div></article>
-        <article class="apple-card apple-card-cascade reveal-on-scroll parallax-card" data-speed="0.09"><div class="card-sheen"></div></article>
-        <article class="apple-card apple-card-cascade reveal-on-scroll parallax-card" data-speed="0.13"><div class="card-sheen"></div></article>
-      </div>
-    </section>
+      <nav class="mobile-menu" aria-label="Menu">
+        <a href="#foundation">Foundation</a>
+        <a href="./support.html">Support</a>
+        <a href="./privacy.html">Privacy</a>
+      </nav>
+    </header>
 
-    <section class="placeholder-section section-light">
-      <div class="section-intro reveal-on-scroll">
-        <p class="section-kicker">Framework ending</p>
-        <h2>A clean long-scroll finish.</h2>
-        <p>
-          This last area just tests how the page resolves. We can turn it into a real close or CTA later.
-        </p>
-      </div>
-      <div class="endcap-layout reveal-on-scroll">
-        <article class="apple-card apple-card-endcap apple-card-endcap-large parallax-card" data-speed="0.04"><div class="card-sheen"></div></article>
-        <article class="apple-card apple-card-endcap parallax-card" data-speed="0.08"><div class="card-sheen"></div></article>
-      </div>
-    </section>
-  </main>
+    <main>
+      <section class="hero">
+        <div class="shell">
+          <div class="center">
+            <p class="kicker">Apple structure. Space silence.</p>
+            <h1 class="display">Orbit, before the content arrives.</h1>
+            <p class="lead">
+              This page is intentionally sparse. It’s a foundation pass: background language, page shell, navigation,
+              surfaces, and typography—locked first.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="foundation" class="chapter chapter-tight">
+        <div class="shell">
+          <div class="surface">
+            <div style="padding: 40px 40px 44px;">
+              <p class="kicker">Foundation surface</p>
+              <h2 class="headline">A single story panel, held in darkness.</h2>
+              <p class="lead">
+                This is a placeholder container to validate spacing rhythm, edge light, and contrast. We’ll swap in real
+                chapters later.
+              </p>
+              <p class="fine">Everything else stays intentionally blank for now.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter">
+        <div class="shell">
+          <div class="surface surface-float" style="max-width: 520px; margin: 0 auto;">
+            <div style="padding: 28px 28px 30px;">
+              <p class="kicker">Small supporting panel</p>
+              <h2 class="headline" style="font-size: clamp(1.7rem, 3.2vw, 2.2rem);">Quiet, optional, never a grid.</h2>
+              <p class="lead" style="font-size: 1.05rem;">
+                A second surface type exists only to support future moments—without turning into card spam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
   <script src="./site.js"></script>
 </body>
 </html>

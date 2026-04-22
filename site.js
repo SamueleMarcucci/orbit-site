@@ -4,6 +4,7 @@ const revealTargets = [...document.querySelectorAll(".reveal-on-scroll")];
 const parallaxCards = [...document.querySelectorAll(".parallax-card")];
 const menuToggle = document.querySelector(".menu-toggle");
 const siteHeader = document.querySelector(".site-header");
+const navLinks = [...document.querySelectorAll(".top-nav a, .mobile-menu a")];
 const mqReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const mqLowPower = window.matchMedia("(max-width: 900px)");
 let revealObserver = null;
@@ -69,8 +70,9 @@ if (menuToggle && siteHeader) {
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
   });
-  document.querySelectorAll(".top-nav a").forEach((link) => {
+  navLinks.forEach((link) => {
     link.addEventListener("click", () => {
+      if (!siteHeader.classList.contains("menu-open")) return;
       siteHeader.classList.remove("menu-open");
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.setAttribute("aria-label", "Open menu");

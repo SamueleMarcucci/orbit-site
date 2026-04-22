@@ -288,9 +288,19 @@ body.nav-menu-open .mobile-menu {
     padding 260ms ease;
 }
 .nav-cta-icon {
-  font-size: 1rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
   opacity: 0.92;
+}
+
+.nav-cta-icon-img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
 }
 
 body.is-scrolled .nav-cta {

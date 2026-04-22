@@ -335,6 +335,15 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
   color: var(--ink-muted);
 }
 
+.footnote {
+  margin: 14px auto 0;
+  max-width: 38rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--ink-faint);
+}
+
 .cta-row {
   margin-top: clamp(28px, 4vw, 40px);
   display: flex;

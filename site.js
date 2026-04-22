@@ -170,7 +170,7 @@
 
     const size = clamp(44 + (seed % 6) * 10, 44, 108);
     el.style.setProperty("--asset-size", `${size}px`);
-    el.style.setProperty("--asset-opacity", `${seed % 4 === 0 ? 0.18 : 0.26}`);
+    el.style.setProperty("--asset-opacity", `${seed % 4 === 0 ? 0.62 : 0.78}`);
 
     let x = Math.random() * window.innerWidth;
     let y = Math.random() * window.innerHeight;

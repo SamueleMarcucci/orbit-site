@@ -59,16 +59,20 @@ img { display: block; max-width: 100%; }
   top: 0;
   width: var(--asset-size, 72px);
   height: auto;
-  opacity: var(--asset-opacity, 0.22);
-  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.55));
+  opacity: var(--asset-opacity, 0.92);
+  filter:
+    drop-shadow(0 18px 42px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.06));
   transform-origin: 50% 50%;
   will-change: transform;
   user-select: none;
 }
 
 .orbital-asset.is-soft {
-  opacity: var(--asset-opacity, 0.16);
-  filter: blur(0.1px) drop-shadow(0 16px 40px rgba(0, 0, 0, 0.6));
+  opacity: var(--asset-opacity, 0.82);
+  filter:
+    drop-shadow(0 22px 52px rgba(0, 0, 0, 0.72))
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.05));
 }
 
 .star-layer {

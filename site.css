@@ -262,11 +262,11 @@ body.nav-menu-open .mobile-menu {
     padding 260ms ease;
 }
 .nav-cta-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  flex: 0 0 auto;
   width: 18px;
   height: 18px;
+  object-fit: contain;
   opacity: 0.92;
 }
 

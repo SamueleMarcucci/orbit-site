@@ -131,18 +131,20 @@
   const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
   const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
+  // Avoid accidental inclusion of browser/UI icons, but DO allow the satellite PNG
+  // since it's a deliberate "thing in space" for this page.
   const isProbablyFavicon = (src) =>
-    /favicon|icon\.svg|apple-touch|sat\.png|sat-favicon\.svg/i.test(src);
+    /favicon|icon\.svg|apple-touch|sat-favicon\.svg/i.test(src);
 
   const defaultCandidates = [
-    "./assets/iphone-hero.png",
-    "./assets/orbit-app-icon-rendered.png",
+    "/assets/orbit-app-icon.icon/Assets/Sat.png",
+    "/assets/orbit-app-icon-rendered.png",
   ];
 
   const resolveCandidates = () => {
     // Allow author override by dropping JSON manifest at `assets/manifest.json`.
     const base = document.baseURI;
-    const manifestUrl = new URL("assets/manifest.json", base).toString();
+    const manifestUrl = new URL("/assets/manifest.json", base).toString();
     return fetch(manifestUrl, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : null))
       .then((json) => {

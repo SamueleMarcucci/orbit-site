@@ -291,17 +291,10 @@ body.nav-menu-open .mobile-menu {
 .nav-cta-icon {
   display: block;
   flex: 0 0 auto;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
   opacity: 0.92;
-}
-
-.nav-cta-icon-img {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  display: block;
 }
 
 body.is-scrolled .nav-cta {

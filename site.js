@@ -172,8 +172,6 @@
     el.style.setProperty("--asset-size", `${size}px`);
     el.style.setProperty("--asset-opacity", `${seed % 4 === 0 ? 0.62 : 0.78}`);
 
-    let x = Math.random() * window.innerWidth;
-    let y = Math.random() * window.innerHeight;
     const angle = Math.random() * Math.PI * 2;
     const speed = 30 + Math.random() * 40; // px/sec, clearly crosses screen
     const vx = Math.cos(angle) * speed;
@@ -181,6 +179,24 @@
     const wobbleRate = 0.16 + Math.random() * 0.24;
     const wobbleAmp = 0.10 + Math.random() * 0.14;
     const phase = Math.random() * Math.PI * 2;
+
+    // Spawn off-screen so sprites travel into view and out (no "pop-in" mid-screen).
+    const pad = 220;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const ax = Math.abs(vx);
+    const ay = Math.abs(vy);
+    let x;
+    let y;
+    if (ax >= ay) {
+      // Mostly horizontal travel → spawn from left/right edge.
+      x = vx >= 0 ? -pad : w + pad;
+      y = -pad + Math.random() * (h + pad * 2);
+    } else {
+      // Mostly vertical travel → spawn from top/bottom edge.
+      y = vy >= 0 ? -pad : h + pad;
+      x = -pad + Math.random() * (w + pad * 2);
+    }
 
     return { el, x, y, vx, vy, wobbleRate, wobbleAmp, phase, lastX: x, lastY: y };
   };

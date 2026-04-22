@@ -77,7 +77,7 @@ img { display: block; max-width: 100%; }
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   padding: 0 10px 0 14px;
   border-radius: 14px;
   background: transparent;
@@ -156,6 +156,90 @@ body.is-scrolled .nav-brand img {
 
 body.is-scrolled .nav-links { gap: clamp(14px, 2vw, 26px); }
 body.is-scrolled .nav-links a { font-size: 0.95rem; }
+
+.nav-actions {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-toggle {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  position: absolute;
+  left: 50%;
+  width: 16px;
+  height: 2px;
+  margin-left: -8px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 180ms ease;
+}
+
+.menu-toggle span:first-child {
+  top: 15px;
+}
+
+.menu-toggle span:last-child {
+  top: 23px;
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+  margin: 10px auto 0;
+  width: min(100% - (var(--shell-pad) * 2), 1240px);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(18, 18, 20, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow: clip;
+}
+
+.mobile-menu a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mobile-menu a:first-child {
+  border-top: 0;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a[aria-current="page"] {
+  color: var(--ink);
+}
+
+body.nav-menu-open .mobile-menu {
+  display: block;
+}
 
 /* CTA */
 .nav-cta {
@@ -345,6 +429,11 @@ body.is-scrolled .nav-cta-icon {
     -webkit-backdrop-filter: blur(18px) saturate(120%);
   }
   .nav-links { display: none; }
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
   .nav-cta {
     height: 36px;
     color: #0a0a0a;

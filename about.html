@@ -29,11 +29,30 @@
           <a href="./about.html" aria-current="page">About Me</a>
         </nav>
 
-        <a class="nav-cta" href="https://apps.apple.com/" target="_blank" rel="noreferrer">
-          <span>Get the app</span>
-          <img class="nav-cta-icon" src="./assets/orbit-app-icon.icon/Assets/Sat.png" alt="" aria-hidden="true" />
-        </a>
+        <div class="nav-actions">
+          <a class="nav-cta" href="https://apps.apple.com/" target="_blank" rel="noreferrer">
+            <span>Get the app</span>
+            <img class="nav-cta-icon" src="./assets/orbit-app-icon.icon/Assets/Sat.png" alt="" aria-hidden="true" />
+          </a>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Open menu"
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
+
+      <nav id="mobile-menu" class="mobile-menu" aria-label="Site">
+        <a href="./index.html">Home</a>
+        <a href="./features.html">Features</a>
+        <a href="./support.html">Support</a>
+        <a href="./about.html" aria-current="page">About Me</a>
+      </nav>
     </header>
 
     <main class="scroll-canvas" aria-label="About">

@@ -120,3 +120,36 @@
   buildStarfield();
   sync();
 })();
+
+// Mobile nav: hamburger + sheet links to Features / Support / About.
+(() => {
+  const header = document.querySelector(".nav");
+  const toggle = document.querySelector(".menu-toggle");
+  if (!header || !toggle) return;
+
+  const setOpen = (open) => {
+    header.classList.toggle("nav-menu-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  };
+
+  toggle.addEventListener("click", () => {
+    setOpen(!header.classList.contains("nav-menu-open"));
+  });
+
+  header.querySelectorAll(".mobile-menu a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!header.classList.contains("nav-menu-open")) return;
+    const t = e.target;
+    if (!(t instanceof Element)) return;
+    if (t.closest(".nav-inner") || t.closest(".mobile-menu")) return;
+    setOpen(false);
+  });
+})();

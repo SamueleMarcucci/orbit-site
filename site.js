@@ -121,15 +121,125 @@
   sync();
 })();
 
+// Drifting satellites (from assets/manifest.json). Fixed to viewport; does not scroll with content.
+(() => {
+  const root = document.querySelector(".orbital-assets");
+  if (!root) return;
+  const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  if (reduced) return;
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+  const resolveManifest = async () => {
+    const manifestUrl = new URL("/assets/manifest.json", document.baseURI).toString();
+    try {
+      const r = await fetch(manifestUrl, { cache: "no-store" });
+      if (!r.ok) return [];
+      const json = await r.json();
+      const list = Array.isArray(json?.images) ? json.images : Array.isArray(json) ? json : [];
+      return list.map((p) => new URL(p, document.baseURI).toString());
+    } catch {
+      return [];
+    }
+  };
+
+  const preload = async (urls) => {
+    const checks = urls.map(
+      (src) =>
+        new Promise((resolve) => {
+          const img = new Image();
+          img.decoding = "async";
+          img.onload = () => resolve(src);
+          img.onerror = () => resolve(null);
+          img.src = src;
+        })
+    );
+    const results = await Promise.all(checks);
+    return results.filter(Boolean);
+  };
+
+  const spawn = (src, seed) => {
+    const el = new Image();
+    el.decoding = "async";
+    el.loading = "eager";
+    el.src = src;
+    el.alt = "";
+    el.className = "orbital-asset";
+    root.appendChild(el);
+
+    const size = clamp(44 + (seed % 6) * 10, 44, 108);
+    el.style.setProperty("--asset-size", `${size}px`);
+    el.style.setProperty("--asset-opacity", `${seed % 4 === 0 ? 0.18 : 0.26}`);
+
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 30 + Math.random() * 40; // px/sec, clearly crosses screen
+    const vx = Math.cos(angle) * speed;
+    const vy = Math.sin(angle) * speed;
+    const wobbleRate = 0.16 + Math.random() * 0.24;
+    const wobbleAmp = 0.10 + Math.random() * 0.14;
+    const phase = Math.random() * Math.PI * 2;
+
+    return { el, x, y, vx, vy, wobbleRate, wobbleAmp, phase, lastX: x, lastY: y };
+  };
+
+  const wrap = (s) => {
+    const pad = 180;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    if (s.x < -pad) s.x = w + pad;
+    if (s.x > w + pad) s.x = -pad;
+    if (s.y < -pad) s.y = h + pad;
+    if (s.y > h + pad) s.y = -pad;
+  };
+
+  const updateEl = (s) => {
+    const dx = s.x - s.lastX;
+    const dy = s.y - s.lastY;
+    const rot = Math.atan2(dy || s.vy, dx || s.vx) * (180 / Math.PI);
+    s.el.style.transform = `translate3d(${s.x}px, ${s.y}px, 0) rotate(${rot}deg)`;
+    s.lastX = s.x;
+    s.lastY = s.y;
+  };
+
+  let sprites = [];
+  let last = performance.now();
+  const tick = (now) => {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    for (const s of sprites) {
+      const wobble = 1 + Math.sin(now / 1000 * s.wobbleRate + s.phase) * s.wobbleAmp;
+      s.lastX = s.x;
+      s.lastY = s.y;
+      s.x += s.vx * dt * wobble;
+      s.y += s.vy * dt * wobble;
+      wrap(s);
+      updateEl(s);
+    }
+    requestAnimationFrame(tick);
+  };
+
+  resolveManifest()
+    .then((candidates) => preload(candidates.filter(Boolean)))
+    .then((usable) => {
+      if (!usable.length) return;
+      const count = clamp(Math.floor(window.innerWidth / 520) + 3, 4, 8);
+      sprites = Array.from({ length: count }, (_, i) => spawn(pick(usable), i + 1));
+      sprites.forEach(updateEl);
+      requestAnimationFrame(tick);
+    });
+})();
+
 // Mobile nav: hamburger + sheet links to Features / Support / About.
 (() => {
-  // Ensure CTA icon is cross-device: if `assets/iphone.png` is missing, fall back.
+  // Ensure CTA icon is cross-device: if `assets/iphone.png` is missing, hide broken icon.
   document.querySelectorAll(".nav-cta-icon").forEach((img) => {
     if (!(img instanceof HTMLImageElement)) return;
     img.addEventListener(
       "error",
       () => {
-        // Don't replace with a satellite; just hide the broken icon.
         if (img.src && img.src.includes("/assets/iphone.png")) img.style.display = "none";
       },
       { once: true }

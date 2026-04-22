@@ -245,6 +245,19 @@
 
 // Mobile nav: hamburger + sheet links to Features / Support / About.
 (() => {
+  // Ensure CTA icon is cross-device: if `assets/iphone.png` is missing, fall back.
+  document.querySelectorAll(".nav-cta-icon").forEach((img) => {
+    if (!(img instanceof HTMLImageElement)) return;
+    img.addEventListener(
+      "error",
+      () => {
+        const fallback = "/assets/orbit-app-icon.icon/Assets/Sat.png";
+        if (img.src && img.src.includes("/assets/iphone.png")) img.src = fallback;
+      },
+      { once: true }
+    );
+  });
+
   const header = document.querySelector(".nav");
   const toggle = document.querySelector(".menu-toggle");
   if (!header || !toggle) return;

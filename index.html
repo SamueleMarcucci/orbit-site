@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="./site.css" />
   </head>
   <body>
-    <div class="stars stars-1" aria-hidden="true"></div>
-    <div class="stars stars-2" aria-hidden="true"></div>
-    <div class="stars stars-3" aria-hidden="true"></div>
+    <div class="sky" aria-hidden="true">
+      <canvas class="star-layer" data-speed="0.14" data-density="0.00005"></canvas>
+      <canvas class="star-layer" data-speed="0.32" data-density="0.00010"></canvas>
+      <canvas class="star-layer" data-speed="0.58" data-density="0.00018"></canvas>
+    </div>
 
     <header class="nav" role="banner">
       <div class="nav-inner">

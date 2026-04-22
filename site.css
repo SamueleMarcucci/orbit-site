@@ -29,39 +29,32 @@ body {
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
-/* ---------- Stars (3 parallax layers) ---------- */
-.stars {
+/* ---------- Stars (procedural canvas, no tiling patterns) ---------- */
+.sky {
   position: fixed;
-  inset: -20vh -10vw;
+  inset: 0;
   pointer-events: none;
   z-index: 0;
+}
+
+.star-layer {
+  position: absolute;
+  inset: -12vh -8vw;
+  width: 116vw;
+  height: 124vh;
+  opacity: 0.95;
   will-change: transform;
 }
-.stars-1 {
-  background-image:
-    radial-gradient(rgba(255,255,255,1) 0 1.1px, transparent 1.8px),
-    radial-gradient(rgba(255,255,255,0.8) 0 1px, transparent 1.6px);
-  background-size: 280px 280px, 190px 190px;
-  background-position: 0 0, 120px 80px;
-  opacity: 1;
+
+.star-layer.layer-1 {
   transform: translate3d(0, calc(var(--stars-offset) * -0.15), 0);
 }
-.stars-2 {
-  background-image:
-    radial-gradient(rgba(255,255,255,0.62) 0 1px, transparent 1.4px),
-    radial-gradient(rgba(255,255,255,0.46) 0 0.9px, transparent 1.3px);
-  background-size: 150px 150px, 120px 120px;
-  background-position: 40px 60px, -20px 30px;
-  opacity: 0.95;
+
+.star-layer.layer-2 {
   transform: translate3d(0, calc(var(--stars-offset) * -0.35), 0);
 }
-.stars-3 {
-  background-image:
-    radial-gradient(rgba(255,255,255,0.42) 0 0.8px, transparent 1.2px),
-    radial-gradient(rgba(255,255,255,0.30) 0 0.7px, transparent 1.1px);
-  background-size: 90px 90px, 72px 72px;
-  background-position: 10px 20px, 60px 40px;
-  opacity: 0.98;
+
+.star-layer.layer-3 {
   transform: translate3d(0, calc(var(--stars-offset) * -0.65), 0);
 }
 
@@ -230,6 +223,8 @@ body.is-scrolled .nav-cta:hover { background: #ffffff; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .stars-1, .stars-2, .stars-3 { transform: none; }
+  .star-layer.layer-1,
+  .star-layer.layer-2,
+  .star-layer.layer-3 { transform: none; }
   .nav, .nav-inner, .nav-cta { transition: none; }
 }

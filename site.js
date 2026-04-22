@@ -166,6 +166,21 @@
       });
   };
 
+  const preloadAny = async (urls) => {
+    const checks = urls.map(
+      (src) =>
+        new Promise((resolve) => {
+          const img = new Image();
+          img.decoding = "async";
+          img.onload = () => resolve(src);
+          img.onerror = () => resolve(null);
+          img.src = src;
+        })
+    );
+    const results = await Promise.all(checks);
+    return results.filter(Boolean);
+  };
+
   const spawn = (src, seed) => {
     const el = new Image();
     el.decoding = "async";
@@ -239,14 +254,20 @@
     requestAnimationFrame(tick);
   };
 
-  resolveCandidates().then((candidates) => {
-    const usable = candidates.filter(Boolean);
-    if (!usable.length) return;
+  resolveCandidates()
+    .then((candidates) => preloadAny(candidates.filter(Boolean)))
+    .then((usable) => {
+      // If the manifest points to files that aren't present yet, fall back to built-ins.
+      if (!usable.length) return preloadAny(defaultCandidates);
+      return usable;
+    })
+    .then((usable) => {
+      if (!usable.length) return;
     const count = clamp(Math.floor(window.innerWidth / 420) + 3, 4, 9);
     sprites = Array.from({ length: count }, (_, i) => spawn(pick(usable), i + 1));
     sprites.forEach(updateEl);
     requestAnimationFrame(tick);
-  });
+    });
 })();
 
 // Mobile nav: hamburger + sheet links to Features / Support / About.

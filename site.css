@@ -50,6 +50,7 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  contain: layout paint;
 }
 
 .orbital-asset {

@@ -138,7 +138,6 @@
 
   const defaultCandidates = [
     "/assets/orbit-app-icon.icon/Assets/Sat.png",
-    "/assets/orbit-app-icon-rendered.png",
   ];
 
   const resolveCandidates = () => {
@@ -188,7 +187,7 @@
     let x = Math.random() * vw();
     let y = Math.random() * vh();
     const angle = (Math.random() * Math.PI * 2);
-    const speed = 6 + Math.random() * 14; // px / sec (noticeable but calm)
+    const speed = 22 + Math.random() * 34; // px / sec (clearly traverses screen)
     let vx = Math.cos(angle) * speed;
     let vy = Math.sin(angle) * speed;
 

@@ -434,13 +434,12 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
 
 .stage {
   width: min(100%, 860px);
-  border-radius: 28px;
-  overflow: clip;
-  background: rgba(255, 255, 255, 0.03);
-  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.65);
   display: grid;
   place-items: center;
-  padding: clamp(10px, 1.8vw, 18px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .stage img {
@@ -456,10 +455,7 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
   object-position: center;
 }
 
-.chapter-space .stage {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
+.chapter-space .stage { }
 
 .chapter-contrast,
 .chapter-moonlit {
@@ -483,10 +479,7 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
 }
 
 .chapter-contrast .stage,
-.chapter-moonlit .stage {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-}
+.chapter-moonlit .stage { }
 
 .chapter-contrast .shell,
 .chapter-contrast .chapter-shell,

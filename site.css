@@ -117,9 +117,10 @@ body.is-scrolled .nav-inner {
   border-radius: 10px;
 }
 .nav-brand img {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
+  width: 31px;
+  height: 31px;
+  object-fit: contain;
+  border-radius: 0;
 }
 .nav-brand-name {
   font-size: 0.98rem;
@@ -127,9 +128,9 @@ body.is-scrolled .nav-inner {
   letter-spacing: -0.01em;
 }
 body.is-scrolled .nav-brand img {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
+  width: 31px;
+  height: 31px;
+  border-radius: 0;
 }
 
 /* Links */

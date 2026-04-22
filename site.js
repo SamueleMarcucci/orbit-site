@@ -1,8 +1,9 @@
-// Procedural random stars + parallax + nav collapse.
+// Procedural random stars + infinite parallax + nav collapse.
 (() => {
   const body = document.body;
   const layers = [...document.querySelectorAll(".star-layer")];
   let ticking = false;
+  let layerState = [];
 
   const seededRandom = (seed) => {
     let t = seed >>> 0;
@@ -14,20 +15,13 @@
     };
   };
 
-  const drawLayer = (canvas, index) => {
+  const buildLayerState = (canvas, index) => {
     const rect = canvas.getBoundingClientRect();
     const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
     const fallbackWidth = Math.ceil(window.innerWidth * 1.16);
     const fallbackHeight = Math.ceil(window.innerHeight * 1.24);
     const cssWidth = Math.max(1, Math.round(rect.width || fallbackWidth));
     const cssHeight = Math.max(1, Math.round(rect.height || fallbackHeight));
-
-    canvas.width = Math.round(cssWidth * dpr);
-    canvas.height = Math.round(cssHeight * dpr);
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, cssWidth, cssHeight);
 
     const density = Number(canvas.dataset.density || 0.00016);
     const speed = Number(canvas.dataset.speed || 0.2);
@@ -51,43 +45,59 @@
       maxAlpha = 0.58;
     }
 
+    const stars = [];
     for (let i = 0; i < starCount; i += 1) {
       const x = rand() * cssWidth;
       const y = rand() * cssHeight;
       const size = minSize + rand() * (maxSize - minSize);
       const alpha = minAlpha + rand() * (maxAlpha - minAlpha);
-      ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(3)})`;
-      ctx.beginPath();
-      ctx.arc(x, y, size, 0, Math.PI * 2);
-      ctx.fill();
+      stars.push({ x, y, size, alpha });
     }
 
-    // Add a few brighter anchor stars to improve visibility.
+    // Add brighter anchor stars for readability.
     const anchorCount = Math.max(12, Math.floor(starCount * 0.035));
     for (let i = 0; i < anchorCount; i += 1) {
       const x = rand() * cssWidth;
       const y = rand() * cssHeight;
-      const r = 1 + rand() * 0.9;
-      ctx.fillStyle = `rgba(255,255,255,${(0.72 + rand() * 0.28).toFixed(3)})`;
-      ctx.beginPath();
-      ctx.arc(x, y, r, 0, Math.PI * 2);
-      ctx.fill();
+      const size = 1 + rand() * 0.9;
+      const alpha = 0.72 + rand() * 0.28;
+      stars.push({ x, y, size, alpha });
     }
 
-    canvas.dataset.speed = String(speed);
+    return { canvas, dpr, cssWidth, cssHeight, speed, stars };
+  };
+
+  const renderLayer = (state, scrollY) => {
+    const { canvas, dpr, cssWidth, cssHeight, speed, stars } = state;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    canvas.width = Math.round(cssWidth * dpr);
+    canvas.height = Math.round(cssHeight * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cssWidth, cssHeight);
+
+    // Infinite vertical wrap: stars re-enter from top as you scroll.
+    const offset = ((scrollY * speed) % cssHeight + cssHeight) % cssHeight;
+
+    for (let i = 0; i < stars.length; i += 1) {
+      const star = stars[i];
+      const yWrapped = (star.y + offset) % cssHeight;
+      ctx.fillStyle = `rgba(255,255,255,${star.alpha.toFixed(3)})`;
+      ctx.beginPath();
+      ctx.arc(star.x, yWrapped, star.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
   };
 
   const buildStarfield = () => {
-    layers.forEach((canvas, index) => drawLayer(canvas, index));
+    layerState = layers.map((canvas, index) => buildLayerState(canvas, index));
   };
 
   const sync = () => {
     const y = window.scrollY;
     body.classList.toggle("is-scrolled", y > 24);
-    layers.forEach((canvas) => {
-      const speed = Number(canvas.dataset.speed || 0.2);
-      canvas.style.transform = `translate3d(0, ${(-y * speed).toFixed(2)}px, 0)`;
-    });
+    layerState.forEach((state) => renderLayer(state, y));
     ticking = false;
   };
 

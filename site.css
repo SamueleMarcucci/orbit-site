@@ -332,6 +332,36 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
   text-align: center;
 }
 
+.hero-stage {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: -10vh -10vw;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.9;
+  background:
+    radial-gradient(60rem 28rem at 50% 36%, rgba(255, 255, 255, 0.10), transparent 58%),
+    radial-gradient(46rem 22rem at 50% 40%, rgba(10, 132, 255, 0.08), transparent 62%),
+    radial-gradient(34rem 18rem at 50% 44%, rgba(255, 236, 156, 0.07), transparent 64%),
+    radial-gradient(90rem 52rem at 50% 52%, rgba(255, 255, 255, 0.035), transparent 62%);
+  filter: blur(10px);
+}
+
+.hero-stage::after {
+  content: "";
+  position: absolute;
+  inset: -2vh -6vw;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(70rem 34rem at 50% 38%, rgba(0, 0, 0, 0.55), transparent 62%);
+  opacity: 0.9;
+}
+
 .kicker {
   margin: 0 0 clamp(14px, 2vw, 22px);
   font-size: 0.82rem;

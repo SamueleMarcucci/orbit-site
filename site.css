@@ -425,10 +425,11 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
   text-align: center;
 }
 
-.chapter-shell {
+.chapter-shell,
+.chapter .shell {
   display: grid;
   justify-items: center;
-  gap: clamp(22px, 4vw, 44px);
+  gap: clamp(18px, 3.2vw, 40px);
 }
 
 .stage {
@@ -437,17 +438,20 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
   overflow: clip;
   background: rgba(255, 255, 255, 0.03);
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.65);
+  display: grid;
+  place-items: center;
+  padding: clamp(10px, 1.8vw, 18px);
 }
 
 .stage img {
-  width: 100%;
+  width: min(100%, 720px);
   height: auto;
   display: block;
 }
 
 /* Keep product visuals authored, not poster-sized */
 .stage-media {
-  max-height: clamp(420px, 62vh, 720px);
+  max-height: clamp(360px, 52vh, 640px);
   object-fit: contain;
   object-position: center;
 }
@@ -457,10 +461,12 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.chapter-contrast,
 .chapter-moonlit {
   position: relative;
 }
 
+.chapter-contrast::before,
 .chapter-moonlit::before {
   content: "";
   position: absolute;
@@ -472,11 +478,14 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
   opacity: 1;
 }
 
+.chapter-contrast .stage,
 .chapter-moonlit .stage {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
+.chapter-contrast .shell,
+.chapter-contrast .chapter-shell,
 .chapter-moonlit .shell,
 .chapter-moonlit .chapter-shell {
   position: relative;

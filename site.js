@@ -1,10 +1,13 @@
-// Update --stars-offset on scroll so the star layers parallax.
+// Parallax stars + nav collapse on scroll.
 (() => {
   const root = document.documentElement;
+  const body = document.body;
   let ticking = false;
 
   const sync = () => {
-    root.style.setProperty("--stars-offset", `${window.scrollY}px`);
+    const y = window.scrollY;
+    root.style.setProperty("--stars-offset", `${y}px`);
+    body.classList.toggle("is-scrolled", y > 24);
     ticking = false;
   };
 

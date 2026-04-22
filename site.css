@@ -1,13 +1,14 @@
 /*
-  Orbit — blank space, stars that drift on scroll.
-  No blue. No atmosphere tint. Just deep black + quiet stars.
+  Orbit — pure black space, parallax stars,
+  Flighty-style nav: full-width bar that collapses into a floating pill on scroll.
 */
 
 * { box-sizing: border-box; }
 
 :root {
   color-scheme: dark;
-  --ink: rgba(245, 245, 247, 0.92);
+  --ink: rgba(245, 245, 247, 0.96);
+  --ink-muted: rgba(245, 245, 247, 0.68);
   --stars-offset: 0px;
 }
 
@@ -24,8 +25,10 @@ body {
   overflow-x: clip;
 }
 
-/* Three star layers, different densities and parallax speeds.
-   Each layer is a fixed, full-viewport background image of dots. */
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ---------- Stars (3 parallax layers) ---------- */
 .stars {
   position: fixed;
   inset: -20vh -10vw;
@@ -33,7 +36,6 @@ body {
   z-index: -1;
   will-change: transform;
 }
-
 .stars-1 {
   background-image:
     radial-gradient(rgba(255,255,255,0.95) 0 1px, transparent 1.6px),
@@ -43,7 +45,6 @@ body {
   opacity: 0.9;
   transform: translate3d(0, calc(var(--stars-offset) * -0.15), 0);
 }
-
 .stars-2 {
   background-image:
     radial-gradient(rgba(255,255,255,0.55) 0 0.9px, transparent 1.3px),
@@ -53,7 +54,6 @@ body {
   opacity: 0.85;
   transform: translate3d(0, calc(var(--stars-offset) * -0.35), 0);
 }
-
 .stars-3 {
   background-image:
     radial-gradient(rgba(255,255,255,0.30) 0 0.7px, transparent 1.1px),
@@ -64,11 +64,165 @@ body {
   transform: translate3d(0, calc(var(--stars-offset) * -0.65), 0);
 }
 
-/* Long scroll canvas — nothing to see, just space. */
+/* ---------- Nav: bar → pill ---------- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 14px clamp(16px, 3vw, 28px);
+  transition: padding 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1240px;
+  height: 56px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 0 10px 0 14px;
+  border-radius: 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition:
+    max-width 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    padding 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 260ms ease,
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    backdrop-filter 260ms ease;
+}
+
+/* Pill state (on scroll): floats, narrower, more material. */
+body.is-scrolled .nav { padding-top: 12px; }
+body.is-scrolled .nav-inner {
+  max-width: 880px;
+  height: 52px;
+  padding: 0 6px 0 8px;
+  border-radius: 999px;
+  background: rgba(18, 18, 20, 0.72);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 10px 30px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+}
+
+/* Brand */
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 4px 6px;
+  border-radius: 10px;
+}
+.nav-brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+}
+.nav-brand-name {
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+body.is-scrolled .nav-brand img {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+}
+
+/* Links */
+.nav-links {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(18px, 2.4vw, 34px);
+}
+.nav-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink-muted);
+  padding: 8px 2px;
+  transition: color 160ms ease;
+}
+.nav-links a:hover { color: var(--ink); }
+
+body.is-scrolled .nav-links { gap: clamp(14px, 2vw, 26px); }
+body.is-scrolled .nav-links a { font-size: 0.92rem; }
+
+/* CTA */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid transparent;
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease,
+    height 260ms ease,
+    padding 260ms ease;
+}
+.nav-cta-icon { font-size: 1rem; line-height: 1; opacity: 0.9; }
+
+body.is-scrolled .nav-cta {
+  height: 36px;
+  padding: 0 14px;
+  color: #0a0a0a;
+  background: #f5f5f7;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+body.is-scrolled .nav-cta:hover { background: #ffffff; }
+
+/* Long scroll canvas */
 .scroll-canvas {
   min-height: 600vh;
 }
 
+/* Mobile: always pill, hide inline links, keep brand + CTA */
+@media (max-width: 760px) {
+  .nav-inner {
+    max-width: 100%;
+    height: 52px;
+    border-radius: 999px;
+    padding: 0 6px 0 8px;
+    background: rgba(18, 18, 20, 0.72);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(18px) saturate(120%);
+    -webkit-backdrop-filter: blur(18px) saturate(120%);
+  }
+  .nav-links { display: none; }
+  .nav-cta {
+    height: 36px;
+    color: #0a0a0a;
+    background: #f5f5f7;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .stars-1, .stars-2, .stars-3 { transform: none; }
+  .nav, .nav-inner, .nav-cta { transition: none; }
 }

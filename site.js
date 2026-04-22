@@ -196,7 +196,7 @@
     const wobbleAmp = 0.12 + Math.random() * 0.16; // multiplier
     const phase = Math.random() * Math.PI * 2;
 
-    const state = { el, x, y, vx, vy, wobbleRate, wobbleAmp, phase, size };
+    const state = { el, x, y, vx, vy, wobbleRate, wobbleAmp, phase, size, lastX: x, lastY: y };
     return state;
   };
 
@@ -211,9 +211,13 @@
   };
 
   const updateEl = (state) => {
-    // Icons face "right" by default → add 0deg when moving right.
-    const rot = Math.atan2(state.vy, state.vx) * (180 / Math.PI);
+    const dx = state.x - state.lastX;
+    const dy = state.y - state.lastY;
+    // Icons face "right" by default → 0deg when moving right.
+    const rot = Math.atan2(dy || state.vy, dx || state.vx) * (180 / Math.PI);
     state.el.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) rotate(${rot}deg)`;
+    state.lastX = state.x;
+    state.lastY = state.y;
   };
 
   let sprites = [];
@@ -225,6 +229,8 @@
 
     for (const s of sprites) {
       const wobble = 1 + Math.sin(now / 1000 * s.wobbleRate + s.phase) * s.wobbleAmp;
+      s.lastX = s.x;
+      s.lastY = s.y;
       s.x += s.vx * dt * wobble;
       s.y += s.vy * dt * wobble;
       wrap(s);

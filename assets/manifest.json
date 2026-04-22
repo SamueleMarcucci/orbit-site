@@ -1,6 +1,13 @@
 {
   "images": [
-    "/assets/orbit-app-icon.icon/Assets/Sat.png"
+    "/assets/Blue%20satellite.png",
+    "/assets/teal%20satellite.png",
+    "/assets/red%20satellite.png",
+    "/assets/yellow%20satellite.png",
+    "/assets/orange%20satellite.png",
+    "/assets/green%20satellite.png",
+    "/assets/pink%20satellite.png",
+    "/assets/purple%20satellite.png"
   ]
 }
 

@@ -121,6 +121,129 @@
   sync();
 })();
 
+// Orbital drifting assets: gentle random motion + auto-rotation to velocity.
+(() => {
+  const root = document.querySelector(".orbital-assets");
+  if (!root) return;
+  const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  if (reduced) return;
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+  // Avoid accidental inclusion of browser/UI icons, but DO allow the satellite PNG
+  // since it's a deliberate "thing in space" for this page.
+  const isProbablyFavicon = (src) =>
+    /favicon|icon\.svg|apple-touch|sat-favicon\.svg/i.test(src);
+
+  const defaultCandidates = [
+    "/assets/orbit-app-icon.icon/Assets/Sat.png",
+    "/assets/orbit-app-icon-rendered.png",
+  ];
+
+  const resolveCandidates = () => {
+    // Allow author override by dropping JSON manifest at `assets/manifest.json`.
+    const base = document.baseURI;
+    const manifestUrl = new URL("/assets/manifest.json", base).toString();
+    return fetch(manifestUrl, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((json) => {
+        const list = Array.isArray(json)
+          ? json
+          : Array.isArray(json?.images)
+            ? json.images
+            : Array.isArray(json?.floatingAssets)
+              ? json.floatingAssets
+              : null;
+        if (!list || list.length === 0) return null;
+        return list.map((p) => new URL(p, base).toString());
+      })
+      .catch(() => null)
+      .then((list) => {
+        if (list && list.length) return list.filter((s) => !isProbablyFavicon(s));
+        return defaultCandidates
+          .map((p) => new URL(p, base).toString())
+          .filter((s) => !isProbablyFavicon(s));
+      });
+  };
+
+  const spawn = (src, seed) => {
+    const el = new Image();
+    el.decoding = "async";
+    el.loading = "eager";
+    el.src = src;
+    el.alt = "";
+    el.className = "orbital-asset";
+    if (seed % 3 === 0) el.classList.add("is-soft");
+    root.appendChild(el);
+
+    const vw = () => window.innerWidth;
+    const vh = () => window.innerHeight;
+
+    const size = clamp(56 + (seed % 5) * 10, 52, 104);
+    el.style.setProperty("--asset-size", `${size}px`);
+    el.style.setProperty("--asset-opacity", `${seed % 4 === 0 ? 0.14 : 0.22}`);
+
+    // Position and motion.
+    let x = Math.random() * vw();
+    let y = Math.random() * vh();
+    const angle = (Math.random() * Math.PI * 2);
+    const speed = 6 + Math.random() * 14; // px / sec (noticeable but calm)
+    let vx = Math.cos(angle) * speed;
+    let vy = Math.sin(angle) * speed;
+
+    // Slight per-asset drift so they don’t look linear.
+    const wobbleRate = 0.18 + Math.random() * 0.22; // rad/sec
+    const wobbleAmp = 0.12 + Math.random() * 0.16; // multiplier
+    const phase = Math.random() * Math.PI * 2;
+
+    const state = { el, x, y, vx, vy, wobbleRate, wobbleAmp, phase, size };
+    return state;
+  };
+
+  const wrap = (state) => {
+    const pad = 140;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    if (state.x < -pad) state.x = w + pad;
+    if (state.x > w + pad) state.x = -pad;
+    if (state.y < -pad) state.y = h + pad;
+    if (state.y > h + pad) state.y = -pad;
+  };
+
+  const updateEl = (state) => {
+    // Icons face "right" by default → add 0deg when moving right.
+    const rot = Math.atan2(state.vy, state.vx) * (180 / Math.PI);
+    state.el.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) rotate(${rot}deg)`;
+  };
+
+  let sprites = [];
+  let last = performance.now();
+
+  const tick = (now) => {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+
+    for (const s of sprites) {
+      const wobble = 1 + Math.sin(now / 1000 * s.wobbleRate + s.phase) * s.wobbleAmp;
+      s.x += s.vx * dt * wobble;
+      s.y += s.vy * dt * wobble;
+      wrap(s);
+      updateEl(s);
+    }
+    requestAnimationFrame(tick);
+  };
+
+  resolveCandidates().then((candidates) => {
+    const usable = candidates.filter(Boolean);
+    if (!usable.length) return;
+    const count = clamp(Math.floor(window.innerWidth / 420) + 3, 4, 9);
+    sprites = Array.from({ length: count }, (_, i) => spawn(pick(usable), i + 1));
+    sprites.forEach(updateEl);
+    requestAnimationFrame(tick);
+  });
+})();
+
 // Mobile nav: hamburger + sheet links to Features / Support / About.
 (() => {
   const header = document.querySelector(".nav");

@@ -102,16 +102,29 @@ body::before {
 
 /* stars: a few, soft, distant */
 body::after {
+  /* multi-layer starfield: more stars, still quiet */
   background-image:
-    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.22) 0 1px, transparent 2px),
-    radial-gradient(circle at 26% 44%, rgba(255, 255, 255, 0.14) 0 1px, transparent 2px),
-    radial-gradient(circle at 42% 22%, rgba(255, 255, 255, 0.16) 0 1.1px, transparent 2.2px),
-    radial-gradient(circle at 62% 14%, rgba(255, 255, 255, 0.20) 0 1px, transparent 2px),
-    radial-gradient(circle at 74% 56%, rgba(255, 255, 255, 0.15) 0 1px, transparent 2px),
-    radial-gradient(circle at 88% 72%, rgba(255, 255, 255, 0.18) 0 1.1px, transparent 2.2px),
-    radial-gradient(circle at 16% 78%, rgba(255, 255, 255, 0.12) 0 0.9px, transparent 2px),
-    radial-gradient(circle at 92% 18%, rgba(255, 255, 255, 0.13) 0 1px, transparent 2px);
-  opacity: 0.55;
+    radial-gradient(rgba(255, 255, 255, 0.18) 0 1px, transparent 1.5px),
+    radial-gradient(rgba(255, 255, 255, 0.14) 0 0.9px, transparent 1.4px),
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.22) 0 1.2px, transparent 2.4px),
+    radial-gradient(circle at 72% 34%, rgba(255, 255, 255, 0.18) 0 1.1px, transparent 2.2px),
+    radial-gradient(circle at 84% 74%, rgba(255, 255, 255, 0.16) 0 1.1px, transparent 2.2px),
+    radial-gradient(circle at 38% 78%, rgba(255, 255, 255, 0.14) 0 1px, transparent 2px);
+  background-size:
+    260px 260px,
+    180px 180px,
+    auto,
+    auto,
+    auto,
+    auto;
+  background-position:
+    18px 26px,
+    -40px 60px,
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  opacity: 0.62;
   transform: translate3d(0, calc(var(--stars-offset) * -0.06), 0);
   will-change: transform;
   filter: blur(0.2px);

@@ -17,8 +17,10 @@
   const drawLayer = (canvas, index) => {
     const rect = canvas.getBoundingClientRect();
     const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-    const cssWidth = Math.max(1, Math.round(rect.width));
-    const cssHeight = Math.max(1, Math.round(rect.height));
+    const fallbackWidth = Math.ceil(window.innerWidth * 1.16);
+    const fallbackHeight = Math.ceil(window.innerHeight * 1.24);
+    const cssWidth = Math.max(1, Math.round(rect.width || fallbackWidth));
+    const cssHeight = Math.max(1, Math.round(rect.height || fallbackHeight));
 
     canvas.width = Math.round(cssWidth * dpr);
     canvas.height = Math.round(cssHeight * dpr);
@@ -27,26 +29,26 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, cssWidth, cssHeight);
 
-    const density = Number(canvas.dataset.density || 0.00012);
+    const density = Number(canvas.dataset.density || 0.00016);
     const speed = Number(canvas.dataset.speed || 0.2);
     const seedBase = 0x9e3779b9 + index * 0x85ebca6b + cssWidth * 13 + cssHeight * 17;
     const rand = seededRandom(seedBase >>> 0);
     const starCount = Math.max(80, Math.floor(cssWidth * cssHeight * density));
 
-    let minSize = 0.45;
-    let maxSize = 1.1;
-    let minAlpha = 0.35;
-    let maxAlpha = 0.95;
+    let minSize = 0.6;
+    let maxSize = 1.4;
+    let minAlpha = 0.42;
+    let maxAlpha = 1;
     if (index === 1) {
-      minSize = 0.35;
-      maxSize = 0.9;
-      minAlpha = 0.22;
-      maxAlpha = 0.7;
+      minSize = 0.48;
+      maxSize = 1.1;
+      minAlpha = 0.28;
+      maxAlpha = 0.82;
     } else if (index === 2) {
-      minSize = 0.25;
-      maxSize = 0.7;
-      minAlpha = 0.15;
-      maxAlpha = 0.48;
+      minSize = 0.36;
+      maxSize = 0.82;
+      minAlpha = 0.18;
+      maxAlpha = 0.58;
     }
 
     for (let i = 0; i < starCount; i += 1) {
@@ -61,7 +63,7 @@
     }
 
     // Add a few brighter anchor stars to improve visibility.
-    const anchorCount = Math.max(8, Math.floor(starCount * 0.025));
+    const anchorCount = Math.max(12, Math.floor(starCount * 0.035));
     for (let i = 0; i < anchorCount; i += 1) {
       const x = rand() * cssWidth;
       const y = rand() * cssHeight;

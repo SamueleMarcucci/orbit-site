@@ -42,7 +42,7 @@ img { display: block; max-width: 100%; }
   inset: -12vh -8vw;
   width: 116vw;
   height: 124vh;
-  opacity: 0.95;
+  opacity: 1;
   will-change: transform;
   display: block;
 }

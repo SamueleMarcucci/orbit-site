@@ -267,11 +267,11 @@ body.nav-menu-open .mobile-menu {
 body.is-scrolled .nav-cta {
   height: 40px;
   padding: 0 14px;
-  color: #0a0a0a;
-  background: #f5f5f7;
-  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.96);
+  background: #0a84ff;
+  border-color: rgba(10, 132, 255, 0.55);
 }
-body.is-scrolled .nav-cta:hover { background: #ffffff; }
+body.is-scrolled .nav-cta:hover { background: #1c8cff; }
 
 /* ---------- Page shell + Apple-style typography (hero / chapters) ---------- */
 .scroll-canvas {

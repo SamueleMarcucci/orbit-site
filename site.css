@@ -174,7 +174,13 @@ body.is-scrolled .nav-links a { font-size: 0.95rem; }
     height 260ms ease,
     padding 260ms ease;
 }
-.nav-cta-icon { font-size: 1rem; line-height: 1; opacity: 0.9; }
+.nav-cta-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  opacity: 0.92;
+  filter: grayscale(1) contrast(1.1);
+}
 
 body.is-scrolled .nav-cta {
   height: 40px;

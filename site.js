@@ -77,12 +77,12 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, cssWidth, cssHeight);
 
-    // Infinite vertical wrap: stars re-enter from top as you scroll.
+    // Infinite vertical wrap in natural direction: stars drift upward as page scrolls down.
     const offset = ((scrollY * speed) % cssHeight + cssHeight) % cssHeight;
 
     for (let i = 0; i < stars.length; i += 1) {
       const star = stars[i];
-      const yWrapped = (star.y + offset) % cssHeight;
+      const yWrapped = (star.y - offset + cssHeight) % cssHeight;
       ctx.fillStyle = `rgba(255,255,255,${star.alpha.toFixed(3)})`;
       ctx.beginPath();
       ctx.arc(star.x, yWrapped, star.size, 0, Math.PI * 2);

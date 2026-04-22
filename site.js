@@ -8,6 +8,7 @@ const navLinks = [...document.querySelectorAll(".top-nav a, .mobile-menu a")];
 const mqReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const mqLowPower = window.matchMedia("(max-width: 900px)");
 let revealObserver = null;
+const menuScrim = document.querySelector(".menu-scrim");
 
 const revealIfReady = (target) => {
   if (target.classList.contains("is-visible")) return;
@@ -64,19 +65,43 @@ const requestScrollSync = () => {
   window.requestAnimationFrame(syncScrollState);
 };
 
+const setMenuOpen = (nextOpen) => {
+  if (!siteHeader || !menuToggle) return;
+  siteHeader.classList.toggle("menu-open", nextOpen);
+  menuToggle.setAttribute("aria-expanded", String(nextOpen));
+  menuToggle.setAttribute("aria-label", nextOpen ? "Close menu" : "Open menu");
+};
+
 if (menuToggle && siteHeader) {
   menuToggle.addEventListener("click", () => {
-    const isOpen = siteHeader.classList.toggle("menu-open");
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    setMenuOpen(!siteHeader.classList.contains("menu-open"));
   });
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       if (!siteHeader.classList.contains("menu-open")) return;
-      siteHeader.classList.remove("menu-open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open menu");
+      setMenuOpen(false);
     });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    if (!siteHeader.classList.contains("menu-open")) return;
+    setMenuOpen(false);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!siteHeader.classList.contains("menu-open")) return;
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    if (target.closest(".nav-bar") || target.closest(".mobile-menu")) return;
+    setMenuOpen(false);
+  });
+}
+
+if (menuScrim && siteHeader) {
+  menuScrim.addEventListener("click", () => {
+    if (!siteHeader.classList.contains("menu-open")) return;
+    setMenuOpen(false);
   });
 }
 

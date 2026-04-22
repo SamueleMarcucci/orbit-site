@@ -233,6 +233,38 @@ button:focus-visible {
 }
 
 /* --------------------------------------------
+   Reset: clear everything except the header
+   (homepage becomes a single authored hero)
+--------------------------------------------- */
+
+.site-main {
+  padding-bottom: clamp(80px, 12vw, 180px);
+}
+
+.hero-blank {
+  padding: clamp(92px, 10vw, 170px) 0 clamp(54px, 8vw, 120px);
+}
+
+.hero-blank .kicker {
+  margin-bottom: 16px;
+}
+
+.hero-blank .display {
+  max-width: 14ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-blank .lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-blank .product-hero {
+  margin-top: clamp(42px, 7vw, 90px);
+}
+
+/* --------------------------------------------
    Surface system (few types, calm)
 --------------------------------------------- */
 
@@ -620,36 +652,63 @@ body.scrolled .nav-bar {
     padding: 0 12px;
   }
 
-  /* mobile menu as one coherent surface */
+  /* mobile menu: Apple-like sheet + scrim (no white slab) */
+  .menu-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: none;
+    background:
+      radial-gradient(900px 520px at 50% 0%, rgba(0, 0, 0, 0.24), transparent 64%),
+      rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
   .mobile-menu {
     display: none;
     margin-top: 12px;
     border-radius: 14px;
     border: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(10, 12, 18, 0.72);
-    box-shadow: 0 18px 54px rgba(0, 0, 0, 0.52);
+    background: rgba(10, 12, 18, 0.82);
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.62);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     overflow: clip;
+    transform: translate3d(0, -6px, 0);
+    opacity: 0;
+    transition:
+      transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      opacity 220ms ease;
   }
 
   .mobile-menu a {
     display: flex;
     align-items: center;
-    min-height: 52px;
+    min-height: 48px;
     padding: 0 16px;
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     font-weight: 560;
-    letter-spacing: -0.02em;
-    color: rgba(245, 245, 247, 0.86);
+    letter-spacing: -0.01em;
+    color: rgba(245, 245, 247, 0.90);
   }
 
   .mobile-menu a + a {
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .mobile-menu a:active {
+    background: rgba(245, 245, 247, 0.06);
+  }
+
+  .site-header.menu-open .menu-scrim {
+    display: block;
   }
 
   .site-header.menu-open .mobile-menu {
     display: block;
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
 }
 

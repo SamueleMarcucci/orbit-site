@@ -136,9 +136,8 @@
   const isProbablyFavicon = (src) =>
     /favicon|icon\.svg|apple-touch|sat-favicon\.svg/i.test(src);
 
-  const defaultCandidates = [
-    "/assets/orbit-app-icon.icon/Assets/Sat.png",
-  ];
+  // No built-in fallbacks: if you want specific satellites, they must exist in `assets/manifest.json`.
+  const defaultCandidates = [];
 
   const resolveCandidates = () => {
     // Allow author override by dropping JSON manifest at `assets/manifest.json`.
@@ -257,16 +256,12 @@
   resolveCandidates()
     .then((candidates) => preloadAny(candidates.filter(Boolean)))
     .then((usable) => {
-      // If the manifest points to files that aren't present yet, fall back to built-ins.
-      if (!usable.length) return preloadAny(defaultCandidates);
-      return usable;
-    })
-    .then((usable) => {
+      // Manifest is the source of truth. If none of the listed files exist, show nothing.
       if (!usable.length) return;
-    const count = clamp(Math.floor(window.innerWidth / 420) + 3, 4, 9);
-    sprites = Array.from({ length: count }, (_, i) => spawn(pick(usable), i + 1));
-    sprites.forEach(updateEl);
-    requestAnimationFrame(tick);
+      const count = clamp(Math.floor(window.innerWidth / 420) + 3, 4, 9);
+      sprites = Array.from({ length: count }, (_, i) => spawn(pick(usable), i + 1));
+      sprites.forEach(updateEl);
+      requestAnimationFrame(tick);
     });
 })();
 
@@ -278,8 +273,8 @@
     img.addEventListener(
       "error",
       () => {
-        const fallback = "/assets/orbit-app-icon.icon/Assets/Sat.png";
-        if (img.src && img.src.includes("/assets/iphone.png")) img.src = fallback;
+        // Don't replace with a satellite; just hide the broken icon.
+        if (img.src && img.src.includes("/assets/iphone.png")) img.style.display = "none";
       },
       { once: true }
     );

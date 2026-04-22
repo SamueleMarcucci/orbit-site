@@ -432,7 +432,7 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
 }
 
 .stage {
-  width: min(100%, 1200px);
+  width: min(100%, 860px);
   border-radius: 28px;
   overflow: clip;
   background: rgba(255, 255, 255, 0.03);
@@ -443,6 +443,13 @@ body.is-scrolled .nav-cta:hover { background: #1c8cff; }
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* Keep product visuals authored, not poster-sized */
+.stage-media {
+  max-height: clamp(420px, 62vh, 720px);
+  object-fit: contain;
+  object-position: center;
 }
 
 .chapter-space .stage {

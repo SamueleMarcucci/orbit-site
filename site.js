@@ -198,7 +198,7 @@
   // Scroll parallax: keep satellites "in space" as you scroll.
   // They live in a fixed viewport layer, but we render them with a wrapped scroll offset
   // so they shift like the starfield (without becoming a cheap overlay).
-  const PARALLAX = 0.18;
+  const PARALLAX = 0.62;
   const wrapRange = (v, range) => ((v % range) + range) % range;
 
   const updateEl = (s) => {
@@ -211,16 +211,13 @@
     const rx = s.x;
     const ry = wrapRange(s.y - scrollOffset + pad, range) - pad;
 
-    // Rotation should match *on-screen* movement (includes scroll offset + wobble).
-    const lastRy = wrapRange(s.lastY - (s.lastScrollOffset ?? scrollOffset) + pad, range) - pad;
-    const dx = rx - s.lastX;
-    const dy = ry - lastRy;
-    const rot = Math.atan2(dy || s.vy, dx || s.vx) * (180 / Math.PI);
+    // Rotation should match the satellite's own travel direction.
+    // Scrolling adds parallax, but it should not cause the sprite to "steer" visually.
+    const rot = Math.atan2(s.vy, s.vx) * (180 / Math.PI);
 
     s.el.style.transform = `translate3d(${rx}px, ${ry}px, 0) rotate(${rot}deg)`;
     s.lastX = s.x;
     s.lastY = s.y;
-    s.lastScrollOffset = scrollOffset;
   };
 
   let sprites = [];

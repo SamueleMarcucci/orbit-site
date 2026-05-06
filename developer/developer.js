@@ -34,7 +34,7 @@
     });
     bindEvents();
     renderEmpty();
-    log("Ready", "Connect a Firebase Analytics property to load real stats.");
+    log("Ready", "");
   }
 
   function bindEvents() {
@@ -63,7 +63,7 @@
     localStorage.setItem(storage.clientId, state.clientId);
     localStorage.setItem(storage.propertyId, state.propertyId);
     setStatus("Saved", "saved");
-    log("Saved", "Firebase connection settings were saved in this browser.");
+    log("Saved", "");
   }
 
   function clearConfig() {
@@ -76,19 +76,19 @@
     $("property-id").value = "";
     renderEmpty();
     setStatus("Not connected", "idle");
-    log("Cleared", "Local dashboard configuration was removed.");
+    log("Cleared", "");
   }
 
   function signIn() {
     saveConfig();
     if (!state.clientId || !state.propertyId) {
       setStatus("Missing setup", "error");
-      log("Missing setup", "Add a Google OAuth client ID and GA4 property ID first.");
+      log("Missing setup", "");
       return;
     }
     if (!window.google?.accounts?.oauth2) {
       setStatus("Google script blocked", "error");
-      log("Google script blocked", "Google Identity Services did not load. Check content blockers.");
+      log("Google script blocked", "");
       return;
     }
 
@@ -103,7 +103,7 @@
         }
         state.accessToken = response.access_token;
         setStatus("Connected", "live");
-        log("Connected", "Google Analytics access token received for this browser session.");
+        log("Connected", "");
         loadDashboard();
       },
     });
@@ -113,7 +113,7 @@
 
   async function loadDashboard() {
     if (!state.accessToken) {
-      log("Not connected", "Sign in with Google before refreshing stats.");
+      log("Not connected", "");
       return;
     }
     setStatus("Loading", "saved");
@@ -159,7 +159,7 @@
       renderDashboard(payload);
       setStatus("Connected", "live");
       $("last-updated").textContent = `Updated ${new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}`;
-      log("Updated", "Firebase Analytics reports loaded successfully.");
+      log("Updated", "");
     } catch (error) {
       setStatus("Error", "error");
       log("Load failed", error.message || "Could not load Firebase Analytics data.");
@@ -232,7 +232,7 @@
 
   function renderRealtime(rows) {
     if (!rows.length) {
-      $("realtime-list").innerHTML = empty("No realtime events yet", "Firebase returned no active event rows.");
+      $("realtime-list").innerHTML = empty("No realtime events");
       return;
     }
     $("realtime-list").innerHTML = rows
@@ -242,7 +242,7 @@
 
   function renderTimeline(rows) {
     if (!rows.length) {
-      $("timeline-chart").innerHTML = empty("No chart data", "Connect Firebase or choose a range with event activity.");
+      $("timeline-chart").innerHTML = empty("No chart data");
       return;
     }
     const max = Math.max(1, ...rows.map((row) => Number(row.metrics.eventCount || 0)));
@@ -257,7 +257,7 @@
 
   function renderEventTable(rows) {
     if (!rows.length) {
-      $("event-table").innerHTML = `<tr><td colspan="3">${empty("No events", "Firebase returned no event rows.")}</td></tr>`;
+      $("event-table").innerHTML = `<tr><td colspan="3">${empty("No events")}</td></tr>`;
       return;
     }
     $("event-table").innerHTML = rows
@@ -288,7 +288,7 @@
 
   function renderStack(id, rows, dimensionName) {
     if (!rows.length) {
-      $(id).innerHTML = empty("No rows", "This dimension did not return data for the selected range.");
+      $(id).innerHTML = empty("No rows");
       return;
     }
     $(id).innerHTML = rows
@@ -313,7 +313,7 @@
     reader.onload = () => {
       const rows = parseCsv(String(reader.result || ""));
       renderAppleStats(rows);
-      log("Apple import", `${file.name} loaded locally with ${fmt.format(rows.length)} rows.`);
+      log("Apple import", `${fmt.format(rows.length)} rows`);
     };
     reader.readAsText(file);
   }
@@ -379,11 +379,11 @@
     ["active-now", "total-events", "total-users", "total-sessions", "feature-satellite", "feature-passes", "feature-share", "feature-ar", "feature-failures", "feature-metrickit"].forEach((id) => {
       $(id).textContent = "-";
     });
-    $("timeline-chart").innerHTML = empty("Connect Firebase", "Sign in with Google to load real event volume.");
-    $("realtime-list").innerHTML = empty("No connection", "Realtime events appear here after sign in.");
-    $("event-table").innerHTML = `<tr><td colspan="3">${empty("No Firebase data", "Connect a GA4 property to load event rows.")}</td></tr>`;
-    $("version-list").innerHTML = empty("No build data", "App versions appear after Firebase loads.");
-    $("platform-list").innerHTML = empty("No platform data", "Platforms appear after Firebase loads.");
+    $("timeline-chart").innerHTML = empty("Connect Firebase");
+    $("realtime-list").innerHTML = empty("No connection");
+    $("event-table").innerHTML = `<tr><td colspan="3">${empty("No data")}</td></tr>`;
+    $("version-list").innerHTML = empty("No build data");
+    $("platform-list").innerHTML = empty("No platform data");
     $("last-updated").textContent = "Waiting";
   }
 
@@ -404,8 +404,9 @@
     return `<div class="stack-row"><strong>${escapeHtml(label)}</strong><span>${escapeHtml(value)}</span></div>`;
   }
 
-  function empty(title, detail) {
-    return `<div class="empty"><div><strong>${escapeHtml(title)}</strong><br /><span>${escapeHtml(detail)}</span></div></div>`;
+  function empty(title, detail = "") {
+    const body = detail ? `<br /><span>${escapeHtml(detail)}</span>` : "";
+    return `<div class="empty"><div><strong>${escapeHtml(title)}</strong>${body}</div></div>`;
   }
 
   function formatNumber(value) {

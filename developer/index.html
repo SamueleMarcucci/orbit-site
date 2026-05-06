@@ -27,12 +27,8 @@
     <main class="dashboard">
       <section class="hero" id="overview">
         <div>
-          <p class="kicker">Private Developer Dashboard</p>
-          <h1>Live Orbit stats.</h1>
-          <p class="lead">
-            Real Firebase Analytics data through Google Analytics Data API. Apple stats can be imported
-            locally from App Store Connect exports. No Cloudflare analytics collector.
-          </p>
+          <p class="kicker">Developer</p>
+          <h1>Analytics.</h1>
         </div>
         <div class="connection-card" aria-label="Firebase connection">
           <div class="connection-head">
@@ -50,11 +46,8 @@
           </label>
           <div class="connection-actions">
             <button class="button secondary" id="save-config" type="button">Save</button>
-            <button class="button primary" id="google-login" type="button">Sign in with Google</button>
+            <button class="button primary" id="google-login" type="button">Connect</button>
           </div>
-          <p id="connection-copy">
-            Your OAuth token stays in this browser session. Client ID and property ID are stored locally.
-          </p>
         </div>
       </section>
 
@@ -72,22 +65,22 @@
         <article class="metric-card">
           <span>Active now</span>
           <strong id="active-now">-</strong>
-          <small>Realtime Firebase users</small>
+          <small>Realtime</small>
         </article>
         <article class="metric-card">
           <span>Events</span>
           <strong id="total-events">-</strong>
-          <small>Selected range</small>
+          <small>Range</small>
         </article>
         <article class="metric-card">
           <span>Users</span>
           <strong id="total-users">-</strong>
-          <small>Active users</small>
+          <small>Active</small>
         </article>
         <article class="metric-card">
           <span>Sessions</span>
           <strong id="total-sessions">-</strong>
-          <small>Firebase sessions</small>
+          <small>Sessions</small>
         </article>
       </section>
 
@@ -116,7 +109,7 @@
         <article class="panel wide">
           <div class="panel-header">
             <div>
-              <p class="kicker">Firebase Analytics</p>
+              <p class="kicker">Events</p>
               <h2>Event breakdown</h2>
             </div>
           </div>
@@ -136,8 +129,8 @@
       </section>
 
       <section class="section-heading" id="health">
-        <p class="kicker">Product Health</p>
-        <h2>Feature signals that matter before launch.</h2>
+        <p class="kicker">Health</p>
+        <h2>Feature events</h2>
       </section>
 
       <section class="feature-grid" aria-label="Feature health">
@@ -195,17 +188,13 @@
       </section>
 
       <section class="section-heading" id="apple">
-        <p class="kicker">Apple and Xcode</p>
-        <h2>Import App Store Connect exports locally.</h2>
+        <p class="kicker">Apple</p>
+        <h2>CSV import</h2>
       </section>
 
       <section class="apple-panel">
         <div>
-          <h3>No upload. No server. No Cloudflare.</h3>
-          <p>
-            Drop a CSV exported from App Store Connect Analytics. The browser reads it locally and builds
-            install, page-view, session, crash, and device totals on this page.
-          </p>
+          <h3>App Store Connect</h3>
           <input id="apple-file" type="file" accept=".csv,text/csv" />
         </div>
         <div class="apple-stats" id="apple-stats">

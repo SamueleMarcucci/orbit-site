@@ -101,10 +101,10 @@ input[type="file"] {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
-  gap: 22px;
+  grid-template-columns: minmax(0, 0.62fr) minmax(480px, 1fr);
+  gap: 14px;
   align-items: stretch;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .hero > div:first-child,
@@ -119,8 +119,8 @@ input[type="file"] {
 }
 
 .hero > div:first-child {
-  min-height: 360px;
-  padding: clamp(30px, 5vw, 58px);
+  min-height: 230px;
+  padding: 26px;
 }
 
 .kicker {
@@ -140,8 +140,8 @@ p {
 }
 
 h1 {
-  margin-bottom: 16px;
-  font-size: clamp(3.6rem, 7vw, 6.7rem);
+  margin-bottom: 0;
+  font-size: clamp(3.2rem, 6vw, 5.4rem);
   line-height: 0.92;
   letter-spacing: -0.07em;
 }
@@ -166,20 +166,16 @@ small {
   line-height: 1.45;
 }
 
-.lead {
-  max-width: 760px;
-  margin-bottom: 0;
-  font-size: clamp(1.1rem, 1.8vw, 1.42rem);
-  letter-spacing: -0.02em;
-}
-
 .connection-card {
   display: grid;
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: end;
   padding: 22px;
 }
 
 .connection-head {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   gap: 9px;
@@ -259,7 +255,7 @@ input[type="file"]::file-selector-button {
 
 .connection-actions {
   gap: 10px;
-  margin-top: 2px;
+  margin-top: 0;
 }
 
 .button {
@@ -281,18 +277,13 @@ input[type="file"]::file-selector-button {
   color: var(--blue);
 }
 
-#connection-copy {
-  margin-bottom: 0;
-  font-size: 0.88rem;
-}
-
 .control-bar {
   position: sticky;
   top: 52px;
   z-index: 15;
   justify-content: space-between;
   gap: 14px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   padding: 12px 0;
   background: linear-gradient(180deg, var(--page), rgba(245, 245, 247, 0.82));
 }
@@ -325,14 +316,14 @@ input[type="file"]::file-selector-button {
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  margin-bottom: 18px;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
 .metric-card,
 .feature-card {
-  min-height: 172px;
-  padding: 20px;
+  min-height: 132px;
+  padding: 18px;
 }
 
 .metric-card span,
@@ -348,7 +339,7 @@ input[type="file"]::file-selector-button {
 
 .metric-card strong {
   display: block;
-  margin: 20px 0 7px;
+  margin: 14px 0 6px;
   font-size: clamp(2.45rem, 5vw, 4.2rem);
   line-height: 0.92;
   letter-spacing: -0.065em;
@@ -357,12 +348,12 @@ input[type="file"]::file-selector-button {
 .dashboard-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.48fr);
-  gap: 18px;
-  margin-bottom: 18px;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
 .panel {
-  min-height: 360px;
+  min-height: 320px;
   padding: 22px;
 }
 
@@ -480,18 +471,18 @@ td {
   grid-template-columns: 0.33fr 1fr;
   gap: 24px;
   align-items: end;
-  margin: 72px 0 22px;
-  padding-top: 36px;
+  margin: 46px 0 14px;
+  padding-top: 24px;
   border-top: 1px solid var(--line);
 }
 
 .feature-card {
-  min-height: 150px;
+  min-height: 124px;
 }
 
 .feature-card strong {
   display: block;
-  margin: 16px 0 6px;
+  margin: 12px 0 5px;
   font-size: clamp(2rem, 4vw, 3.1rem);
   line-height: 0.95;
   letter-spacing: -0.055em;
@@ -504,9 +495,9 @@ td {
 .apple-panel {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(360px, 1fr);
-  gap: 30px;
-  padding: 28px;
-  margin-bottom: 18px;
+  gap: 18px;
+  padding: 22px;
+  margin-bottom: 14px;
 }
 
 .apple-panel p {
@@ -563,6 +554,10 @@ td {
   .dashboard-grid,
   .apple-panel,
   .section-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .connection-card {
     grid-template-columns: 1fr;
   }
 

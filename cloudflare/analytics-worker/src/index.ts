@@ -99,6 +99,18 @@ export default {
         if (pathname === "/api/analytics/admin/overview" && request.method === "GET") {
           return withCors(request, env, await overview(url, env));
         }
+        if (pathname === "/api/analytics/admin/health" && request.method === "GET") {
+          return withCors(request, env, await health(request, env));
+        }
+        if (pathname === "/api/analytics/admin/breakdowns" && request.method === "GET") {
+          return withCors(request, env, await breakdowns(url, env));
+        }
+        if (pathname === "/api/analytics/admin/timeseries" && request.method === "GET") {
+          return withCors(request, env, await timeseries(url, env));
+        }
+        if (pathname === "/api/analytics/admin/targets" && request.method === "GET") {
+          return withCors(request, env, await targets(url, env));
+        }
         if (pathname === "/api/analytics/admin/recent" && request.method === "GET") {
           return withCors(request, env, await recent(url, env));
         }
@@ -246,6 +258,27 @@ async function overview(url: URL, env: Env): Promise<Response> {
      FROM analytics_events
      WHERE created_at >= ? AND (event_name LIKE '%share%' OR feature = 'sharing')`
   ).bind(since).first<{ count: number }>();
+  const uniqueSessions = await env.ANALYTICS_DB.prepare(
+    "SELECT COUNT(DISTINCT session_id) AS count FROM analytics_events WHERE created_at >= ?"
+  ).bind(since).first<{ count: number }>();
+  const uniqueUsers = await env.ANALYTICS_DB.prepare(
+    "SELECT COUNT(DISTINCT anonymous_id) AS count FROM analytics_events WHERE created_at >= ?"
+  ).bind(since).first<{ count: number }>();
+  const appEvents = await env.ANALYTICS_DB.prepare(
+    "SELECT COUNT(*) AS count FROM analytics_events WHERE created_at >= ? AND source = 'app'"
+  ).bind(since).first<{ count: number }>();
+  const webEvents = await env.ANALYTICS_DB.prepare(
+    "SELECT COUNT(*) AS count FROM analytics_events WHERE created_at >= ? AND source = 'website'"
+  ).bind(since).first<{ count: number }>();
+  const failureEvents = await env.ANALYTICS_DB.prepare(
+    "SELECT COUNT(*) AS count FROM analytics_events WHERE created_at >= ? AND event_name LIKE '%.failed'"
+  ).bind(since).first<{ count: number }>();
+  const latest = await env.ANALYTICS_DB.prepare(
+    `SELECT created_at, event_name, source, platform, feature, target_name
+     FROM analytics_events
+     ORDER BY created_at DESC
+     LIMIT 1`
+  ).first();
   const topTargets = await env.ANALYTICS_DB.prepare(
     `SELECT
        COALESCE(target_name, target_id, page_path, event_name) AS label,
@@ -261,8 +294,14 @@ async function overview(url: URL, env: Env): Promise<Response> {
   return json({
     active_now: active?.count || 0,
     total_events: total?.count || 0,
+    unique_sessions: uniqueSessions?.count || 0,
+    unique_users: uniqueUsers?.count || 0,
+    app_events: appEvents?.count || 0,
+    web_events: webEvents?.count || 0,
+    failure_events: failureEvents?.count || 0,
     top_feature: topFeature?.feature || null,
     share_events: shareEvents?.count || 0,
+    latest_event: latest || null,
     top_targets: topTargets.results || [],
   });
 }
@@ -270,13 +309,109 @@ async function overview(url: URL, env: Env): Promise<Response> {
 async function recent(url: URL, env: Env): Promise<Response> {
   const limit = boundedInt(url.searchParams.get("limit"), 10, 100, 50);
   const rows = await env.ANALYTICS_DB.prepare(
-    `SELECT created_at, event_name, anonymous_id, session_id, page_path, source, platform,
-       feature, target_type, target_id, target_name
+    `SELECT created_at, event_name, anonymous_id, session_id, page_path, page_title, referrer,
+       source, platform, app_version, feature, target_type, target_id, target_name, metadata_json, country
      FROM analytics_events
      ORDER BY created_at DESC
      LIMIT ?`
   ).bind(limit).all();
   return json({ events: rows.results || [] });
+}
+
+async function health(request: Request, env: Env): Promise<Response> {
+  const started = Date.now();
+  const totalEvents = await env.ANALYTICS_DB.prepare("SELECT COUNT(*) AS count FROM analytics_events").first<{ count: number }>();
+  const totalSessions = await env.ANALYTICS_DB.prepare("SELECT COUNT(*) AS count FROM analytics_sessions").first<{ count: number }>();
+  const lastEvent = await env.ANALYTICS_DB.prepare(
+    `SELECT created_at, event_name, source, platform, feature, target_name
+     FROM analytics_events
+     ORDER BY created_at DESC
+     LIMIT 1`
+  ).first();
+  const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000).toISOString();
+  const recentEvents = await env.ANALYTICS_DB.prepare(
+    "SELECT COUNT(*) AS count FROM analytics_events WHERE created_at >= ?"
+  ).bind(fiveMinutesAgo).first<{ count: number }>();
+
+  return json({
+    ok: true,
+    worker: "live-orbit-analytics",
+    checked_at: new Date().toISOString(),
+    host: new URL(request.url).host,
+    database: {
+      ok: true,
+      total_events: totalEvents?.count || 0,
+      total_sessions: totalSessions?.count || 0,
+      events_last_5m: recentEvents?.count || 0,
+      last_event: lastEvent || null,
+    },
+    latency_ms: Date.now() - started,
+  });
+}
+
+async function breakdowns(url: URL, env: Env): Promise<Response> {
+  const since = sinceDate(url.searchParams.get("range"));
+  const [events, features, sources, platforms, targetsByType, countries, appVersions] = await Promise.all([
+    groupCount(env, "event_name", since, 40),
+    groupCount(env, "feature", since, 40),
+    groupCount(env, "source", since, 20),
+    groupCount(env, "platform", since, 20),
+    groupCount(env, "target_type", since, 30),
+    groupCount(env, "country", since, 50),
+    groupCount(env, "app_version", since, 20),
+  ]);
+
+  return json({
+    events,
+    features,
+    sources,
+    platforms,
+    targets_by_type: targetsByType,
+    countries,
+    app_versions: appVersions,
+  });
+}
+
+async function timeseries(url: URL, env: Env): Promise<Response> {
+  const since = sinceDate(url.searchParams.get("range"));
+  const rows = await env.ANALYTICS_DB.prepare(
+    `SELECT
+       substr(created_at, 1, 13) || ':00:00Z' AS bucket,
+       COUNT(*) AS events,
+       COUNT(DISTINCT session_id) AS sessions,
+       SUM(CASE WHEN source = 'app' THEN 1 ELSE 0 END) AS app_events,
+       SUM(CASE WHEN source = 'website' THEN 1 ELSE 0 END) AS web_events
+     FROM analytics_events
+     WHERE created_at >= ?
+     GROUP BY bucket
+     ORDER BY bucket ASC
+     LIMIT 744`
+  ).bind(since).all();
+  return json({ points: rows.results || [] });
+}
+
+async function targets(url: URL, env: Env): Promise<Response> {
+  const since = sinceDate(url.searchParams.get("range"));
+  const type = clean(url.searchParams.get("type"), 80);
+  const where = type ? "WHERE created_at >= ? AND target_type = ?" : "WHERE created_at >= ?";
+  const statement = env.ANALYTICS_DB.prepare(
+    `SELECT
+       COALESCE(target_name, target_id, page_path, event_name) AS label,
+       target_type,
+       target_id,
+       target_name,
+       feature,
+       source,
+       COUNT(*) AS count,
+       MAX(created_at) AS last_seen_at
+     FROM analytics_events
+     ${where}
+     GROUP BY label, target_type, target_id, target_name, feature, source
+     ORDER BY count DESC, last_seen_at DESC
+     LIMIT 100`
+  );
+  const rows = type ? await statement.bind(since, type).all() : await statement.bind(since).all();
+  return json({ targets: rows.results || [] });
 }
 
 async function sessions(url: URL, env: Env): Promise<Response> {
@@ -296,8 +431,8 @@ async function sessionDetail(sessionId: string, env: Env): Promise<Response> {
     return json({ error: "invalid_session_id" }, 400);
   }
   const rows = await env.ANALYTICS_DB.prepare(
-    `SELECT created_at, event_name, page_path, source, platform, feature, target_type, target_id,
-       target_name, metadata_json
+    `SELECT created_at, event_name, page_path, page_title, referrer, source, platform, app_version,
+       feature, target_type, target_id, target_name, metadata_json, country
      FROM analytics_events
      WHERE session_id = ?
      ORDER BY created_at ASC
@@ -420,6 +555,20 @@ function boundedInt(value: string | null, min: number, max: number, fallback: nu
   const parsed = Number.parseInt(value || "", 10);
   if (!Number.isFinite(parsed)) return fallback;
   return Math.max(min, Math.min(max, parsed));
+}
+
+async function groupCount(env: Env, column: string, since: string, limit: number): Promise<unknown[]> {
+  const allowed = new Set(["event_name", "feature", "source", "platform", "target_type", "country", "app_version"]);
+  if (!allowed.has(column)) return [];
+  const rows = await env.ANALYTICS_DB.prepare(
+    `SELECT COALESCE(${column}, 'unknown') AS label, COUNT(*) AS count
+     FROM analytics_events
+     WHERE created_at >= ?
+     GROUP BY label
+     ORDER BY count DESC
+     LIMIT ?`
+  ).bind(since, limit).all();
+  return rows.results || [];
 }
 
 function displayNode(feature: string, target: string | null): string {

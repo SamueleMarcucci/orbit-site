@@ -10,110 +10,251 @@
     <link rel="stylesheet" href="./developer.css" />
   </head>
   <body>
-    <main class="developer-shell" aria-label="Live Orbit developer analytics">
-      <section class="hero-panel">
-        <div>
-          <p class="eyebrow">Private Developer Console</p>
-          <h1>Live Orbit telemetry</h1>
-          <p class="hero-copy">
-            Anonymous product behavior, live feature paths, and event health for the app and website.
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Developer sections">
+        <a class="brand-lockup" href="./" aria-label="Live Orbit Developer home">
+          <img src="../assets/orbit-app-icon.icon/Assets/Sat.png" alt="" />
+          <span>Live Orbit</span>
+        </a>
+        <nav class="screen-nav" id="screen-nav">
+          <button class="nav-item is-active" type="button" data-screen="overview">Overview</button>
+          <button class="nav-item" type="button" data-screen="live">Live</button>
+          <button class="nav-item" type="button" data-screen="product">Product</button>
+          <button class="nav-item" type="button" data-screen="targets">Targets</button>
+          <button class="nav-item" type="button" data-screen="sessions">Sessions</button>
+          <button class="nav-item" type="button" data-screen="server">Server</button>
+          <button class="nav-item" type="button" data-screen="inbox">Inbox</button>
+          <button class="nav-item" type="button" data-screen="raw">Raw</button>
+        </nav>
+      </aside>
+
+      <main class="main" aria-label="Private developer dashboard">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Private Developer Console</p>
+            <h1>Live Orbit telemetry</h1>
+          </div>
+          <div class="top-actions">
+            <select id="range-select" aria-label="Time range">
+              <option value="1h">Last hour</option>
+              <option value="24h" selected>Last 24 hours</option>
+              <option value="7d">Last 7 days</option>
+              <option value="30d">Last 30 days</option>
+            </select>
+            <span class="status-pill" id="connection-pill">Connecting</span>
+            <button class="glass-button" id="refresh-button" type="button">Refresh</button>
+          </div>
+        </header>
+
+        <section class="locked-panel" id="locked-panel" hidden>
+          <p class="eyebrow">Access Required</p>
+          <h2>Protected console</h2>
+          <p>
+            The dashboard page contains no secret. Use your local developer token until Cloudflare Access
+            is fully attached to this route.
           </p>
-        </div>
-        <div class="status-stack">
-          <div class="status-pill" id="connection-pill">Connecting</div>
-          <button class="ghost-button" id="refresh-button" type="button">Refresh</button>
-        </div>
-      </section>
-
-      <section class="locked-panel" id="locked-panel" hidden>
-        <p class="eyebrow">Access Required</p>
-        <h2>Protected by Cloudflare Access</h2>
-        <p>
-          This dashboard only shows real analytics after your Cloudflare Access rule allows the request.
-          The static page contains no secrets.
-        </p>
-        <form id="local-token-form" class="local-token-form">
-          <label for="local-token">Local test token</label>
-          <div class="token-row">
-            <input id="local-token" name="local-token" type="password" autocomplete="off" />
-            <button type="submit">Use token</button>
-          </div>
-        </form>
-      </section>
-
-      <section class="metrics-grid" aria-label="Overview">
-        <article class="metric-card">
-          <span>Active now</span>
-          <strong id="metric-active">-</strong>
-          <small>Anonymous sessions in the last 5 minutes</small>
-        </article>
-        <article class="metric-card">
-          <span>Events today</span>
-          <strong id="metric-events">-</strong>
-          <small>App and website activity in range</small>
-        </article>
-        <article class="metric-card">
-          <span>Top feature</span>
-          <strong id="metric-feature">-</strong>
-          <small>Most touched surface</small>
-        </article>
-        <article class="metric-card">
-          <span>Shares</span>
-          <strong id="metric-shares">-</strong>
-          <small>Satellites, articles, launches, passes</small>
-        </article>
-      </section>
-
-      <section class="dashboard-grid">
-        <article class="panel tree-panel">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Live Behavior Tree</p>
-              <h2>User paths</h2>
+          <form id="local-token-form" class="local-token-form">
+            <label for="local-token">Developer token</label>
+            <div class="token-row">
+              <input id="local-token" name="local-token" type="password" autocomplete="off" />
+              <button type="submit">Unlock</button>
             </div>
-            <span class="panel-note">Anonymous</span>
-          </div>
-          <div class="tree-canvas" id="tree-canvas" aria-live="polite"></div>
-        </article>
+          </form>
+        </section>
 
-        <article class="panel">
-          <div class="panel-header">
+        <section class="screen is-active" data-screen-panel="overview">
+          <div class="hero-panel">
             <div>
-              <p class="eyebrow">Recent</p>
-              <h2>Event stream</h2>
+              <p class="eyebrow">Command Center</p>
+              <h2>What is happening right now?</h2>
+              <p>
+                Anonymous product behavior, event health, app surfaces, and server state. Real data only.
+              </p>
+            </div>
+            <div class="hero-signal" id="hero-signal">
+              <span></span><span></span><span></span><span></span>
             </div>
           </div>
-          <div class="event-stream" id="event-stream"></div>
-        </article>
 
-        <article class="panel">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Top Targets</p>
-              <h2>What people touch</h2>
+          <div class="metrics-grid">
+            <article class="metric-card">
+              <span>Active now</span>
+              <strong id="metric-active">-</strong>
+              <small>Anonymous sessions in the last 5 minutes</small>
+            </article>
+            <article class="metric-card">
+              <span>Events</span>
+              <strong id="metric-events">-</strong>
+              <small>Everything collected in the selected range</small>
+            </article>
+            <article class="metric-card">
+              <span>Sessions</span>
+              <strong id="metric-sessions">-</strong>
+              <small>Unique anonymous journeys</small>
+            </article>
+            <article class="metric-card">
+              <span>Server</span>
+              <strong id="metric-server">-</strong>
+              <small>Worker and D1 status</small>
+            </article>
+          </div>
+
+          <div class="overview-grid">
+            <article class="panel wide">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Timeline</p>
+                  <h2>Activity by hour</h2>
+                </div>
+              </div>
+              <div class="chart" id="activity-chart"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Latest</p>
+                  <h2>Last event</h2>
+                </div>
+              </div>
+              <div id="latest-event"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="screen" data-screen-panel="live">
+          <div class="split-grid">
+            <article class="panel tall">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Live Stream</p>
+                  <h2>Every event</h2>
+                </div>
+              </div>
+              <div class="event-stream" id="event-stream"></div>
+            </article>
+            <article class="panel tall">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Behavior Tree</p>
+                  <h2>Anonymous paths</h2>
+                </div>
+              </div>
+              <div class="tree-canvas" id="tree-canvas"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="screen" data-screen-panel="product">
+          <div class="insight-grid">
+            <article class="panel">
+              <div class="panel-header"><div><p class="eyebrow">Features</p><h2>Most used</h2></div></div>
+              <div class="rank-list" id="feature-list"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-header"><div><p class="eyebrow">Events</p><h2>Event names</h2></div></div>
+              <div class="rank-list" id="event-list"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-header"><div><p class="eyebrow">Platforms</p><h2>Where it came from</h2></div></div>
+              <div class="rank-list" id="platform-list"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-header"><div><p class="eyebrow">Versions</p><h2>App builds</h2></div></div>
+              <div class="rank-list" id="version-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="screen" data-screen-panel="targets">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Targets</p>
+                <h2>Satellites, articles, launches, passes, settings</h2>
+              </div>
+            </div>
+            <div class="target-toolbar">
+              <button type="button" class="chip is-active" data-target-filter="">All</button>
+              <button type="button" class="chip" data-target-filter="satellite">Satellites</button>
+              <button type="button" class="chip" data-target-filter="article">Articles</button>
+              <button type="button" class="chip" data-target-filter="launch">Launches</button>
+              <button type="button" class="chip" data-target-filter="pass">Passes</button>
+            </div>
+            <div class="target-grid" id="target-grid"></div>
+          </div>
+        </section>
+
+        <section class="screen" data-screen-panel="sessions">
+          <div class="split-grid">
+            <article class="panel tall">
+              <div class="panel-header"><div><p class="eyebrow">Sessions</p><h2>Anonymous users</h2></div></div>
+              <div class="session-list" id="session-list"></div>
+            </article>
+            <article class="panel tall">
+              <div class="panel-header"><div><p class="eyebrow">Inspect</p><h2 id="session-title">Select a session</h2></div></div>
+              <div class="event-stream" id="session-events"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="screen" data-screen-panel="server">
+          <div class="insight-grid">
+            <article class="panel server-card">
+              <p class="eyebrow">Cloudflare Worker</p>
+              <h2 id="server-worker">-</h2>
+              <p id="server-host">-</p>
+            </article>
+            <article class="panel server-card">
+              <p class="eyebrow">D1 Database</p>
+              <h2 id="server-db">-</h2>
+              <p id="server-db-copy">-</p>
+            </article>
+            <article class="panel server-card">
+              <p class="eyebrow">Ingest</p>
+              <h2 id="server-ingest">-</h2>
+              <p id="server-ingest-copy">-</p>
+            </article>
+            <article class="panel server-card">
+              <p class="eyebrow">Latency</p>
+              <h2 id="server-latency">-</h2>
+              <p>Dashboard health query round trip.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="screen" data-screen-panel="inbox">
+          <div class="panel wide">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Email</p>
+                <h2>Support inbox</h2>
+              </div>
+            </div>
+            <div class="setup-panel">
+              <h3>Email is not connected yet</h3>
+              <p>
+                To show real email inside this private console, we need a safe server-side Gmail or support inbox
+                integration. The dashboard should never expose your mailbox token in browser code.
+              </p>
+              <a class="glass-link" href="mailto:support@liveorbitapp.com">Open support@liveorbitapp.com</a>
             </div>
           </div>
-          <div class="rank-list" id="target-list"></div>
-        </article>
+        </section>
 
-        <article class="panel">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Sessions</p>
-              <h2>Anonymous users</h2>
+        <section class="screen" data-screen-panel="raw">
+          <div class="panel wide">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Raw Data</p>
+                <h2>Latest payload</h2>
+              </div>
+              <button class="glass-button" id="copy-raw-button" type="button">Copy JSON</button>
             </div>
+            <pre class="raw-json" id="raw-json">{}</pre>
           </div>
-          <div class="session-list" id="session-list"></div>
-        </article>
-      </section>
-    </main>
-
-    <dialog id="session-dialog" class="session-dialog">
-      <button class="dialog-close" type="button" data-close-dialog aria-label="Close">x</button>
-      <p class="eyebrow">Session Inspect</p>
-      <h2 id="session-title">Anonymous session</h2>
-      <div class="event-stream" id="session-events"></div>
-    </dialog>
+        </section>
+      </main>
+    </div>
 
     <script src="./developer.js" defer></script>
   </body>

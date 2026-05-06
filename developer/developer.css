@@ -300,7 +300,8 @@ h2 {
 
 .event-row,
 .rank-row,
-.session-row {
+.session-row,
+.empty-state {
   display: grid;
   gap: 5px;
   padding: 14px 0;
@@ -313,17 +314,25 @@ h2 {
 
 .event-row strong,
 .rank-row strong,
-.session-row strong {
+.session-row strong,
+.empty-state strong {
   font-size: 1rem;
   letter-spacing: -0.02em;
 }
 
 .event-row span,
 .rank-row span,
-.session-row span {
+.session-row span,
+.empty-state span {
   color: var(--ink-muted);
   font-size: 0.92rem;
   line-height: 1.35;
+}
+
+.empty-state {
+  min-height: 128px;
+  align-content: center;
+  padding: 22px 0;
 }
 
 .session-dialog {

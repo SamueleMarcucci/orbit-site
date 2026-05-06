@@ -19,37 +19,17 @@
     second: "2-digit",
   });
 
-  const demo = {
+  const emptyPayload = {
     overview: {
-      active_now: 7,
-      total_events: 1842,
-      top_feature: "satellite detail",
-      share_events: 46,
-      top_targets: [
-        { label: "International Space Station", kind: "satellite", count: 84 },
-        { label: "AR mode", kind: "feature", count: 63 },
-        { label: "Starlink-34284", kind: "satellite", count: 45 },
-        { label: "Launches", kind: "view", count: 38 },
-      ],
+      active_now: 0,
+      total_events: 0,
+      top_feature: null,
+      share_events: 0,
+      top_targets: [],
     },
-    recent: [
-      { event_name: "app.satellite.opened", target_name: "ISS", feature: "search", created_at: new Date().toISOString() },
-      { event_name: "app.ar.opened", target_name: "Starlink-4414", feature: "ar", created_at: new Date().toISOString() },
-      { event_name: "website.app_store_click", target_name: "Get the app", feature: "website", created_at: new Date().toISOString() },
-    ],
-    sessions: [
-      { session_id: "demo-session-1", anonymous_id: "anon-7f41", event_count: 18, last_seen_at: new Date().toISOString() },
-      { session_id: "demo-session-2", anonymous_id: "anon-a902", event_count: 11, last_seen_at: new Date().toISOString() },
-    ],
-    tree: {
-      edges: [
-        { label: "open app -> satellite detail", count: 96 },
-        { label: "search -> ISS -> find", count: 73 },
-        { label: "news -> article -> share", count: 42 },
-        { label: "passes -> detail -> notification", count: 29 },
-        { label: "sky mode -> focus -> AR", count: 21 },
-      ],
-    },
+    recent: [],
+    sessions: [],
+    tree: { edges: [] },
   };
 
   const headers = () => {
@@ -109,6 +89,13 @@
   };
 
   const renderTargets = (targets = []) => {
+    if (!targets.length) {
+      $("target-list").innerHTML = emptyState(
+        "No targets yet",
+        "Real satellites, articles, launches, and actions will appear here after users interact with Live Orbit."
+      );
+      return;
+    }
     $("target-list").innerHTML = targets
       .slice(0, 8)
       .map(
@@ -123,6 +110,13 @@
   };
 
   const renderRecent = (events = []) => {
+    if (!events.length) {
+      $("event-stream").innerHTML = emptyState(
+        "Waiting for real events",
+        "The smoke-test rows were removed. This stream will fill only after the website or app sends real activity."
+      );
+      return;
+    }
     $("event-stream").innerHTML = events
       .slice(0, 16)
       .map((event) => {
@@ -139,6 +133,13 @@
   };
 
   const renderSessions = (sessions = []) => {
+    if (!sessions.length) {
+      $("session-list").innerHTML = emptyState(
+        "No anonymous sessions yet",
+        "Once someone visits the site or the app telemetry is wired, anonymous journeys show up here."
+      );
+      return;
+    }
     $("session-list").innerHTML = sessions
       .slice(0, 12)
       .map(
@@ -154,6 +155,13 @@
 
   const renderTree = (tree = {}) => {
     const edges = tree.edges || [];
+    if (!edges.length) {
+      $("tree-canvas").innerHTML = emptyState(
+        "No behavior paths yet",
+        "This becomes useful after multiple real events happen in the same anonymous session."
+      );
+      return;
+    }
     const max = Math.max(1, ...edges.map((edge) => edge.count || 0));
     $("tree-canvas").innerHTML = edges
       .slice(0, 12)
@@ -196,11 +204,11 @@
       if (error.message === "locked") {
         setLocked(true);
         setStatus("Locked", false);
-        if (!state.lastPayload && isLocal) render(demo);
+        if (!state.lastPayload && isLocal) render(emptyPayload);
         return;
       }
       setStatus(isLocal ? "Local demo" : "Offline", false);
-      if (isLocal) render(demo);
+      if (isLocal) render(emptyPayload);
     }
   };
 
@@ -241,6 +249,13 @@
     });
 
   const escapeAttr = (value) => escapeHtml(value).replace(/`/g, "&#96;");
+
+  const emptyState = (title, body) => `
+    <div class="empty-state">
+      <strong>${escapeHtml(title)}</strong>
+      <span>${escapeHtml(body)}</span>
+    </div>
+  `;
 
   $("refresh-button").addEventListener("click", load);
 

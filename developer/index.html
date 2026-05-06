@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex,nofollow,noarchive" />
-    <title>Live Orbit Developer</title>
+    <title>Live Orbit Developer Dashboard</title>
     <link rel="icon" type="image/svg+xml" href="../assets/sat-favicon.svg" />
     <link rel="alternate icon" type="image/png" href="../assets/orbit-app-icon.icon/Assets/Sat.png" />
     <link rel="stylesheet" href="./developer.css" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </head>
   <body>
     <header class="global-nav" aria-label="Developer navigation">
@@ -15,184 +16,214 @@
         <img src="../assets/orbit-app-icon.icon/Assets/Sat.png" alt="" />
         <span>Live Orbit</span>
       </a>
-      <nav class="nav-links" aria-label="Sections">
+      <nav class="nav-links" aria-label="Dashboard sections">
         <a href="#overview">Overview</a>
-        <a href="#sources">Sources</a>
-        <a href="#product">Product</a>
-        <a href="#reliability">Reliability</a>
-        <a href="#release">Release</a>
+        <a href="#events">Events</a>
+        <a href="#health">Health</a>
+        <a href="#apple">Apple</a>
       </nav>
     </header>
 
-    <main>
+    <main class="dashboard">
       <section class="hero" id="overview">
-        <div class="hero-copy">
-          <p class="system-line">Private developer workspace</p>
-          <h1>One calm place for the signals that matter.</h1>
-          <p>
-            Live Orbit now uses Apple, Xcode, Firebase Analytics, Crashlytics, Firebase Performance,
-            and MetricKit as the source of truth. No separate website event collector is running.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="https://console.firebase.google.com/" rel="noreferrer">Open Firebase</a>
-            <a class="button" href="https://appstoreconnect.apple.com/analytics" rel="noreferrer">Open App Analytics</a>
-          </div>
-        </div>
-        <div class="hero-device" aria-label="Live Orbit signal summary">
-          <div class="device-bar">
-            <span></span>
-            <strong>Live Orbit</strong>
-            <em>developer</em>
-          </div>
-          <div class="signal-orbit">
-            <span class="orbit-ring"></span>
-            <span class="orbit-dot one"></span>
-            <span class="orbit-dot two"></span>
-            <span class="orbit-dot three"></span>
-          </div>
-          <div class="device-metrics">
-            <article>
-              <span>Analytics</span>
-              <strong>Firebase</strong>
-            </article>
-            <article>
-              <span>Crashes</span>
-              <strong>Crashlytics</strong>
-            </article>
-            <article>
-              <span>Performance</span>
-              <strong>Xcode + Firebase</strong>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="source-strip" id="sources" aria-label="Connected sources">
-        <article>
-          <span class="source-icon apple"></span>
-          <h2>Apple</h2>
-          <p>App Store Connect analytics, TestFlight feedback, organizer diagnostics, and install health.</p>
-        </article>
-        <article>
-          <span class="source-icon firebase">F</span>
-          <h2>Firebase</h2>
-          <p>Privacy-safe events, funnels, retention, Crashlytics, and Firebase Performance traces.</p>
-        </article>
-        <article>
-          <span class="source-icon xcode">X</span>
-          <h2>Xcode</h2>
-          <p>Organizer reports, MetricKit payloads, hangs, disk writes, launch performance, and energy signals.</p>
-        </article>
-      </section>
-
-      <section class="editorial-band">
         <div>
-          <p class="system-line">Cost-safe by design</p>
-          <h2>The app does not send dashboard events to a separate server.</h2>
+          <p class="kicker">Private Developer Dashboard</p>
+          <h1>Live Orbit stats.</h1>
+          <p class="lead">
+            Real Firebase Analytics data through Google Analytics Data API. Apple stats can be imported
+            locally from App Store Connect exports. No Cloudflare analytics collector.
+          </p>
         </div>
-        <p>
-          This page is a clean command surface for the official analytics systems you already have.
-          Firebase and Apple collect the information; this page organizes what to inspect and where to open it.
-        </p>
+        <div class="connection-card" aria-label="Firebase connection">
+          <div class="connection-head">
+            <span class="status-dot" id="status-dot"></span>
+            <strong id="connection-title">Not connected</strong>
+            <button class="plain-button" id="clear-config" type="button">Clear</button>
+          </div>
+          <label>
+            Google OAuth client ID
+            <input id="client-id" autocomplete="off" placeholder="1234567890-abc.apps.googleusercontent.com" />
+          </label>
+          <label>
+            GA4 property ID
+            <input id="property-id" autocomplete="off" placeholder="Firebase Analytics property ID" />
+          </label>
+          <div class="connection-actions">
+            <button class="button secondary" id="save-config" type="button">Save</button>
+            <button class="button primary" id="google-login" type="button">Sign in with Google</button>
+          </div>
+          <p id="connection-copy">
+            Your OAuth token stays in this browser session. Client ID and property ID are stored locally.
+          </p>
+        </div>
       </section>
 
-      <section class="section-block" id="product">
-        <div class="section-heading">
-          <p class="system-line">Product analytics</p>
-          <h2>Understand what people actually use.</h2>
+      <section class="control-bar" aria-label="Dashboard controls">
+        <div class="segmented" id="range-control" aria-label="Date range">
+          <button class="is-active" type="button" data-range="today">Today</button>
+          <button type="button" data-range="7daysAgo">7 days</button>
+          <button type="button" data-range="30daysAgo">30 days</button>
+          <button type="button" data-range="90daysAgo">90 days</button>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card large">
+        <button class="button secondary" id="refresh-button" type="button">Refresh</button>
+      </section>
+
+      <section class="metric-grid" aria-label="Top metrics">
+        <article class="metric-card">
+          <span>Active now</span>
+          <strong id="active-now">-</strong>
+          <small>Realtime Firebase users</small>
+        </article>
+        <article class="metric-card">
+          <span>Events</span>
+          <strong id="total-events">-</strong>
+          <small>Selected range</small>
+        </article>
+        <article class="metric-card">
+          <span>Users</span>
+          <strong id="total-users">-</strong>
+          <small>Active users</small>
+        </article>
+        <article class="metric-card">
+          <span>Sessions</span>
+          <strong id="total-sessions">-</strong>
+          <small>Firebase sessions</small>
+        </article>
+      </section>
+
+      <section class="dashboard-grid" id="events">
+        <article class="panel wide">
+          <div class="panel-header">
             <div>
-              <span>Firebase Analytics</span>
-              <h3>Events and funnels</h3>
-              <p>
-                Track satellite opens, searches, passes, shares, settings changes, Sky Mode, AR entry,
-                article opens, notification opens, and onboarding.
-              </p>
+              <p class="kicker">Activity</p>
+              <h2>Event volume</h2>
             </div>
-            <a href="https://console.firebase.google.com/" rel="noreferrer">Open console</a>
-          </article>
-          <article class="feature-card">
-            <span>Retention</span>
-            <h3>Do people return?</h3>
-            <p>Use Firebase cohorts and App Store Connect retention to see whether the app becomes a daily habit.</p>
-          </article>
-          <article class="feature-card">
-            <span>Search</span>
-            <h3>What are users looking for?</h3>
-            <p>Log safe normalized categories, not raw private text, so search quality can improve without overcollecting.</p>
-          </article>
-          <article class="feature-card">
-            <span>Sharing</span>
-            <h3>What gets shared?</h3>
-            <p>Measure shares by surface: satellite, pass, article, launch, insight, and app invite.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-block" id="reliability">
-        <div class="section-heading">
-          <p class="system-line">Reliability</p>
-          <h2>Know when the app feels broken before reviews do.</h2>
-        </div>
-        <div class="rail-grid">
-          <article class="rail-card">
-            <span>01</span>
-            <h3>Crashlytics</h3>
-            <p>Crashes, non-fatal catalog failures, pass calculation failures, AR preparation failures, and Sky Mode failures.</p>
-            <a href="https://console.firebase.google.com/" rel="noreferrer">Open Crashlytics</a>
-          </article>
-          <article class="rail-card">
-            <span>02</span>
-            <h3>Firebase Performance</h3>
-            <p>Startup readiness, catalog load time, search latency, pass calculation time, and preparation traces.</p>
-            <a href="https://console.firebase.google.com/" rel="noreferrer">Open Performance</a>
-          </article>
-          <article class="rail-card">
-            <span>03</span>
-            <h3>MetricKit</h3>
-            <p>Organizer-level signals for hangs, launch time, scrolling hitches, disk writes, memory, and energy.</p>
-            <a href="https://developer.apple.com/documentation/metrickit" rel="noreferrer">MetricKit docs</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-block">
-        <div class="section-heading">
-          <p class="system-line">Feature health</p>
-          <h2>Watch the parts that make Live Orbit feel magical.</h2>
-        </div>
-        <div class="matrix">
-          <article><strong>Globe</strong><span>Frame pacing, satellite selection, time mode, orbit path generation.</span></article>
-          <article><strong>Passes</strong><span>Calculation starts, results, failures, visible pass conversion, notification taps.</span></article>
-          <article><strong>Sky Mode</strong><span>Mode opens, focus success, sensor failures, orientation edge cases.</span></article>
-          <article><strong>AR</strong><span>Camera permission, targeting opens, off-screen guidance, user exits.</span></article>
-          <article><strong>News</strong><span>Article opens, image reliability, source failures, share taps.</span></article>
-          <article><strong>Settings</strong><span>Unit changes, notification changes, manual refresh, support opens.</span></article>
-        </div>
-      </section>
-
-      <section class="section-block" id="release">
-        <div class="section-heading">
-          <p class="system-line">Release readiness</p>
-          <h2>A final preflight for every build.</h2>
-        </div>
-        <div class="release-panel">
-          <div class="release-copy">
-            <h3>Before shipping, check these four places.</h3>
-            <p>
-              Keep the page simple: Apple for distribution and device reports, Firebase for product behavior,
-              Crashlytics for stability, and Performance for speed.
-            </p>
+            <span id="last-updated">Waiting</span>
           </div>
-          <div class="checklist">
-            <label><input type="checkbox" /> Firebase events are appearing for the newest build.</label>
-            <label><input type="checkbox" /> Crashlytics has no new top crash in TestFlight.</label>
-            <label><input type="checkbox" /> Startup, catalog, search, passes, AR, and Sky traces are healthy.</label>
-            <label><input type="checkbox" /> App Store Connect and Xcode Organizer show no release blockers.</label>
+          <div class="bar-chart" id="timeline-chart"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="kicker">Realtime</p>
+              <h2>Live events</h2>
+            </div>
+          </div>
+          <div class="stack-list" id="realtime-list"></div>
+        </article>
+
+        <article class="panel wide">
+          <div class="panel-header">
+            <div>
+              <p class="kicker">Firebase Analytics</p>
+              <h2>Event breakdown</h2>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Event</th>
+                  <th>Events</th>
+                  <th>Users</th>
+                </tr>
+              </thead>
+              <tbody id="event-table"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-heading" id="health">
+        <p class="kicker">Product Health</p>
+        <h2>Feature signals that matter before launch.</h2>
+      </section>
+
+      <section class="feature-grid" aria-label="Feature health">
+        <article class="feature-card" data-feature="satellite">
+          <span>Satellite detail</span>
+          <strong id="feature-satellite">-</strong>
+          <small>selected + opened</small>
+        </article>
+        <article class="feature-card" data-feature="passes">
+          <span>Passes</span>
+          <strong id="feature-passes">-</strong>
+          <small>opened + calculated</small>
+        </article>
+        <article class="feature-card" data-feature="share">
+          <span>Shares</span>
+          <strong id="feature-share">-</strong>
+          <small>share taps</small>
+        </article>
+        <article class="feature-card" data-feature="ar">
+          <span>AR + Sky</span>
+          <strong id="feature-ar">-</strong>
+          <small>find AR + sky mode</small>
+        </article>
+        <article class="feature-card" data-feature="failures">
+          <span>Failures</span>
+          <strong id="feature-failures">-</strong>
+          <small>failed events</small>
+        </article>
+        <article class="feature-card" data-feature="metric-kit">
+          <span>MetricKit</span>
+          <strong id="feature-metrickit">-</strong>
+          <small>payloads received</small>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="kicker">Versions</p>
+              <h2>App builds</h2>
+            </div>
+          </div>
+          <div class="stack-list" id="version-list"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="kicker">Devices</p>
+              <h2>Platforms</h2>
+            </div>
+          </div>
+          <div class="stack-list" id="platform-list"></div>
+        </article>
+      </section>
+
+      <section class="section-heading" id="apple">
+        <p class="kicker">Apple and Xcode</p>
+        <h2>Import App Store Connect exports locally.</h2>
+      </section>
+
+      <section class="apple-panel">
+        <div>
+          <h3>No upload. No server. No Cloudflare.</h3>
+          <p>
+            Drop a CSV exported from App Store Connect Analytics. The browser reads it locally and builds
+            install, page-view, session, crash, and device totals on this page.
+          </p>
+          <input id="apple-file" type="file" accept=".csv,text/csv" />
+        </div>
+        <div class="apple-stats" id="apple-stats">
+          <article><span>Rows</span><strong>-</strong></article>
+          <article><span>Installs</span><strong>-</strong></article>
+          <article><span>Page views</span><strong>-</strong></article>
+          <article><span>Crashes</span><strong>-</strong></article>
+        </div>
+      </section>
+
+      <section class="panel log-panel" aria-label="Dashboard log">
+        <div class="panel-header">
+          <div>
+            <p class="kicker">Status</p>
+            <h2>Connection log</h2>
           </div>
         </div>
+        <div class="log-list" id="log-list"></div>
       </section>
     </main>
 

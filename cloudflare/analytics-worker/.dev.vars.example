@@ -1,0 +1,4 @@
+LIVE_ORBIT_ANALYTICS_KEY=replace-with-a-long-random-app-ingest-key
+DEV_DASHBOARD_TOKEN=replace-with-a-long-random-local-test-token
+ANALYTICS_HASH_PEPPER=replace-with-a-long-random-hash-pepper
+ALLOWED_ORIGINS=https://liveorbitapp.com,https://www.liveorbitapp.com,http://localhost:8080,http://127.0.0.1:8080

@@ -94,26 +94,79 @@ export const trustItems = [
   }
 ];
 
-export const dataSources = [
+export const dataSourceSections = [
   {
-    name: "Space-Track.org",
-    body: "GP elements, SATCAT facts, object status, launch IDs, and launch-site codes."
+    title: "Satellite Data",
+    subtitle: "Sources used to identify satellites and calculate their positions.",
+    items: [
+      {
+        name: "Space-Track.org",
+        data: "GP elements, SATCAT facts, object status, launch IDs, and launch-site codes.",
+        use: "Catalog, facts, tracking freshness, and launch metadata."
+      },
+      {
+        name: "CelesTrak",
+        data: "OMM/TLE-style orbital element mirrors and supplemental catalog groups.",
+        use: "Fast public fallback for live orbit propagation."
+      },
+      {
+        name: "Live Orbit catalog mirror",
+        data: "Prebuilt shards from the same public catalog data.",
+        use: "Faster startup, facts lookup, and synced insights."
+      }
+    ]
   },
   {
-    name: "CelesTrak",
-    body: "Orbital element mirrors and catalog group references used by the app experience."
+    title: "Reference Data",
+    subtitle: "Sources used for context, links, and planning.",
+    items: [
+      {
+        name: "Gunter's Space Page",
+        data: "Spacecraft and mission reference pages.",
+        use: "External reference links."
+      },
+      {
+        name: "Jonathan McDowell / planet4589",
+        data: "Satellite catalog reference material.",
+        use: "Historical catalog cross-checks."
+      },
+      {
+        name: "Open-Meteo",
+        data: "Cloud cover and sky-condition weather.",
+        use: "Pass planning context."
+      }
+    ]
   },
   {
-    name: "Live Orbit catalog mirror",
-    body: "A protected catalog mirror that supports app-ready snapshots, status, and insight payloads."
-  },
-  {
-    name: "Jonathan McDowell and planet4589",
-    body: "Reference material for spaceflight history and catalog interpretation."
-  },
-  {
-    name: "NASA SVS Deep Star Maps",
-    body: "Space imagery resources used for sky and background context."
+    title: "Maps and Imagery",
+    subtitle: "Visual sources used for the globe, sky, and maps.",
+    items: [
+      {
+        name: "Apple MapKit",
+        data: "Apple map tiles, annotations, and map controls.",
+        use: "Launch site maps and pass maps."
+      },
+      {
+        name: "NASA Blue Marble",
+        data: "Earth day texture and global imagery references.",
+        use: "Globe rendering."
+      },
+      {
+        name: "NASA Visible Earth",
+        data: "Night lights and global Earth imagery references.",
+        use: "Globe night-side styling."
+      },
+      {
+        name: "NASA SVS Deep Star Maps",
+        data: "All-sky star maps built from Gaia, Hipparcos, and Tycho catalogs.",
+        use: "Sky background."
+      },
+      {
+        name: "Natural Earth",
+        data: "Public-domain land and boundary vectors.",
+        use: "Map and geography overlays."
+      }
+    ]
   }
 ];
 

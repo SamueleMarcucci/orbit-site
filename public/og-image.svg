@@ -1,0 +1,11 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#111318"/>
+  <path d="M60 60h1080v510H60z" fill="none" stroke="#737a86"/>
+  <path d="M60 180h1080M60 450h1080M360 60v510M840 60v510" stroke="#38404b"/>
+  <circle cx="600" cy="315" r="138" fill="none" stroke="#737a86"/>
+  <ellipse cx="600" cy="315" rx="420" ry="88" fill="none" stroke="#e34437" stroke-width="4"/>
+  <ellipse cx="600" cy="315" rx="360" ry="118" fill="none" stroke="#737a86"/>
+  <text x="82" y="132" fill="#e34437" font-family="monospace" font-size="28" font-weight="700">[ PRELAUNCH FIELD SYSTEM ]</text>
+  <text x="82" y="382" fill="#e8eaed" font-family="Arial Black, Arial, sans-serif" font-size="126" font-weight="900">LIVE ORBIT</text>
+  <text x="82" y="516" fill="#a2a9b4" font-family="monospace" font-size="26">SATELLITE TRACKING FOR IPHONE</text>
+</svg>

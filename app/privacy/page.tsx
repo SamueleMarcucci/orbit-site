@@ -25,7 +25,10 @@ export default function PrivacyPage() {
 
         <h2 className="mt-10 text-2xl font-semibold tracking-[-0.04em] text-[var(--text)]">Analytics and diagnostics</h2>
         <p className="mt-3">
-          The app may use privacy-safe product analytics, crash diagnostics, performance signals, and MetricKit-style health data. Analytics should not log exact location, email addresses, raw search text, raw URLs, API keys, or credentials.
+          Live Orbit uses Firebase Analytics for privacy-safe product usage events, Firebase Crashlytics for crash and non-fatal error reporting, Firebase Performance Monitoring for coarse app performance traces, and Apple MetricKit for summary-level diagnostics.
+        </p>
+        <p className="mt-3">
+          These signals help understand app flow, reliability, startup readiness, catalog loading, search latency, pass calculation, Find AR preparation, and Sky Mode preparation. They must not include exact location, email addresses, search text, raw catalog data, raw TLE data, API keys, Space-Track credentials, camera data, or raw satellite history tied to a user.
         </p>
 
         <h2 className="mt-10 text-2xl font-semibold tracking-[-0.04em] text-[var(--text)]">Satellite catalog data</h2>

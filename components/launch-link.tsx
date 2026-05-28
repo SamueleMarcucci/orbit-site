@@ -9,7 +9,7 @@ export function LaunchLink({ label = "Join launch list", className = "" }: Launc
   return (
     <a className={`launch-link ${className}`} href={launchHref}>
       <span>{label}</span>
-      <span aria-hidden="true">[ MAIL ]</span>
+      <span aria-hidden="true">-&gt;</span>
     </a>
   );
 }

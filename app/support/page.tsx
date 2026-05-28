@@ -19,7 +19,7 @@ export default function SupportPage() {
       />
       <section className="support-grid">
         <div className="support-primary">
-          <samp>[ MAIL ROUTE ]</samp>
+          <samp>Mail route</samp>
           <h2>{site.supportEmail}</h2>
           <p>
             Include your device model, iOS version, what you expected, and what happened. Do not send private credentials, API keys, or exact location unless you intentionally choose to include it.

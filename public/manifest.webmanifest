@@ -3,8 +3,8 @@
   "short_name": "Live Orbit",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#111318",
-  "theme_color": "#111318",
+  "background_color": "#070b12",
+  "theme_color": "#070b12",
   "icons": [
     {
       "src": "/assets/live-orbit-icon.png",

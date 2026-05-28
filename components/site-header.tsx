@@ -12,7 +12,7 @@ export function SiteHeader() {
       <nav className="site-nav" aria-label="Primary navigation">
         {navItems.map((item) => (
           <Link key={item.href} href={item.href}>
-            [ {item.label} ]
+            {item.label}
           </Link>
         ))}
       </nav>

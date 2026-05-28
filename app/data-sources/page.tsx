@@ -12,7 +12,7 @@ export default function DataSourcesPage() {
     <>
       <PageHero
         code="SOURCE/LEDGER"
-        title="Credits are part of the interface."
+        title="Credits belong in the interface."
         body="The app lists the source families below. The website mirrors those credits instead of inventing authority."
       />
       <section className="source-ledger">

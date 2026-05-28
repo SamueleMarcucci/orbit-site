@@ -12,7 +12,7 @@ export default function TermsPage() {
     <>
       <PageHero
         code="TERMS/USE"
-        title="Use the app as a sky guide, not as an operational authority."
+        title="A sky guide, not operational authority."
         body="The product presents public orbital data and estimates. It is built for personal satellite awareness and viewing context."
       />
       <article className="legal-ledger">

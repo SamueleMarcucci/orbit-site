@@ -13,7 +13,7 @@ export default function FeaturesPage() {
     <>
       <PageHero
         code="FEATURE/MANIFEST"
-        title="The product is a field instrument, not a fake command center."
+        title="A field instrument, not a fake command center."
         body="These features come from the local Live Orbit app surfaces: globe, satellite details, search, passes, Sky Mode, insights, news, privacy, and trusted data."
       />
 
@@ -44,7 +44,7 @@ export default function FeaturesPage() {
       </section>
 
       <section className="warning-band">
-        <samp>[ ACCURACY NOTICE ]</samp>
+        <samp>Accuracy notice</samp>
         <p>
           Satellite positions, pass predictions, maps, and AR pointing are estimates. Live Orbit is not for navigation, collision avoidance, satellite control, emergency operations, or safety-critical use.
         </p>

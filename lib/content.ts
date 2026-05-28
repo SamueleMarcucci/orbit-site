@@ -70,7 +70,7 @@ export const sequence = [
 export const trustLedger = [
   {
     term: "No store claim",
-    detail: "The site treats Live Orbit as prelaunch until a real App Store or TestFlight URL exists."
+    detail: "The site treats Live Orbit as prelaunch until a real public release or TestFlight URL exists."
   },
   {
     term: "No fake telemetry",

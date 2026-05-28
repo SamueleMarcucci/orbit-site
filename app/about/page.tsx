@@ -14,7 +14,7 @@ export default function AboutPage() {
     <>
       <PageHero
         code="ABOUT/ORIGIN"
-        title="A satellite app built from the app outward."
+        title="Built from the app outward."
         body="The website is shaped from the local Live Orbit app: globe, passes, Sky Mode, insights, news, privacy, and credits."
       />
       <section className="about-panel">
@@ -27,7 +27,7 @@ export default function AboutPage() {
             Live Orbit is being built as an iPhone-first way to understand what is overhead. The product starts with the globe, then connects search, satellite detail, visible pass planning, Sky Mode, insights, and news into one consistent app.
           </p>
           <p>
-            The app is not on the App Store yet. The launch list is the public channel until a real launch URL exists.
+            The app is not publicly available yet. The launch list is the public channel until a real launch URL exists.
           </p>
           <LaunchLink />
         </div>

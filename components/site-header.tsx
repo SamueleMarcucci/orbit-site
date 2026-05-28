@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { launchHref, navItems } from "@/lib/site";
+import { assetPath, launchHref, navItems } from "@/lib/site";
 
 export function SiteHeader() {
   return (
     <header className="site-header" data-unit="NAV/PRIMARY">
       <Link className="brand-lockup" href="/" aria-label="Live Orbit home">
-        <Image src="/assets/live-orbit-icon.png" alt="" width={34} height={34} priority />
+        <Image src={assetPath("/assets/live-orbit-icon.png")} alt="" width={34} height={34} priority />
         <span>Live Orbit</span>
       </Link>
       <nav className="site-nav" aria-label="Primary navigation">

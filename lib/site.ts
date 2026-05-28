@@ -8,6 +8,12 @@ export const site = {
 
 export const launchHref = `mailto:${site.supportEmail}?subject=${encodeURIComponent(site.launchSubject)}`;
 
+export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+export function assetPath(path: string) {
+  return `${basePath}${path}`;
+}
+
 export const navItems = [
   { href: "/features/", label: "Features" },
   { href: "/data-sources/", label: "Sources" },

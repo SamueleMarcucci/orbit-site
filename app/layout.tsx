@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Archivo_Black, JetBrains_Mono, Roboto_Condensed } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { site } from "@/lib/site";
+import { assetPath, basePath, site } from "@/lib/site";
 import "./globals.css";
 
 const display = Archivo_Black({
@@ -24,7 +24,7 @@ const body = Roboto_Condensed({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(basePath ? "https://samuelemarcucci.github.io" : site.url),
   title: {
     default: "Live Orbit | Satellite tracking for iPhone",
     template: "%s | Live Orbit"
@@ -35,12 +35,12 @@ export const metadata: Metadata = {
     description: "Prelaunch iPhone satellite tracking built around public orbital data and honest sky estimates.",
     url: site.url,
     siteName: "Live Orbit",
-    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "Live Orbit tactical launch plate" }],
+    images: [{ url: assetPath("/og-image.svg"), width: 1200, height: 630, alt: "Live Orbit tactical launch plate" }],
     type: "website"
   },
   icons: {
-    icon: "/assets/live-orbit-icon.png",
-    apple: "/assets/live-orbit-icon.png"
+    icon: assetPath("/assets/live-orbit-icon.png"),
+    apple: assetPath("/assets/live-orbit-icon.png")
   }
 };
 

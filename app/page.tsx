@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { LaunchLink } from "@/components/launch-link";
 import { OrbitPlate } from "@/components/orbit-plate";
 import { SectionLabel } from "@/components/section-label";
@@ -16,9 +17,9 @@ export default function HomePage() {
           </p>
           <div className="hero-actions">
             <LaunchLink />
-            <a className="secondary-link" href="/features/">
+            <Link className="secondary-link" href="/features/">
               Read feature manifest
-            </a>
+            </Link>
           </div>
         </div>
         <OrbitPlate />

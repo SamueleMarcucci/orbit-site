@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { LaunchLink } from "@/components/launch-link";
 import { PageHero } from "@/components/page-hero";
+import { assetPath } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,7 +19,7 @@ export default function AboutPage() {
       />
       <section className="about-panel">
         <div>
-          <Image src="/assets/live-orbit-icon.png" alt="Live Orbit app icon" width={132} height={132} priority />
+          <Image src={assetPath("/assets/live-orbit-icon.png")} alt="Live Orbit app icon" width={132} height={132} priority />
         </div>
         <div>
           <h2>Launch story</h2>

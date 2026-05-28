@@ -1,0 +1,17 @@
+{
+  "name": "Live Orbit",
+  "short_name": "Live Orbit",
+  "description": "A prelaunch iPhone app for live satellites, visible passes, Sky Mode, insights, and space news.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05070a",
+  "theme_color": "#05070a",
+  "icons": [
+    {
+      "src": "/assets/live-orbit-icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

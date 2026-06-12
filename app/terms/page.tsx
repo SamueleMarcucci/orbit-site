@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/page-hero";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -9,13 +8,14 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <>
-      <PageHero
-        code="TERMS/USE"
-        title="A sky guide, not operational authority."
-        body="The product presents public orbital data and estimates. It is built for personal satellite awareness and viewing context."
-      />
-      <article className="legal-ledger">
+    <article className="minimal-page">
+      <header>
+        <a href="/">Live Orbit</a>
+        <h1>Terms</h1>
+        <p>Live Orbit is a sky guide for personal satellite awareness. It is not operational authority.</p>
+      </header>
+
+      <div className="minimal-ledger">
         <section>
           <h2>Prelaunch status</h2>
           <p>Live Orbit is prelaunch. This website does not claim the app is publicly downloadable until a real launch or TestFlight link exists.</p>
@@ -38,7 +38,7 @@ export default function TermsPage() {
             Questions about these terms can be sent to <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.
           </p>
         </section>
-      </article>
-    </>
+      </div>
+    </article>
   );
 }

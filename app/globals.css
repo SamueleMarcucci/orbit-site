@@ -82,9 +82,17 @@ body:has(.download-landing) {
   color: #1d1d1f;
 }
 
+body:has(.minimal-page) {
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
 body:has(.download-landing)::after,
+body:has(.minimal-page)::after,
 body:has(.download-landing) .site-header,
-body:has(.download-landing) .site-footer {
+body:has(.minimal-page) .site-header,
+body:has(.download-landing) .site-footer,
+body:has(.minimal-page) .site-footer {
   display: none;
 }
 
@@ -181,6 +189,108 @@ body:has(.download-landing) .site-footer {
 
 .download-footer a {
   color: #424245;
+}
+
+.minimal-page {
+  width: min(760px, 100%);
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: clamp(34px, 7vw, 72px) clamp(20px, 5vw, 34px);
+  background: #f5f5f7;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+}
+
+.minimal-page > header {
+  padding-bottom: clamp(42px, 8vw, 72px);
+}
+
+.minimal-page > header > a {
+  display: inline-flex;
+  margin-bottom: clamp(44px, 9vw, 92px);
+  color: #424245;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.minimal-page h1 {
+  margin: 0;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  font-size: clamp(3rem, 9vw, 5.8rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+
+.minimal-page > header p {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: #6e6e73;
+  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+  line-height: 1.36;
+}
+
+.minimal-page section {
+  padding: 28px 0;
+  border-top: 1px solid #d2d2d7;
+}
+
+.minimal-page section:first-of-type {
+  border-top: 0;
+}
+
+.minimal-page h2 {
+  margin: 0 0 12px;
+  color: #1d1d1f;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.minimal-page p,
+.minimal-page li {
+  color: #6e6e73;
+  font-size: 1rem;
+  line-height: 1.58;
+}
+
+.minimal-page p {
+  margin: 0;
+}
+
+.minimal-page p + p,
+.minimal-page ul + p,
+.minimal-page p + ul {
+  margin-top: 12px;
+}
+
+.minimal-page ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+
+.minimal-page li + li {
+  margin-top: 8px;
+}
+
+.minimal-page strong,
+.minimal-page a {
+  color: #1d1d1f;
+}
+
+.minimal-page a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.minimal-page a:hover {
+  text-decoration: underline;
+}
+
+.minimal-ledger {
+  display: block;
 }
 
 .skip-link {

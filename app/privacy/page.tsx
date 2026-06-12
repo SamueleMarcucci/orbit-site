@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/page-hero";
-
 export const metadata: Metadata = {
   title: "Privacy",
   description:
@@ -9,13 +7,14 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <>
-      <PageHero
-        code="PRIVACY/POLICY"
-        title="Privacy Policy"
-        body="Live Orbit is an iOS-only satellite watching app from Apps Made Better LLC. No account is required. This policy is written to match the App Store privacy labels for Live Orbit and explain how the listed data types are used."
-      />
-      <article className="legal-ledger">
+    <article className="minimal-page">
+      <header>
+        <a href="/">Live Orbit</a>
+        <h1>Privacy</h1>
+        <p>Live Orbit is an iOS-only satellite watching app from Apps Made Better LLC. No account is required.</p>
+      </header>
+
+      <div className="minimal-ledger">
         <section>
           <h2>Last updated</h2>
           <p>June 12, 2026.</p>
@@ -122,7 +121,7 @@ export default function PrivacyPage() {
           <h2>Attorney and owner review</h2>
           <p>This policy is a product privacy notice, not legal advice. Apps Made Better LLC should have this policy reviewed by a licensed attorney before launch, especially for privacy-law coverage, children&apos;s privacy, international users, subscriptions and refunds, AI disclosures, data-source licensing, retention, and deletion procedures.</p>
         </section>
-      </article>
-    </>
+      </div>
+    </article>
   );
 }

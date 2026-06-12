@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export default function SupportPage() {
   return (
     <article className="minimal-page">
       <header>
-        <a href="/">Live Orbit</a>
+        <Link href="/">Live Orbit</Link>
         <h1>Support</h1>
         <p>Questions, bug reports, privacy requests, and launch support can go to one address.</p>
       </header>

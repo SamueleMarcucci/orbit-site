@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export default function TermsPage() {
   return (
     <article className="minimal-page">
       <header>
-        <a href="/">Live Orbit</a>
+        <Link href="/">Live Orbit</Link>
         <h1>Terms</h1>
         <p>Live Orbit is a sky guide for personal satellite awareness. It is not operational authority.</p>
       </header>

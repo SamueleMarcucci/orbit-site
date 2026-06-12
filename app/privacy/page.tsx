@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy",
   description:
@@ -9,7 +10,7 @@ export default function PrivacyPage() {
   return (
     <article className="minimal-page">
       <header>
-        <a href="/">Live Orbit</a>
+        <Link href="/">Live Orbit</Link>
         <h1>Privacy</h1>
         <p>Live Orbit is an iOS-only satellite watching app from Apps Made Better LLC. No account is required.</p>
       </header>

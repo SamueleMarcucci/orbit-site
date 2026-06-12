@@ -3,12 +3,16 @@ import { assetPath } from "@/lib/site";
 
 const screenshots = [
   {
-    src: "/assets/app-store-loa/group-18.jpg",
-    alt: "Live Orbit iPhone app screenshot"
+    src: "/assets/app-store-loa/screen-earth.png",
+    alt: "Live Orbit Earth view iPhone mockup"
   },
   {
-    src: "/assets/app-store-loa/group-19.jpg",
-    alt: "Live Orbit iPhone app screenshot"
+    src: "/assets/app-store-loa/screen-passes.png",
+    alt: "Live Orbit pass results iPhone mockup"
+  },
+  {
+    src: "/assets/app-store-loa/screen-sky.png",
+    alt: "Live Orbit Sky Mode iPhone mockup"
   }
 ];
 
@@ -17,7 +21,7 @@ export default function HomePage() {
     <section className="download-landing" aria-labelledby="download-title">
       <div className="download-brand">
         <Image
-          src={assetPath("/assets/live-orbit-icon.png")}
+          src={assetPath("/assets/live-orbit-app-icon.png")}
           alt="Live Orbit app icon"
           width={132}
           height={132}
@@ -35,12 +39,21 @@ export default function HomePage() {
             key={screenshot.src}
             src={assetPath(screenshot.src)}
             alt={screenshot.alt}
-            width={1242}
-            height={2688}
+            width={2200}
+            height={4498}
             priority
           />
         ))}
       </div>
+
+      <footer className="download-footer">
+        <p>© 2026 Apps Made Better LLC</p>
+        <nav aria-label="Footer">
+          <a href="/support/">Support</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+        </nav>
+      </footer>
     </section>
   );
 }

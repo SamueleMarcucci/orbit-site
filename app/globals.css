@@ -93,7 +93,7 @@ body:has(.download-landing) .site-footer {
   display: grid;
   align-content: start;
   justify-items: center;
-  gap: clamp(30px, 5vw, 56px);
+  gap: clamp(28px, 4.5vw, 52px);
   padding: clamp(42px, 7vw, 82px) clamp(18px, 4vw, 56px) clamp(36px, 6vw, 72px);
   background: #f5f5f7;
   color: #1d1d1f;
@@ -108,7 +108,6 @@ body:has(.download-landing) .site-footer {
 .download-brand img {
   width: clamp(92px, 11vw, 132px);
   height: clamp(92px, 11vw, 132px);
-  border-radius: 24px;
 }
 
 .download-brand h1 {
@@ -141,20 +140,47 @@ body:has(.download-landing) .site-footer {
 }
 
 .download-screenshots {
-  width: min(100%, 1320px);
+  width: min(100%, 1280px);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: center;
   justify-items: center;
-  gap: clamp(16px, 2.5vw, 34px);
+  align-items: start;
+  gap: clamp(12px, 2.2vw, 30px);
 }
 
 .download-screenshots img {
   width: 100%;
-  max-width: 390px;
+  max-width: 360px;
   height: auto;
-  border-radius: clamp(24px, 3vw, 44px);
-  box-shadow: 0 22px 60px rgb(0 0 0 / 0.16);
+  filter: drop-shadow(0 24px 42px rgb(0 0 0 / 0.18));
+}
+
+.download-footer {
+  width: min(100%, 980px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 6px;
+  color: #6e6e73;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 13px;
+}
+
+.download-footer p {
+  margin: 0;
+}
+
+.download-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.download-footer a {
+  color: #424245;
 }
 
 .skip-link {
@@ -1310,6 +1336,24 @@ body:has(.cinematic-home) .site-footer {
 @media (max-width: 560px) {
   body {
     font-size: 16px;
+  }
+
+  .download-screenshots {
+    grid-template-columns: 1fr;
+  }
+
+  .download-screenshots img {
+    max-width: 354px;
+  }
+
+  .download-footer {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .download-footer nav {
+    justify-content: center;
   }
 
   .site-header,

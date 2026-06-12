@@ -11,7 +11,7 @@ export default function TermsPage() {
   return (
     <article className="minimal-page">
       <header>
-        <Link href="/">Live Orbit</Link>
+        <Link href="/" prefetch={false}>Live Orbit</Link>
         <h1>Terms</h1>
         <p>Live Orbit is a sky guide for personal satellite awareness. It is not operational authority.</p>
       </header>

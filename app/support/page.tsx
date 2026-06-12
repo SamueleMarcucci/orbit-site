@@ -11,7 +11,7 @@ export default function SupportPage() {
   return (
     <article className="minimal-page">
       <header>
-        <Link href="/">Live Orbit</Link>
+        <Link href="/" prefetch={false}>Live Orbit</Link>
         <h1>Support</h1>
         <p>Questions, bug reports, privacy requests, and launch support can go to one address.</p>
       </header>

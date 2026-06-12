@@ -10,7 +10,7 @@ export default function PrivacyPage() {
   return (
     <article className="minimal-page">
       <header>
-        <Link href="/">Live Orbit</Link>
+        <Link href="/" prefetch={false}>Live Orbit</Link>
         <h1>Privacy</h1>
         <p>Live Orbit is an iOS-only satellite watching app from Apps Made Better LLC. No account is required.</p>
       </header>

@@ -4,7 +4,7 @@ import { PageHero } from "@/components/page-hero";
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "Live Orbit privacy policy for location, permissions, analytics, diagnostics, support, subscriptions, backend requests, AI-assisted content, and local app data."
+    "Live Orbit privacy policy for App Store privacy labels, location, analytics, diagnostics, support, purchases, identifiers, and local app data."
 };
 
 export default function PrivacyPage() {
@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <PageHero
         code="PRIVACY/POLICY"
         title="Privacy Policy"
-        body="Live Orbit is an iOS-only satellite watching app from Apps Made Better LLC. No account is required. We minimize data collection, but some data is collected or processed to provide app features, subscriptions, analytics, diagnostics, support, backend requests, and AI-assisted Orbit Intelligence."
+        body="Live Orbit is an iOS-only satellite watching app from Apps Made Better LLC. No account is required. This policy is written to match the App Store privacy labels for Live Orbit and explain how the listed data types are used."
       />
       <article className="legal-ledger">
         <section>
@@ -28,15 +28,39 @@ export default function PrivacyPage() {
         <section>
           <h2>Summary</h2>
           <p>Live Orbit does not require a user account. Favorites, watchlists, recent searches, observing sessions, settings, and similar app data are generally stored on your device.</p>
-          <p>The app uses Apple, Firebase/Google, Cloudflare, OpenAI or AI-assisted services, and satellite, weather, launch, and news data providers to operate the app and related services.</p>
-          <p>We do not currently use third-party advertising SDKs, IDFA, App Tracking Transparency prompts, in-app ads, or marketing email systems in the reviewed app code. If that changes, this policy and App Store privacy disclosures must be updated.</p>
+          <p>The App Store privacy label for Live Orbit lists nine collected data types: Email Address, Customer Support, Precise Location, Device ID, Purchase History, Product Interaction, Crash Data, Performance Data, and Other Diagnostic Data.</p>
+          <p>The App Store privacy label lists Email Address and Customer Support as data linked to you when you provide them. It lists Location, Identifiers, Purchases, Usage Data, and Diagnostics as data not linked to you.</p>
+          <p>Live Orbit does not use the listed data for third-party advertising, developer advertising, marketing, product personalization, or tracking.</p>
+        </section>
+
+        <section>
+          <h2>Data linked to you</h2>
+          <p>The following data may be collected and linked to your identity:</p>
+          <ul>
+            <li><strong>Email Address:</strong> collected only if you provide it for support, privacy, or data deletion requests. Used for app functionality, including responding to you and handling support or privacy requests.</li>
+            <li><strong>Customer Support:</strong> support or privacy request text, optional email address, issue details, app or device context, and optional diagnostics you choose to include. Used for app functionality and customer support.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Data not linked to you</h2>
+          <p>The following data may be collected but is not linked to your identity in Live Orbit&apos;s App Store privacy label:</p>
+          <ul>
+            <li><strong>Precise Location:</strong> used for app functionality, including observer position, pass calculations, AR and Sky Mode alignment, alerts, weather or sky context, and related feature requests.</li>
+            <li><strong>Device ID:</strong> used for app functionality, including app reliability, diagnostics, crash reporting, performance monitoring, fraud prevention, security, and service operation.</li>
+            <li><strong>Purchase History:</strong> used for app functionality, including StoreKit subscriptions, entitlement checks, restoring purchases, and Live Orbit Pro access.</li>
+            <li><strong>Product Interaction:</strong> used for analytics, including understanding app opens, screen or feature use, search, passes, AR or Sky Mode, support entry points, and similar product usage signals.</li>
+            <li><strong>Crash Data:</strong> used for app functionality, including crash troubleshooting, reliability, and quality improvement.</li>
+            <li><strong>Performance Data:</strong> used for app functionality, including launch performance, network performance, feature performance, and reliability monitoring.</li>
+            <li><strong>Other Diagnostic Data:</strong> used for app functionality, including non-fatal errors, app logs, diagnostics, and technical troubleshooting.</li>
+          </ul>
         </section>
 
         <section>
           <h2>Information you provide</h2>
           <p>If you contact support or submit a privacy or data deletion request, we may receive your email address, message text, issue details, device or app context, and any diagnostics you choose to include.</p>
           <p>We use this information for app functionality, customer support, privacy request handling, troubleshooting, reliability, security, and legal compliance. An email address you provide for support or privacy requests is linked to your identity because it identifies how to reply to you.</p>
-          <p>We do not use support email addresses for third-party advertising, developer advertising, marketing email, product personalization, or tracking.</p>
+          <p>We do not use support email addresses or customer support submissions for third-party advertising, developer advertising, marketing email, product personalization, or tracking.</p>
         </section>
 
         <section>
@@ -44,23 +68,22 @@ export default function PrivacyPage() {
           <p>Live Orbit may ask for precise location to calculate visible passes, observer position, local sky alignment, AR and Sky Mode pointing, weather or sky context, alerts, and other location-based satellite features.</p>
           <p>Camera access is used for AR views. Motion, compass, and device orientation data are used for AR and Sky Mode alignment. Calendar access is used only if you choose to save satellite pass events. Notifications are used for pass, launch, and major news alerts you choose to enable.</p>
           <p>Some location-based features may involve app or backend requests that include your location, approximate location, coordinates, observer context, or derived sky context when needed to provide the feature. Exact backend logging and retention for location-bearing requests requires owner and attorney confirmation.</p>
-          <p>Location, camera, motion, calendar, and notification permissions can be changed in iOS Settings.</p>
+          <p>Live Orbit&apos;s App Store privacy label lists Precise Location as used for App Functionality and not linked to your identity. Location, camera, motion, calendar, and notification permissions can be changed in iOS Settings.</p>
         </section>
 
         <section>
           <h2>Analytics, diagnostics, and identifiers</h2>
           <p>Live Orbit uses Firebase Analytics, Firebase Crashlytics, Firebase Performance Monitoring, and Apple MetricKit for analytics, crash reporting, performance monitoring, non-fatal error reporting, and technical diagnostics.</p>
           <p>These services may collect product interaction data, crash data, performance data, app logs, app instance identifiers, installation identifiers, device or app identifiers, OS and device information, network performance, launch performance, screen or feature usage, and other technical diagnostics.</p>
-          <p>We use this information for analytics and app functionality, including understanding reliability, startup readiness, catalog loading, search latency, pass calculation, AR/Sky Mode preparation, crashes, non-fatal errors, and performance problems.</p>
-          <p>Because Live Orbit has no account system, reviewed app code does not link Firebase device or app instance identifiers to a named Live Orbit account. Firebase or other service providers may still process identifiers as described in their own terms and privacy documentation.</p>
-          <p>Reviewed app code does not use product interaction data, device identifiers, crash data, or performance data for tracking across apps or websites owned by other companies.</p>
+          <p>Product Interaction is used for Analytics. Device ID, Crash Data, Performance Data, and Other Diagnostic Data are used for App Functionality. These categories are listed as not linked to your identity in Live Orbit&apos;s App Store privacy label.</p>
+          <p>We do not use product interaction data, device identifiers, crash data, performance data, or other diagnostic data for tracking across apps or websites owned by other companies.</p>
         </section>
 
         <section>
           <h2>Subscriptions and purchases</h2>
           <p>Live Orbit Pro purchases are handled by Apple StoreKit through the App Store. Apple processes App Store payments, purchase confirmations, subscription status, billing periods, taxes, trials, cancellations, and refunds under Apple&apos;s policies and applicable law.</p>
           <p>Live Orbit may process Apple-provided product, transaction, purchase history, subscription state, entitlement, and restore-purchase information to provide Pro access, restore purchases, prevent purchase errors, and support subscription functionality.</p>
-          <p>Apps Made Better LLC does not receive your full payment card number from Apple and does not process App Store payments or refunds directly.</p>
+          <p>Purchase History is used for App Functionality and is listed as not linked to your identity in Live Orbit&apos;s App Store privacy label. Apps Made Better LLC does not receive your full payment card number from Apple and does not process App Store payments or refunds directly.</p>
         </section>
 
         <section>
@@ -78,17 +101,8 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2>App Store privacy data categories</h2>
-          <p>Based on the reviewed app facts, Live Orbit&apos;s App Store privacy disclosures should not say that no data is collected. The likely disclosed categories include:</p>
-          <ul>
-            <li><strong>Email address:</strong> optional support, privacy, or data deletion contact. Used for app functionality and customer support. Linked to identity when provided. Not used for tracking.</li>
-            <li><strong>Precise location:</strong> used for app functionality such as observer position, pass calculations, alerts, AR/Sky Mode, weather or sky context, and related feature requests. Not used for advertising or tracking in reviewed app code.</li>
-            <li><strong>Customer support:</strong> issue text, optional email, request context, and optional diagnostics. Used for app functionality and customer support. May be linked to identity when submitted.</li>
-            <li><strong>Device identifiers:</strong> Firebase, app instance, installation, or similar identifiers used for analytics, crash reporting, diagnostics, and performance monitoring. Reviewed app code does not link these identifiers to a Live Orbit account because there are no accounts.</li>
-            <li><strong>Purchase history:</strong> Apple StoreKit product, transaction, subscription, restore, and entitlement state. Used for app functionality.</li>
-            <li><strong>Product interaction:</strong> analytics events such as app opens, screen opens, feature use, search opened, passes opened, AR/Sky Mode opened, support opened, and similar usage signals. Used for analytics and app improvement. Not used for tracking in reviewed app code.</li>
-            <li><strong>Crash data, performance data, and diagnostics:</strong> Firebase Crashlytics, Firebase Performance Monitoring, MetricKit summaries, non-fatal errors, app logs, launch and network performance, and technical diagnostics. Used for app functionality, reliability, crash troubleshooting, and performance troubleshooting.</li>
-          </ul>
+          <h2>Tracking</h2>
+          <p>Live Orbit&apos;s App Store privacy label says the listed data is not used for tracking. Live Orbit does not currently use IDFA, App Tracking Transparency prompts, third-party advertising SDKs, or in-app advertising.</p>
         </section>
 
         <section>

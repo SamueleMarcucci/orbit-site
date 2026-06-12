@@ -102,7 +102,7 @@ main {
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
-  width: min(calc(100% - 32px), 1160px);
+  width: calc(100% - 32px);
   min-height: 62px;
   margin: 16px auto 0;
   padding: 8px;
@@ -657,7 +657,7 @@ body:has(.cinematic-home) .site-footer {
   top: 18px;
   left: 50%;
   z-index: 30;
-  width: min(calc(100% - 32px), 1060px);
+  width: calc(100% - 32px);
   min-height: 58px;
   display: flex;
   align-items: center;

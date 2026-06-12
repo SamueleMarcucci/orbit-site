@@ -77,6 +77,86 @@ main {
   overflow-x: clip;
 }
 
+body:has(.download-landing) {
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+body:has(.download-landing)::after,
+body:has(.download-landing) .site-header,
+body:has(.download-landing) .site-footer {
+  display: none;
+}
+
+.download-landing {
+  min-height: 100svh;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: clamp(30px, 5vw, 56px);
+  padding: clamp(42px, 7vw, 82px) clamp(18px, 4vw, 56px) clamp(36px, 6vw, 72px);
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+.download-brand {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+
+.download-brand img {
+  width: clamp(92px, 11vw, 132px);
+  height: clamp(92px, 11vw, 132px);
+  border-radius: 24px;
+}
+
+.download-brand h1 {
+  margin: 0;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+
+.download-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #0071e3;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.download-button:active {
+  transform: scale(0.98);
+}
+
+.download-screenshots {
+  width: min(100%, 1320px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  justify-content: center;
+  justify-items: center;
+  gap: clamp(16px, 2.5vw, 34px);
+}
+
+.download-screenshots img {
+  width: 100%;
+  max-width: 390px;
+  height: auto;
+  border-radius: clamp(24px, 3vw, 44px);
+  box-shadow: 0 22px 60px rgb(0 0 0 / 0.16);
+}
+
 .skip-link {
   position: fixed;
   top: 12px;

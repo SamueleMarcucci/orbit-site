@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Geist, Geist_Mono } from "next/font/google";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
 import { assetPath, basePath, site } from "@/lib/site";
 import "./globals.css";
 
@@ -49,9 +47,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <a className="skip-link" href="#content">
           Skip to content
         </a>
-        <SiteHeader />
         <main id="content">{children}</main>
-        <SiteFooter />
       </body>
     </html>
   );

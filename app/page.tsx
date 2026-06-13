@@ -14,7 +14,7 @@ const screenshots = [
   },
   {
     src: "/assets/app-store-loa/screen-sky.png",
-    alt: "Live Orbit Sky Mode iPhone mockup"
+    alt: "Live Orbit space news iPhone mockup"
   }
 ];
 
@@ -43,8 +43,8 @@ export default function HomePage() {
             key={screenshot.src}
             src={assetPath(screenshot.src)}
             alt={screenshot.alt}
-            width={2200}
-            height={4498}
+            width={1242}
+            height={2688}
             priority
           />
         ))}

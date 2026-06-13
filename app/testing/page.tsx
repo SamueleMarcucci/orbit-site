@@ -13,10 +13,10 @@ export default function TestingPage() {
       <header>
         <Link href="/" prefetch={false}>Live Orbit</Link>
         <h1>TestFlight</h1>
-        <p>Apply to test Live Orbit before launch. The form opens an email draft so your application goes directly to Apps Made Better LLC.</p>
+        <p>Apply to test Live Orbit before launch. Submit the form and you will be taken to a confirmation page.</p>
       </header>
 
-      <section>
+      <section className="form-card">
         <h2>Tester application</h2>
         <TestingApplicationForm />
       </section>

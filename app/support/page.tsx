@@ -10,26 +10,26 @@ export const metadata: Metadata = {
 
 export default function SupportPage() {
   return (
-    <article className="minimal-page">
+    <article className="minimal-page form-page support-page">
       <header>
         <Link href="/" prefetch={false}>Live Orbit</Link>
         <h1>Support</h1>
-        <p>Get help, report an issue, or reach out about Live Orbit.</p>
+        <p>Choose what you need help with, add your email, and send it directly to Apps Made Better LLC.</p>
       </header>
 
-      <section>
+      <section className="form-card">
         <h2>Contact support</h2>
         <SupportContactForm />
       </section>
 
-      <section>
-        <h2>Email</h2>
+      <section className="support-direct">
+        <h2>Direct email</h2>
         <p>
-          You can also write directly to <a href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.
+          You can also write directly to <a href={`mailto:${site.companyEmail}`}>{site.companyEmail}</a>.
         </p>
       </section>
 
-      <section>
+      <section className="support-details">
         <h2>Helpful details</h2>
         <p>If something is broken, include what you were trying to do, what happened, and what you expected to happen.</p>
         <p>Do not send passwords, API keys, or exact location unless you intentionally choose to include it.</p>

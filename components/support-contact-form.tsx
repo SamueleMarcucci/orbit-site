@@ -1,57 +1,20 @@
-"use client";
-
-import { FormEvent, useMemo, useState } from "react";
 import { supportPaths } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export function SupportContactForm() {
-  const [topic, setTopic] = useState(supportPaths[0].subject);
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [status, setStatus] = useState("");
-  const [draftHref, setDraftHref] = useState("");
-
-  const selectedPath = supportPaths.find((path) => path.subject === topic) ?? supportPaths[0];
-  const isReady = useMemo(() => email.trim() && message.trim(), [email, message]);
-
-  function buildHref() {
-    const body = [
-      selectedPath.title,
-      "",
-      `Reply email: ${email.trim()}`,
-      "",
-      "Message:",
-      message.trim(),
-      "",
-      "Sent from liveorbitapp.com/support"
-    ].join("\n");
-
-    return `mailto:${site.supportEmail}?subject=${encodeURIComponent(selectedPath.subject)}&body=${encodeURIComponent(body)}`;
-  }
-
-  function submitSupport(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    if (!isReady) {
-      setStatus("Please add your email and a short message first.");
-      setDraftHref("");
-      return;
-    }
-
-    const href = buildHref();
-    setDraftHref(href);
-    setStatus("Opening your email app with the message ready to send.");
-    window.location.href = href;
-  }
-
   return (
-    <form className="apple-form support-form" onSubmit={submitSupport} noValidate>
+    <form className="apple-form support-form" action={`https://formsubmit.co/${site.companyEmail}`} method="POST">
+      <input type="hidden" name="_subject" value="Live Orbit support request" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_next" value={`${site.url}/support/thanks/`} />
+      <input type="text" name="_honey" className="hidden-field" tabIndex={-1} autoComplete="off" />
+
       <fieldset>
         <legend>What do you need?</legend>
         <div className="support-choice-list">
-          {supportPaths.map((path) => (
+          {supportPaths.map((path, index) => (
             <label key={path.subject}>
-              <input type="radio" name="support-topic" value={path.subject} checked={topic === path.subject} onChange={() => setTopic(path.subject)} />
+              <input type="radio" name="support_topic" value={path.title} defaultChecked={index === 0} />
               <span>
                 <strong>{path.title}</strong>
                 <small>{path.body}</small>
@@ -63,22 +26,18 @@ export function SupportContactForm() {
 
       <label>
         <span>Email</span>
-        <input value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" inputMode="email" placeholder="you@example.com" required />
+        <input type="email" name="email" autoComplete="email" inputMode="email" placeholder="you@example.com" required />
       </label>
 
       <label>
         <span>Message</span>
-        <textarea value={message} onChange={(event) => setMessage(event.target.value)} placeholder="Tell me what happened or what you need help with." required />
+        <textarea name="message" placeholder="Tell me what happened or what you need help with." required />
       </label>
 
       <div className="form-actions">
-        <button type="submit">Open email draft</button>
-        {draftHref ? (
-          <a href={draftHref}>Open email draft again</a>
-        ) : null}
+        <button type="submit">Send message</button>
+        <p className="form-note">You will see a confirmation page after submitting.</p>
       </div>
-
-      {status ? <p className="form-status" role="status">{status}</p> : null}
     </form>
   );
 }

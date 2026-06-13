@@ -22,7 +22,6 @@ export default function FeaturesPage() {
         <div className="feature-ledger">
           {capabilityCells.map((cell) => (
             <article key={cell.code}>
-              <samp>{cell.code}</samp>
               <h2>{cell.title}</h2>
               <p>{cell.body}</p>
             </article>

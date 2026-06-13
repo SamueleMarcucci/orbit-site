@@ -52,11 +52,6 @@ body::after {
   mix-blend-mode: screen;
 }
 
-::selection {
-  background: var(--orbital);
-  color: var(--bg);
-}
-
 a {
   color: inherit;
   text-decoration: none;

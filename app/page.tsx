@@ -28,6 +28,7 @@ export default function HomePage() {
           priority
         />
         <h1 id="download-title">Live Orbit</h1>
+        <p className="platform-line">Built for iPhone</p>
         <a className="download-button" href="https://apps.apple.com/app/id6766396809" aria-label="Download Live Orbit on the App Store">
           Download
         </a>

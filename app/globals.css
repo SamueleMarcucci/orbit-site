@@ -128,6 +128,16 @@ body:has(.minimal-page) .site-footer {
   line-height: 0.95;
 }
 
+.platform-line {
+  margin: -4px 0 0;
+  color: #6e6e73;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
 .download-button {
   display: inline-flex;
   min-height: 48px;

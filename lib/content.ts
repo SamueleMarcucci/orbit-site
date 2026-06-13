@@ -152,3 +152,49 @@ export const supportTopics = [
   "Request a feature",
   "Ask about future Pro plans"
 ];
+
+export const homepageFaq = [
+  {
+    question: "Is Live Orbit available now?",
+    answer: "Live Orbit is preparing for launch. The App Store page will be linked here when it is public."
+  },
+  {
+    question: "Do I need an account?",
+    answer: "No. Live Orbit is designed to work without making you create an account."
+  },
+  {
+    question: "What can I track?",
+    answer: "You can follow satellites, visible passes, launches, sky events, and space news from one place."
+  },
+  {
+    question: "Why do pass times change?",
+    answer: "Satellite paths are updated from public orbit data, so timing can shift as newer data becomes available."
+  },
+  {
+    question: "Will it work on iPad or Mac?",
+    answer: "Live Orbit is being built for iPhone first."
+  }
+];
+
+export const supportPaths = [
+  {
+    title: "I found a bug",
+    body: "Tell us what happened and what you expected to happen.",
+    subject: "Live Orbit bug report"
+  },
+  {
+    title: "Satellite data looks wrong",
+    body: "Send the satellite name, what looked off, and when you saw it.",
+    subject: "Live Orbit satellite data issue"
+  },
+  {
+    title: "I need help using the app",
+    body: "Ask a question about tracking, passes, Sky Mode, or settings.",
+    subject: "Live Orbit support question"
+  },
+  {
+    title: "Press or creator inquiry",
+    body: "Reach out about launch coverage, screenshots, or product questions.",
+    subject: "Live Orbit press inquiry"
+  }
+];

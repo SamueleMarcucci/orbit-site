@@ -145,6 +145,24 @@ body:has(.minimal-page) .site-footer {
   line-height: 1;
 }
 
+.launch-status {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  margin: -2px 0 0;
+  padding: 0 14px;
+  border: 1px solid rgb(29 29 31 / 0.1);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.68);
+  color: #6e6e73;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
 .download-button {
   display: inline-flex;
   min-height: 48px;
@@ -162,6 +180,43 @@ body:has(.minimal-page) .site-footer {
 
 .download-button:active {
   transform: scale(0.98);
+}
+
+.store-badge {
+  display: grid;
+  min-width: 178px;
+  min-height: 56px;
+  align-content: center;
+  justify-items: start;
+  padding: 8px 16px 9px;
+  border-radius: 14px;
+  background: #111;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  line-height: 1.05;
+  box-shadow: 0 12px 28px rgb(0 0 0 / 0.14);
+}
+
+.store-badge span {
+  color: rgb(255 255 255 / 0.78);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.store-badge strong {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.privacy-reassurance {
+  max-width: 520px;
+  margin: -2px 0 0;
+  color: #6e6e73;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.42;
+  text-align: center;
 }
 
 .download-screenshots {
@@ -246,6 +301,90 @@ body:has(.minimal-page) .site-footer {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
   font-size: 14px;
   line-height: 1.42;
+}
+
+.home-faq {
+  width: min(100%, 760px);
+  display: grid;
+  gap: 22px;
+  padding: clamp(6px, 2vw, 12px) 0 clamp(18px, 3vw, 34px);
+}
+
+.home-faq-heading {
+  display: grid;
+  gap: 8px;
+  text-align: center;
+}
+
+.home-faq-heading p {
+  margin: 0;
+  color: #6e6e73;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.home-faq-heading h2 {
+  margin: 0;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.home-faq-list {
+  display: grid;
+  border-top: 1px solid #d2d2d7;
+}
+
+.home-faq-list details {
+  border-bottom: 1px solid #d2d2d7;
+}
+
+.home-faq-list summary {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: #1d1d1f;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.2;
+  list-style: none;
+}
+
+.home-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.home-faq-list summary::after {
+  flex: 0 0 auto;
+  color: #6e6e73;
+  content: "+";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.home-faq-list details[open] summary::after {
+  content: "-";
+}
+
+.home-faq-list details p {
+  max-width: 620px;
+  margin: -4px 0 20px;
+  color: #6e6e73;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .download-footer {
@@ -371,6 +510,41 @@ body:has(.minimal-page) .site-footer {
 
 .minimal-page a:hover {
   text-decoration: underline;
+}
+
+.support-paths {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.support-paths a {
+  display: grid;
+  gap: 6px;
+  min-height: 132px;
+  align-content: start;
+  padding: 18px;
+  border: 1px solid #d2d2d7;
+  border-radius: 18px;
+  background: rgb(255 255 255 / 0.62);
+  text-decoration: none;
+}
+
+.support-paths a:hover {
+  text-decoration: none;
+}
+
+.support-paths strong {
+  color: #1d1d1f;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.support-paths span {
+  color: #6e6e73;
+  font-size: 0.94rem;
+  line-height: 1.42;
 }
 
 .minimal-ledger {
@@ -1541,6 +1715,14 @@ body:has(.cinematic-home) .site-footer {
   }
 
   .home-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-faq-list summary {
+    font-size: 17px;
+  }
+
+  .support-paths {
     grid-template-columns: 1fr;
   }
 

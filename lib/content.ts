@@ -44,6 +44,33 @@ export const capabilityCells = [
   }
 ];
 
+export const homeFeatureCards = [
+  {
+    title: "See what’s above you",
+    body: "Open a live view of Earth and follow satellites as they move overhead."
+  },
+  {
+    title: "Know when to look",
+    body: "See upcoming passes, peak viewing times, and the best moments to step outside."
+  },
+  {
+    title: "Point to the sky",
+    body: "Use Sky Mode to line up the screen with the sky above you."
+  },
+  {
+    title: "Find satellites fast",
+    body: "Search by name, mission, number, or familiar terms and get to the right satellite quickly."
+  },
+  {
+    title: "Understand the moment",
+    body: "Get simple context for satellites, launches, reentries, and orbital events."
+  },
+  {
+    title: "Follow space news",
+    body: "Follow launches, mission updates, live streams, and major stories beside the tracker."
+  }
+];
+
 export const sequence = [
   {
     label: "CATALOG",

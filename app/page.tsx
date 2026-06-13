@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { capabilityCells } from "@/lib/content";
+import { homeFeatureCards } from "@/lib/content";
 import { assetPath } from "@/lib/site";
 
 const screenshots = [
@@ -52,14 +52,13 @@ export default function HomePage() {
       <section className="home-features" aria-labelledby="home-features-title">
         <div className="home-features-heading">
           <p>What it does</p>
-          <h2 id="home-features-title">From orbit data to what you can actually see.</h2>
+          <h2 id="home-features-title">Know what’s above. And when to look.</h2>
         </div>
         <div className="home-feature-grid">
-          {capabilityCells.map((cell) => (
-            <article key={cell.code}>
-              <samp>{cell.code}</samp>
-              <h3>{cell.title}</h3>
-              <p>{cell.body}</p>
+          {homeFeatureCards.map((card) => (
+            <article key={card.title}>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
             </article>
           ))}
         </div>

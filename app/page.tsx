@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { capabilityCells } from "@/lib/content";
 import { assetPath } from "@/lib/site";
 
 const screenshots = [
@@ -28,6 +29,7 @@ export default function HomePage() {
           priority
         />
         <h1 id="download-title">Live Orbit</h1>
+        <p className="promise-line">Track satellites live from your iPhone.</p>
         <p className="platform-line">Built for iPhone</p>
         <a className="download-button" href="https://apps.apple.com/app/id6766396809" aria-label="Download Live Orbit on the App Store">
           Download
@@ -46,6 +48,22 @@ export default function HomePage() {
           />
         ))}
       </div>
+
+      <section className="home-features" aria-labelledby="home-features-title">
+        <div className="home-features-heading">
+          <p>What it does</p>
+          <h2 id="home-features-title">From orbit data to what you can actually see.</h2>
+        </div>
+        <div className="home-feature-grid">
+          {capabilityCells.map((cell) => (
+            <article key={cell.code}>
+              <samp>{cell.code}</samp>
+              <h3>{cell.title}</h3>
+              <p>{cell.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <footer className="download-footer">
         <p>© 2026 Apps Made Better LLC</p>

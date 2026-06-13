@@ -155,24 +155,28 @@ export const supportTopics = [
 
 export const homepageFaq = [
   {
-    question: "Is Live Orbit available now?",
-    answer: "Live Orbit is preparing for launch. The App Store page will be linked here when it is public."
+    question: "How can I test Live Orbit?",
+    answer: "Tap Apply for TestFlight and send a short tester application. If there is room in the testing group, you will get an invite through Apple’s TestFlight app when a build is ready."
   },
   {
     question: "Do I need an account?",
-    answer: "No. Live Orbit is designed to work without making you create an account."
+    answer: "No. Live Orbit is designed so you can open the app and start exploring without creating an account, setting up a profile, or handing over extra personal details."
+  },
+  {
+    question: "How does Live Orbit use my location?",
+    answer: "Your location is used to show what is visible from where you are. It helps calculate passes, align the sky view, and make the app feel local to you. You stay in control of location access from iPhone Settings."
   },
   {
     question: "What can I track?",
-    answer: "You can follow satellites, visible passes, launches, sky events, and space news from one place."
+    answer: "You can follow satellites as they move around Earth, check when passes are worth stepping outside for, keep up with launches, and see space news beside the tracker instead of jumping between different apps."
   },
   {
     question: "Why do pass times change?",
-    answer: "Satellite paths are updated from public orbit data, so timing can shift as newer data becomes available."
+    answer: "Satellites move fast, and their paths are updated from public orbit data. As newer data comes in, pass times can shift a little. Live Orbit is meant to make those changes easier to understand."
   },
   {
     question: "Will it work on iPad or Mac?",
-    answer: "Live Orbit is being built for iPhone first."
+    answer: "Live Orbit is being built for iPhone first so the core experience can feel focused, fast, and native. Other platforms can be considered after the iPhone version is solid."
   }
 ];
 

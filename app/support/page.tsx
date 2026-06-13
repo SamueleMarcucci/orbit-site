@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { supportPaths } from "@/lib/content";
+import { SupportContactForm } from "@/components/support-contact-form";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -18,15 +18,8 @@ export default function SupportPage() {
       </header>
 
       <section>
-        <h2>Choose a path</h2>
-        <div className="support-paths">
-          {supportPaths.map((path) => (
-            <a key={path.subject} href={`mailto:${site.supportEmail}?subject=${encodeURIComponent(path.subject)}`}>
-              <strong>{path.title}</strong>
-              <span>{path.body}</span>
-            </a>
-          ))}
-        </div>
+        <h2>Contact support</h2>
+        <SupportContactForm />
       </section>
 
       <section>

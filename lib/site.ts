@@ -2,6 +2,7 @@ export const site = {
   name: "Live Orbit",
   domain: "liveorbitapp.com",
   url: "https://liveorbitapp.com",
+  companyEmail: "founder@appsmadebetter.com",
   supportEmail: "support@liveorbitapp.com",
   launchSubject: "Live Orbit launch list"
 };

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { homeFeatureCards, homepageFaq } from "@/lib/content";
 import { assetPath } from "@/lib/site";
 
@@ -31,12 +32,9 @@ export default function HomePage() {
         <h1 id="download-title">Live Orbit</h1>
         <p className="promise-line">Track satellites live from your iPhone.</p>
         <p className="platform-line">Built for iPhone</p>
-        <p className="launch-status">Launching soon</p>
-        <div className="store-badge" aria-label="Coming soon on the App Store">
-          <span>Coming soon on the</span>
-          <strong>App Store</strong>
-        </div>
-        <p className="privacy-reassurance">Your location stays on your device. Live Orbit uses it only to show what’s visible from where you are.</p>
+        <Link className="download-button" href="/testing/">
+          Apply for TestFlight
+        </Link>
       </div>
 
       <div className="download-screenshots" aria-label="Live Orbit screenshots">
@@ -76,7 +74,11 @@ export default function HomePage() {
           {homepageFaq.map((item) => (
             <details key={item.question}>
               <summary>{item.question}</summary>
-              <p>{item.answer}</p>
+              <div className="faq-answer">
+                <div>
+                  <p>{item.answer}</p>
+                </div>
+              </div>
             </details>
           ))}
         </div>

@@ -145,24 +145,6 @@ body:has(.minimal-page) .site-footer {
   line-height: 1;
 }
 
-.launch-status {
-  display: inline-flex;
-  min-height: 34px;
-  align-items: center;
-  justify-content: center;
-  margin: -2px 0 0;
-  padding: 0 14px;
-  border: 1px solid rgb(29 29 31 / 0.1);
-  border-radius: 999px;
-  background: rgb(255 255 255 / 0.68);
-  color: #6e6e73;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 650;
-  letter-spacing: 0;
-  line-height: 1;
-}
-
 .download-button {
   display: inline-flex;
   min-height: 48px;
@@ -180,43 +162,6 @@ body:has(.minimal-page) .site-footer {
 
 .download-button:active {
   transform: scale(0.98);
-}
-
-.store-badge {
-  display: grid;
-  min-width: 178px;
-  min-height: 56px;
-  align-content: center;
-  justify-items: start;
-  padding: 8px 16px 9px;
-  border-radius: 14px;
-  background: #111;
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-  line-height: 1.05;
-  box-shadow: 0 12px 28px rgb(0 0 0 / 0.14);
-}
-
-.store-badge span {
-  color: rgb(255 255 255 / 0.78);
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.store-badge strong {
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-
-.privacy-reassurance {
-  max-width: 520px;
-  margin: -2px 0 0;
-  color: #6e6e73;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-  font-size: 14px;
-  line-height: 1.42;
-  text-align: center;
 }
 
 .download-screenshots {
@@ -378,6 +323,20 @@ body:has(.minimal-page) .site-footer {
   content: "-";
 }
 
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 260ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.home-faq-list details[open] .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer > div {
+  overflow: hidden;
+}
+
 .home-faq-list details p {
   max-width: 620px;
   margin: -4px 0 20px;
@@ -512,39 +471,184 @@ body:has(.minimal-page) .site-footer {
   text-decoration: underline;
 }
 
-.support-paths {
+.apple-form {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
+  gap: 18px;
 }
 
-.support-paths a {
+.form-grid {
   display: grid;
-  gap: 6px;
-  min-height: 132px;
-  align-content: start;
-  padding: 18px;
+  gap: 14px;
+}
+
+.form-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.apple-form label,
+.apple-form fieldset {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.apple-form label > span,
+.apple-form legend {
+  color: #1d1d1f;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.apple-form input[type="text"],
+.apple-form input:not([type]),
+.apple-form textarea {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 16px;
+  border: 1px solid #d2d2d7;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.72);
+  color: #1d1d1f;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.35;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.apple-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.apple-form input:focus,
+.apple-form textarea:focus {
+  border-color: #0071e3;
+  background: white;
+  box-shadow: 0 0 0 4px rgb(0 113 227 / 0.14);
+}
+
+.segmented-options,
+.support-choice-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.segmented-options label,
+.support-choice-list label {
+  cursor: pointer;
+}
+
+.segmented-options input,
+.support-choice-list input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.segmented-options span {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border: 1px solid #d2d2d7;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.68);
+  color: #6e6e73;
+  font-size: 0.92rem;
+  font-weight: 650;
+  line-height: 1;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 120ms ease;
+}
+
+.segmented-options input:checked + span {
+  border-color: #0071e3;
+  background: #0071e3;
+  color: white;
+}
+
+.segmented-options span:active,
+.support-choice-list span:active,
+.form-actions button:active {
+  transform: scale(0.98);
+}
+
+.support-choice-list {
+  display: grid;
+  gap: 10px;
+}
+
+.support-choice-list span {
+  display: grid;
+  gap: 5px;
+  padding: 16px 18px;
   border: 1px solid #d2d2d7;
   border-radius: 18px;
-  background: rgb(255 255 255 / 0.62);
-  text-decoration: none;
+  background: rgb(255 255 255 / 0.68);
+  transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
 }
 
-.support-paths a:hover {
-  text-decoration: none;
+.support-choice-list input:checked + span {
+  border-color: rgb(0 113 227 / 0.55);
+  background: white;
+  box-shadow: 0 0 0 4px rgb(0 113 227 / 0.1);
 }
 
-.support-paths strong {
+.support-choice-list strong {
   color: #1d1d1f;
   font-size: 1rem;
   line-height: 1.2;
 }
 
-.support-paths span {
+.support-choice-list small {
   color: #6e6e73;
   font-size: 0.94rem;
-  line-height: 1.42;
+  line-height: 1.4;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-actions button {
+  min-height: 48px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: #0071e3;
+  color: white;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: 0;
+  transition: background-color 160ms ease, transform 120ms ease;
+}
+
+.form-actions button:hover {
+  background: #0077ed;
+}
+
+.form-actions a {
+  color: #0066cc;
+  font-size: 0.96rem;
+  font-weight: 650;
+}
+
+.form-status {
+  min-height: 24px;
+  color: #6e6e73;
+  font-size: 0.96rem;
 }
 
 .minimal-ledger {
@@ -1722,7 +1826,7 @@ body:has(.cinematic-home) .site-footer {
     font-size: 17px;
   }
 
-  .support-paths {
+  .form-grid.two {
     grid-template-columns: 1fr;
   }
 

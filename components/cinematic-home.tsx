@@ -138,7 +138,7 @@ export function CinematicHome() {
         <OrbitalCanvas mode="hero" className="orbital-canvas hero-canvas" />
         <div className="hero-vignette" aria-hidden="true" />
         <div className="hero-copy-shell">
-          <p className="cinema-kicker">Live iPhone satellite tracking</p>
+          <p className="cinema-kicker">Native iPhone satellite tracking</p>
           <h1 id="cinema-title" aria-label="Watch the sky move.">
             <span className="hero-line" aria-hidden="true">
               <span className="hero-word">Watch</span>{" "}

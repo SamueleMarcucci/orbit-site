@@ -328,16 +328,20 @@ body:has(.minimal-page) .site-footer {
   border-top: 1px solid #d2d2d7;
 }
 
-.home-faq-list details {
+.home-faq-item {
   border-bottom: 1px solid #d2d2d7;
 }
 
-.home-faq-list summary {
+.home-faq-item button {
   min-height: 64px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: #1d1d1f;
   cursor: pointer;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
@@ -345,41 +349,52 @@ body:has(.minimal-page) .site-footer {
   font-weight: 650;
   letter-spacing: 0;
   line-height: 1.2;
-  list-style: none;
+  text-align: left;
 }
 
-.home-faq-list summary::-webkit-details-marker {
-  display: none;
+.home-faq-item button:focus-visible {
+  outline: 3px solid rgb(0 113 227 / 0.35);
+  outline-offset: 4px;
 }
 
-.home-faq-list summary::after {
+.home-faq-item button::after {
   flex: 0 0 auto;
   color: #6e6e73;
   content: "+";
   font-size: 24px;
   font-weight: 400;
   line-height: 1;
+  transform: rotate(0deg);
+  transition: transform 260ms cubic-bezier(0.32, 0.72, 0, 1), color 260ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.home-faq-list details[open] summary::after {
+.home-faq-item[data-open="true"] button::after {
   content: "-";
+  transform: rotate(180deg);
 }
 
 .faq-answer {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 260ms cubic-bezier(0.32, 0.72, 0, 1);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    grid-template-rows 300ms cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 220ms ease,
+    transform 300ms cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.home-faq-list details[open] .faq-answer {
+.home-faq-item[data-open="true"] .faq-answer {
   grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .faq-answer > div {
   overflow: hidden;
 }
 
-.home-faq-list details p {
+.home-faq-list p {
   max-width: 620px;
   margin: -4px 0 20px;
   color: #6e6e73;
@@ -1970,7 +1985,7 @@ body:has(.cinematic-home) .site-footer {
     grid-template-columns: 1fr;
   }
 
-  .home-faq-list summary {
+  .home-faq-item button {
     font-size: 17px;
   }
 

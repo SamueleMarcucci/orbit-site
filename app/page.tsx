@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HomeFaqList } from "@/components/home-faq-list";
 import { homeFeatureCards, homepageFaq } from "@/lib/content";
 import { assetPath } from "@/lib/site";
 
@@ -105,18 +106,7 @@ export default function HomePage() {
           <p>Good to know</p>
           <h2 id="home-faq-title">A few quick answers.</h2>
         </div>
-        <div className="home-faq-list">
-          {homepageFaq.map((item) => (
-            <details key={item.question}>
-              <summary>{item.question}</summary>
-              <div className="faq-answer">
-                <div>
-                  <p>{item.answer}</p>
-                </div>
-              </div>
-            </details>
-          ))}
-        </div>
+        <HomeFaqList items={homepageFaq} />
       </section>
 
       <footer className="download-footer">

@@ -32,6 +32,8 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
       - name: Build
+        env:
+          NEXT_PUBLIC_GTM_ID: GTM-NGHNSLPP
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

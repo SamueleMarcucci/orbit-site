@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { assetPath, site } from "@/lib/site";
+import { assetPath, site, socialPreviewImage } from "@/lib/site";
 
 const DEFAULT_DESCRIPTION =
   "A native iPhone app for live satellites, visible passes, Sky Mode, launches, space news, and trusted orbital context.";
@@ -33,14 +33,14 @@ export function pageMetadata({
       description,
       url,
       siteName: site.name,
-      images: [{ url: assetPath("/og-image.svg"), width: 1200, height: 630, alt: "Live Orbit wordmark with a luminous orbital arc" }],
+      images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit app icon, wordmark, and download button" }],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
       title: title ? `${title} | ${site.name}` : site.name,
       description,
-      images: [assetPath("/og-image.svg")],
+      images: [assetPath(socialPreviewImage)],
     },
   };
 }

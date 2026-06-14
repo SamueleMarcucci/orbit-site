@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Archivo_Black, Geist, Geist_Mono } from "next/font/google";
 import { AnalyticsEvents } from "@/components/analytics-events";
-import { assetPath, basePath, site } from "@/lib/site";
+import { assetPath, basePath, site, socialPreviewImage } from "@/lib/site";
 import "./globals.css";
 
 const display = Archivo_Black({
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
     description: "Satellite tracking built for iPhone with visible passes, Sky Mode, launches, news, and trusted orbital context.",
     url: site.url,
     siteName: "Live Orbit",
-    images: [{ url: assetPath("/og-image.svg"), width: 1200, height: 630, alt: "Live Orbit wordmark with a luminous orbital arc" }],
+    images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit app icon, wordmark, and download button" }],
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
     title: "Live Orbit",
     description: "Satellite tracking built for iPhone with visible passes, Sky Mode, launches, news, and trusted orbital context.",
-    images: [assetPath("/og-image.svg")]
+    images: [assetPath(socialPreviewImage)]
   },
   alternates: {
     canonical: site.url

@@ -14,11 +14,12 @@ type ScreenshotCarouselProps = {
   screenshots: Screenshot[];
 };
 
-const AUTO_ADVANCE_MS = 3600;
-const RESUME_DELAY_MS = 5000;
-const SWIPE_THRESHOLD = 44;
+const WRAP_AROUND = true;
+const LOOP_COPIES = 3;
+const AUTO_SPEED_PX_PER_SECOND = 42;
+const START_EASE_MS = 900;
 
-function getVisibleCount() {
+function readVisibleScreenshotCount() {
   if (window.innerWidth < 640) {
     return 1;
   }
@@ -30,33 +31,24 @@ function getVisibleCount() {
   return 3;
 }
 
+function easeOutCubic(progress: number) {
+  return 1 - Math.pow(1 - progress, 3);
+}
+
 export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
-  const lastInteractionRef = useRef(-RESUME_DELAY_MS);
-  const isDraggingRef = useRef(false);
-  const dragStartXRef = useRef(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const [visibleCount, setVisibleCount] = useState(3);
-  const [activePage, setActivePage] = useState(0);
 
-  const pages = useMemo(() => {
-    const chunks: Screenshot[][] = [];
-
-    for (let index = 0; index < screenshots.length; index += visibleCount) {
-      const chunk = screenshots.slice(index, index + visibleCount);
-
-      while (chunk.length < visibleCount && screenshots.length > 0) {
-        chunk.push(screenshots[chunk.length % screenshots.length]);
-      }
-
-      chunks.push(chunk);
-    }
-
-    return chunks;
-  }, [screenshots, visibleCount]);
-  const normalizedActivePage = pages.length > 0 ? activePage % pages.length : 0;
+  const hasScreenshots = screenshots.length > 0;
+  const loopGroups = useMemo(
+    () => Array.from({ length: LOOP_COPIES }, (_, groupIndex) => groupIndex),
+    [],
+  );
 
   useEffect(() => {
     function syncVisibleCount() {
-      setVisibleCount(getVisibleCount());
+      setVisibleCount(readVisibleScreenshotCount());
     }
 
     syncVisibleCount();
@@ -65,68 +57,113 @@ export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
   }, []);
 
   useEffect(() => {
-    if (pages.length <= 1 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const carousel = carouselRef.current;
+    const track = trackRef.current;
+    const firstLoop = track?.querySelector<HTMLElement>(".download-screenshot-loop");
+
+    if (!carousel || !track || !firstLoop || !hasScreenshots || screenshots.length <= visibleCount || !WRAP_AROUND) {
       return;
     }
 
-    const intervalId = window.setInterval(() => {
-      const now = performance.now();
-      if (!isDraggingRef.current && now - lastInteractionRef.current >= RESUME_DELAY_MS) {
-        setActivePage((page) => (page + 1) % pages.length);
-      }
-    }, AUTO_ADVANCE_MS);
+    const carouselElement = carousel;
+    const trackElement = track;
+    const firstLoopElement = firstLoop;
+    const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reduceMotionQuery.matches) {
+      return;
+    }
 
-    return () => window.clearInterval(intervalId);
-  }, [pages.length]);
+    let animationFrame = 0;
+    let loopWidth = 0;
+    let offset = 0;
+    let lastTime = 0;
+    let startTime = 0;
+
+    function measureLoopWidth() {
+      const trackStyle = window.getComputedStyle(trackElement);
+      const gap = Number.parseFloat(trackStyle.columnGap || trackStyle.gap || "0") || 0;
+      loopWidth = firstLoopElement.getBoundingClientRect().width + gap;
+    }
+
+    const resizeObserver = new ResizeObserver(measureLoopWidth);
+    resizeObserver.observe(carouselElement);
+    resizeObserver.observe(firstLoopElement);
+    measureLoopWidth();
+
+    function animate(time: number) {
+      if (startTime === 0) {
+        startTime = time;
+      }
+
+      if (lastTime === 0) {
+        lastTime = time;
+      }
+
+      const deltaSeconds = (time - lastTime) / 1000;
+      const rampProgress = Math.min((time - startTime) / START_EASE_MS, 1);
+      const speed = AUTO_SPEED_PX_PER_SECOND * easeOutCubic(rampProgress);
+      lastTime = time;
+
+      if (loopWidth > 0) {
+        offset = (offset + speed * deltaSeconds) % loopWidth;
+        carouselElement.style.setProperty("--carousel-slide-x", `${-offset.toFixed(2)}px`);
+      }
+
+      animationFrame = window.requestAnimationFrame(animate);
+    }
+
+    animationFrame = window.requestAnimationFrame(animate);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      resizeObserver.disconnect();
+      carouselElement.style.removeProperty("--carousel-slide-x");
+    };
+  }, [hasScreenshots, screenshots.length, visibleCount]);
+
+  if (!hasScreenshots) {
+    return null;
+  }
 
   return (
     <div
       className="download-screenshots"
       aria-label="Live Orbit screenshots"
       data-visible-count={visibleCount}
-      onPointerDown={(event) => {
-        isDraggingRef.current = true;
-        lastInteractionRef.current = performance.now();
-        dragStartXRef.current = event.clientX;
-        event.currentTarget.setPointerCapture(event.pointerId);
-      }}
-      onPointerUp={(event) => {
-        const deltaX = event.clientX - dragStartXRef.current;
-        isDraggingRef.current = false;
-        lastInteractionRef.current = performance.now();
-        event.currentTarget.releasePointerCapture(event.pointerId);
-
-        if (Math.abs(deltaX) >= SWIPE_THRESHOLD && pages.length > 1) {
-          setActivePage((page) => (deltaX < 0 ? page + 1 : page - 1 + pages.length) % pages.length);
-        }
-      }}
-      onPointerCancel={() => {
-        isDraggingRef.current = false;
-        lastInteractionRef.current = performance.now();
-      }}
+      data-wrap-around={WRAP_AROUND}
+      ref={carouselRef}
     >
-      <div className="download-screenshot-stage">
-        {pages.map((page, pageIndex) => (
-          <div
-            className="download-screenshot-page"
-            data-active={pageIndex === normalizedActivePage}
-            key={`${pageIndex}-${page.map((screenshot) => screenshot.src).join("-")}`}
-            aria-hidden={pageIndex !== normalizedActivePage}
-          >
-            {page.map((screenshot, index) => (
-              <Image
-                key={`${screenshot.src}-${pageIndex}`}
-                src={assetPath(screenshot.src)}
-                alt={pageIndex === normalizedActivePage ? screenshot.alt : ""}
-                width={1242}
-                height={2688}
-                loading={pageIndex === 0 ? "eager" : "lazy"}
-                fetchPriority={pageIndex === 0 ? "high" : "auto"}
-                preload={pageIndex === 0}
-                style={{ "--screenshot-index": index } as CSSProperties}
-              />
-            ))}
-          </div>
+      <div className="download-screenshot-viewport">
+        <div className="download-screenshot-track" ref={trackRef} aria-hidden="true">
+          {loopGroups.map((groupIndex) => (
+            <div className="download-screenshot-loop" key={groupIndex}>
+              {screenshots.map((screenshot, screenshotIndex) => (
+                <div
+                  className="download-screenshot-cell"
+                  key={`${screenshot.src}-${groupIndex}`}
+                  style={{ "--screenshot-index": screenshotIndex % 6 } as CSSProperties}
+                >
+                  <div className="download-screenshot-frame">
+                    <Image
+                      src={assetPath(screenshot.src)}
+                      alt=""
+                      width={1242}
+                      height={2688}
+                      loading={groupIndex === 0 && screenshotIndex < visibleCount ? "eager" : "lazy"}
+                      fetchPriority={groupIndex === 0 && screenshotIndex < visibleCount ? "high" : "auto"}
+                      preload={groupIndex === 0 && screenshotIndex < visibleCount}
+                      draggable={false}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="sr-only">
+        {screenshots.map((screenshot) => (
+          <div key={screenshot.src}>{screenshot.alt}</div>
         ))}
       </div>
     </div>

@@ -1425,8 +1425,6 @@ body:has(.minimal-page) .site-footer {
   width: clamp(86px, 12vw, 112px);
   height: clamp(86px, 12vw, 112px);
   margin-bottom: 4px;
-  border-radius: 22%;
-  box-shadow: 0 18px 46px rgb(255 132 54 / 0.22), 0 0 0 1px rgb(29 29 31 / 0.08);
 }
 
 .not-found-actions {

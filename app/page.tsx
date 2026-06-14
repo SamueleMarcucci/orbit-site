@@ -51,7 +51,7 @@ const screenshots = [
 ];
 
 export const metadata: Metadata = pageMetadata({
-  description: "A native iPhone satellite tracker for live orbits, visible passes, Sky Mode, launches, space news, and trusted orbital context.",
+  description: "A native iPhone app for live satellites, visible passes, Sky Mode, launches, space news, and trusted orbital context.",
 });
 
 export default function HomePage() {

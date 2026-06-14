@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { assetPath, site } from "@/lib/site";
 
 const DEFAULT_DESCRIPTION =
-  "A native iPhone satellite tracker for live orbits, visible passes, Sky Mode, launches, space news, and trusted orbital context.";
+  "A native iPhone app for live satellites, visible passes, Sky Mode, launches, space news, and trusted orbital context.";
 
 export type JsonLdData = Record<string, unknown>;
 
@@ -24,7 +24,7 @@ export function pageMetadata({
 }): Metadata {
   const url = canonical(path);
   return {
-    title: title || { absolute: "Live Orbit | Native Satellite Tracker for iPhone" },
+    title: title || { absolute: "Live Orbit | Satellite Tracking, Built for iPhone" },
     description,
     alternates: { canonical: url },
     robots: noindex ? { index: false, follow: true } : { index: true, follow: true },

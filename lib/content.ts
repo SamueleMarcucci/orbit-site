@@ -62,8 +62,8 @@ export const homeFeatureCards = [
     body: "Explore radio-capable satellites, transmitter details, and public observation recordings when signal data is available."
   },
   {
-    title: "Orbit Intelligence",
-    body: "See launches, reentries, close approaches, space weather, fleet changes, and source-backed context in one place."
+    title: "AI Orbit Intelligence",
+    body: "AI-powered satellite tracking with built-in intelligence for launches, crew missions, news, reentries, close approaches, space weather, and source-backed context."
   },
   {
     title: "Beyond Earth",

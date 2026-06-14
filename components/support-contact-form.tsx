@@ -1,6 +1,15 @@
 import { supportPaths } from "@/lib/content";
 import { site } from "@/lib/site";
 
+const supportOptions = [
+  ...supportPaths,
+  {
+    title: "Other",
+    body: "Send anything else about Live Orbit.",
+    subject: "Live Orbit support other"
+  }
+];
+
 export function SupportContactForm() {
   return (
     <form className="apple-form support-form" action={`https://formsubmit.co/${site.companyEmail}`} method="POST">
@@ -9,10 +18,9 @@ export function SupportContactForm() {
       <input type="hidden" name="_next" value={`${site.url}/support/thanks/`} />
       <input type="text" name="_honey" className="hidden-field" tabIndex={-1} autoComplete="off" />
 
-      <fieldset>
-        <legend>What do you need?</legend>
+      <fieldset aria-label="Support topic">
         <div className="support-choice-list">
-          {supportPaths.map((path, index) => (
+          {supportOptions.map((path, index) => (
             <label key={path.subject}>
               <input type="radio" name="support_topic" value={path.title} defaultChecked={index === 0} />
               <span>

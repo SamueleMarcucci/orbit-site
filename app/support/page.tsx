@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "Contact Live Orbit support and join the launch list."
 };
 
+const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${site.companyEmail}&su=${encodeURIComponent("Live Orbit support")}`;
+
 export default function SupportPage() {
   return (
     <article className="minimal-page form-page support-page">
@@ -24,9 +26,11 @@ export default function SupportPage() {
 
       <section className="support-direct">
         <h2>Direct email</h2>
-        <p>
-          You can also write directly to <a href={`mailto:${site.companyEmail}`}>{site.companyEmail}</a>.
-        </p>
+        <p>You can also write directly to {site.companyEmail}.</p>
+        <div className="support-direct-links">
+          <a href={`mailto:${site.companyEmail}?subject=${encodeURIComponent("Live Orbit support")}`}>Open in Mail</a>
+          <a href={gmailHref} target="_blank" rel="noreferrer">Open in Gmail</a>
+        </div>
       </section>
 
       <section className="support-details">

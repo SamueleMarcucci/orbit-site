@@ -730,6 +730,14 @@ body:has(.minimal-page) .site-footer {
   text-align: center;
 }
 
+.support-direct-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
 .support-direct a,
 .thanks-actions a {
   display: inline-flex;

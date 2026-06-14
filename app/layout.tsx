@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       { url: assetPath("/favicon.ico") },
       { url: assetPath("/assets/live-orbit-google-icon.png"), type: "image/png", sizes: "1024x1024" }
     ],
-    apple: assetPath("/assets/live-orbit-icon.png")
+    apple: assetPath("/assets/live-orbit-app-icon.png")
   }
 };
 

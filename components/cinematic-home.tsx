@@ -124,7 +124,7 @@ export function CinematicHome() {
     <div className="cinematic-home" ref={rootRef}>
       <nav className="cinema-nav" aria-label="Live Orbit">
         <a href="#top" className="cinema-brand">
-          <Image src={assetPath("/assets/live-orbit-icon.png")} alt="" width={34} height={34} priority />
+          <Image src={assetPath("/assets/live-orbit-app-icon.png")} alt="" width={34} height={34} priority />
           <span>Live Orbit</span>
         </a>
         <div>

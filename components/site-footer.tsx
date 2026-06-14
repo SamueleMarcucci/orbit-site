@@ -6,7 +6,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-mark">
-        <Image src={assetPath("/assets/live-orbit-icon.png")} alt="" width={42} height={42} />
+        <Image src={assetPath("/assets/live-orbit-app-icon.png")} alt="" width={42} height={42} />
         <span>Live Orbit</span>
       </div>
       <div className="footer-command">

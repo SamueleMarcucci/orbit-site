@@ -22,7 +22,7 @@ export default function AboutPage() {
       />
       <section className="about-panel">
         <div>
-          <Image src={assetPath("/assets/live-orbit-icon.png")} alt="Live Orbit app icon" width={132} height={132} priority />
+          <Image src={assetPath("/assets/live-orbit-app-icon.png")} alt="Live Orbit app icon" width={132} height={132} priority />
         </div>
         <div>
           <h2>Launch story</h2>

@@ -7,7 +7,7 @@
   "theme_color": "#070b12",
   "icons": [
     {
-      "src": "/assets/live-orbit-icon.png",
+      "src": "/assets/live-orbit-app-icon.png",
       "sizes": "1024x1024",
       "type": "image/png"
     }

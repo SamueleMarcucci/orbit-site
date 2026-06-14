@@ -52,9 +52,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: assetPath("/favicon.ico") },
+      { url: assetPath("/assets/live-orbit-search-icon-96.png"), type: "image/png", sizes: "96x96" },
+      { url: assetPath("/assets/live-orbit-search-icon.png"), type: "image/png", sizes: "1024x1024" },
       { url: assetPath("/assets/live-orbit-google-icon.png"), type: "image/png", sizes: "1024x1024" }
     ],
-    apple: assetPath("/assets/live-orbit-app-icon.png")
+    apple: assetPath("/assets/live-orbit-search-icon.png")
   }
 };
 

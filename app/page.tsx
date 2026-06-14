@@ -60,7 +60,7 @@ export default function HomePage() {
       <JsonLd data={[organizationJsonLd(), websiteJsonLd(), softwareJsonLd(), faqJsonLd(homepageFaq)]} />
       <div className="download-brand">
         <Image
-          src={assetPath("/assets/live-orbit-app-icon.png")}
+          src={assetPath("/assets/live-orbit-home-icon.png")}
           alt="Live Orbit app icon"
           width={132}
           height={132}

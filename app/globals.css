@@ -193,7 +193,8 @@ body:has(.minimal-page) .site-footer {
 
 .download-screenshots {
   --screenshot-gap: clamp(14px, 2.2vw, 30px);
-  width: min(100vw, 1440px);
+  --screenshot-width: clamp(258px, 27vw, 360px);
+  width: min(100%, calc(var(--screenshot-width) + var(--screenshot-width) + var(--screenshot-width) + var(--screenshot-gap) + var(--screenshot-gap)));
   overflow-x: hidden;
   overflow-y: hidden;
   scrollbar-width: none;
@@ -201,27 +202,50 @@ body:has(.minimal-page) .site-footer {
   animation: screenshotViewportReveal 820ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.download-screenshots[data-visible-count="2"] {
+  width: min(100%, calc(var(--screenshot-width) + var(--screenshot-width) + var(--screenshot-gap)));
+}
+
+.download-screenshots[data-visible-count="1"] {
+  width: min(100%, var(--screenshot-width));
+}
+
 .download-screenshots::-webkit-scrollbar {
   display: none;
 }
 
-.download-screenshot-track {
-  display: flex;
-  width: max-content;
+.download-screenshot-stage {
+  display: grid;
 }
 
-.download-screenshot-group {
-  display: flex;
-  flex: 0 0 auto;
-  align-items: flex-start;
+.download-screenshot-page {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: var(--screenshot-width) var(--screenshot-width) var(--screenshot-width);
   gap: var(--screenshot-gap);
-  padding-right: var(--screenshot-gap);
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(12px) scale(0.985);
+  transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1), transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.download-screenshots[data-visible-count="2"] .download-screenshot-page {
+  grid-template-columns: var(--screenshot-width) var(--screenshot-width);
+}
+
+.download-screenshots[data-visible-count="1"] .download-screenshot-page {
+  grid-template-columns: var(--screenshot-width);
+}
+
+.download-screenshot-page[data-active="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .download-screenshots img {
-  width: clamp(258px, 27vw, 360px);
+  width: var(--screenshot-width);
   height: auto;
-  flex: 0 0 auto;
   border-radius: 34px;
   clip-path: inset(0 round 34px);
   transform-origin: 50% 68%;
@@ -2070,11 +2094,11 @@ body:has(.cinematic-home) .site-footer {
   }
 
   .download-screenshots {
-    width: 100vw;
+    --screenshot-width: min(78vw, 354px);
+    width: 100%;
   }
 
   .download-screenshots img {
-    width: min(78vw, 354px);
     border-radius: 30px;
     clip-path: inset(0 round 30px);
   }

@@ -15,6 +15,34 @@ const screenshots = [
   {
     src: "/assets/app-store-loa/screen-sky.png",
     alt: "Live Orbit space news iPhone mockup"
+  },
+  {
+    src: "/assets/app-store-loa/screen-look-up.png",
+    alt: "Live Orbit Sky Mode iPhone mockup"
+  },
+  {
+    src: "/assets/app-store-loa/screen-deep-dive.png",
+    alt: "Live Orbit satellite detail iPhone mockup"
+  },
+  {
+    src: "/assets/app-store-loa/screen-beyond-earth.png",
+    alt: "Live Orbit Moon Sun and Mars iPhone mockup"
+  },
+  {
+    src: "/assets/app-store-loa/screen-radio.png",
+    alt: "Live Orbit radio signals iPhone mockup"
+  },
+  {
+    src: "/assets/app-store-loa/screen-events.png",
+    alt: "Live Orbit space events iPhone mockup"
+  },
+  {
+    src: "/assets/app-store-loa/screen-search.png",
+    alt: "Live Orbit search filters iPhone mockup"
+  },
+  {
+    src: "/assets/app-store-loa/screen-languages.png",
+    alt: "Live Orbit language settings iPhone mockup"
   }
 ];
 
@@ -39,16 +67,22 @@ export default function HomePage() {
       </div>
 
       <div className="download-screenshots" aria-label="Live Orbit screenshots">
-        {screenshots.map((screenshot) => (
-          <Image
-            key={screenshot.src}
-            src={assetPath(screenshot.src)}
-            alt={screenshot.alt}
-            width={1242}
-            height={2688}
-            priority
-          />
-        ))}
+        <div className="download-screenshot-track">
+          {[0, 1].map((groupIndex) => (
+            <div className="download-screenshot-group" key={groupIndex} aria-hidden={groupIndex === 1}>
+              {screenshots.map((screenshot, index) => (
+                <Image
+                  key={`${screenshot.src}-${groupIndex}`}
+                  src={assetPath(screenshot.src)}
+                  alt={groupIndex === 0 ? screenshot.alt : ""}
+                  width={1242}
+                  height={2688}
+                  priority={groupIndex === 0 && index < 3}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
 
       <section className="home-features" aria-labelledby="home-features-title">

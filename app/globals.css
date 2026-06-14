@@ -176,22 +176,51 @@ body:has(.minimal-page) .site-footer {
 }
 
 .download-screenshots {
-  width: min(100%, 1280px);
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  justify-content: center;
-  justify-items: center;
-  align-items: start;
-  gap: clamp(12px, 2.2vw, 30px);
+  --screenshot-gap: clamp(14px, 2.2vw, 30px);
+  width: min(100vw, 1440px);
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0, black 3%, black 97%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, black 3%, black 97%, transparent 100%);
+}
+
+.download-screenshot-track {
+  display: flex;
+  width: max-content;
+  animation: screenshot-carousel 58s linear infinite;
+  will-change: transform;
+}
+
+.download-screenshot-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  gap: var(--screenshot-gap);
+  padding-right: var(--screenshot-gap);
 }
 
 .download-screenshots img {
-  width: 100%;
-  max-width: 360px;
+  width: clamp(258px, 27vw, 360px);
   height: auto;
+  flex: 0 0 auto;
   border-radius: 34px;
   clip-path: inset(0 round 34px);
   filter: drop-shadow(0 24px 42px rgb(0 0 0 / 0.18));
+}
+
+@keyframes screenshot-carousel {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-screenshot-track {
+    animation: none;
+  }
 }
 
 .home-features {
@@ -1928,11 +1957,11 @@ body:has(.cinematic-home) .site-footer {
   }
 
   .download-screenshots {
-    grid-template-columns: 1fr;
+    width: 100vw;
   }
 
   .download-screenshots img {
-    max-width: 354px;
+    width: min(78vw, 354px);
     border-radius: 30px;
     clip-path: inset(0 round 30px);
   }

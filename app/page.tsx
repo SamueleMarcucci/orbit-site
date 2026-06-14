@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HomeFaqList } from "@/components/home-faq-list";
+import { ScreenshotCarousel } from "@/components/screenshot-carousel";
 import { homeFeatureCards, homepageFaq } from "@/lib/content";
 import { assetPath } from "@/lib/site";
 
@@ -67,24 +68,7 @@ export default function HomePage() {
         <p className="launch-note">Coming soon, expected in the next week or two.</p>
       </div>
 
-      <div className="download-screenshots" aria-label="Live Orbit screenshots">
-        <div className="download-screenshot-track">
-          {[0, 1].map((groupIndex) => (
-            <div className="download-screenshot-group" key={groupIndex} aria-hidden={groupIndex === 1}>
-              {screenshots.map((screenshot, index) => (
-                <Image
-                  key={`${screenshot.src}-${groupIndex}`}
-                  src={assetPath(screenshot.src)}
-                  alt={groupIndex === 0 ? screenshot.alt : ""}
-                  width={1242}
-                  height={2688}
-                  priority={groupIndex === 0 && index < 3}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
+      <ScreenshotCarousel screenshots={screenshots} />
 
       <section className="home-features" aria-labelledby="home-features-title">
         <div className="home-features-heading">

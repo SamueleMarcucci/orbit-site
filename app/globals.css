@@ -164,6 +164,17 @@ body:has(.minimal-page) .site-footer {
   transform: scale(0.98);
 }
 
+.launch-note {
+  margin: -6px 0 0;
+  color: #6e6e73;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-align: center;
+}
+
 .download-screenshots {
   width: min(100%, 1280px);
   display: grid;

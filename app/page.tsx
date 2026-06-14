@@ -35,6 +35,7 @@ export default function HomePage() {
         <Link className="download-button" href="/testing/">
           Apply for TestFlight
         </Link>
+        <p className="launch-note">Coming soon, expected in the next week or two.</p>
       </div>
 
       <div className="download-screenshots" aria-label="Live Orbit screenshots">

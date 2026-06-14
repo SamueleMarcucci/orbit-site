@@ -46,28 +46,28 @@ export const capabilityCells = [
 
 export const homeFeatureCards = [
   {
-    title: "See what’s above you",
-    body: "Open a live view of Earth and follow satellites as they move overhead."
+    title: "Live 3D orbit tracking",
+    body: "Start with a real-time Earth globe built around actual satellite positions, orbit paths, and selected-object focus."
   },
   {
-    title: "Know when to look",
-    body: "See upcoming passes, peak viewing times, and the best moments to step outside."
+    title: "Passes you can understand",
+    body: "Plan visible passes with peak timing, sky direction, visibility grades, and local viewing context instead of raw orbit tables."
   },
   {
-    title: "Point to the sky",
-    body: "Use Sky Mode to line up the screen with the sky above you."
+    title: "Sky Mode pointing",
+    body: "Point your iPhone toward the sky and follow where a satellite should appear, with confidence states and offscreen guidance."
   },
   {
-    title: "Find satellites fast",
-    body: "Search by name, mission, number, or familiar terms and get to the right satellite quickly."
+    title: "Signals, not just dots",
+    body: "Explore radio-capable satellites, transmitter details, and public observation recordings when signal data is available."
   },
   {
-    title: "Understand the moment",
-    body: "Get simple context for satellites, launches, reentries, and orbital events."
+    title: "Orbit Intelligence",
+    body: "See launches, reentries, close approaches, space weather, fleet changes, and source-backed context in one place."
   },
   {
-    title: "Follow space news",
-    body: "Follow launches, mission updates, live streams, and major stories beside the tracker."
+    title: "Beyond Earth",
+    body: "Switch from Earth satellites to real Moon, Sun, and Mars spacecraft modes powered by ephemeris data."
   }
 ];
 

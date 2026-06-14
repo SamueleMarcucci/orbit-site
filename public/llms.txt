@@ -4,12 +4,9 @@ Live Orbit is an iPhone app by Apps Made Better LLC for live satellite tracking,
 
 ## Canonical pages
 - Home: https://www.liveorbitapp.com/
-- Features: https://www.liveorbitapp.com/features/
-- Data sources: https://www.liveorbitapp.com/data-sources/
 - Support: https://www.liveorbitapp.com/support/
 - Privacy: https://www.liveorbitapp.com/privacy/
 - Terms: https://www.liveorbitapp.com/terms/
-- About: https://www.liveorbitapp.com/about/
 - TestFlight application: https://www.liveorbitapp.com/testing/
 
 ## Entity relationships

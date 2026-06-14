@@ -128,8 +128,8 @@ export function CinematicHome() {
           <span>Live Orbit</span>
         </a>
         <div>
-          <a href="/features/">Features</a>
-          <a href="/data-sources/">Data</a>
+          <a href="/support/">Support</a>
+          <a href="/privacy/">Privacy</a>
           <a href={launchHref}>Join</a>
         </div>
       </nav>
@@ -157,8 +157,8 @@ export function CinematicHome() {
               Join the launch list
               <span aria-hidden="true">-&gt;</span>
             </a>
-            <a className="cinema-button cinema-button-quiet" href="/features/">
-              See what it does
+            <a className="cinema-button cinema-button-quiet" href="/testing/">
+              Apply for TestFlight
             </a>
           </div>
           <ul className="hero-proof" aria-label="Product truths">
@@ -233,7 +233,7 @@ export function CinematicHome() {
           <p>
             Live Orbit uses public orbital elements, app-side cached catalog data, iOS location permission, privacy-safe diagnostics, and clear limits for maps, passes, and AR pointing.
           </p>
-          <a className="cinema-text-link" href="/data-sources/">Read the data sources</a>
+          <a className="cinema-text-link" href="/privacy/">Read the privacy policy</a>
         </div>
         <div className="trust-lines cinematic-rise" aria-label="Trust notes">
           <p>No account required</p>

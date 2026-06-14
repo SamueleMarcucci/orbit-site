@@ -16,9 +16,6 @@ export function assetPath(path: string) {
 }
 
 export const navItems = [
-  { href: "/features/", label: "Features" },
-  { href: "/data-sources/", label: "Sources" },
   { href: "/support/", label: "Support" },
   { href: "/privacy/", label: "Privacy" },
-  { href: "/about/", label: "About" }
 ];

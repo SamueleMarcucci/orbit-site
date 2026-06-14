@@ -178,8 +178,8 @@ body:has(.minimal-page) .site-footer {
   width: 100%;
   max-width: 360px;
   height: auto;
-  border-radius: 60px;
-  clip-path: inset(0 round 60px);
+  border-radius: 34px;
+  clip-path: inset(0 round 34px);
   filter: drop-shadow(0 24px 42px rgb(0 0 0 / 0.18));
 }
 
@@ -1922,8 +1922,8 @@ body:has(.cinematic-home) .site-footer {
 
   .download-screenshots img {
     max-width: 354px;
-    border-radius: 52px;
-    clip-path: inset(0 round 52px);
+    border-radius: 30px;
+    clip-path: inset(0 round 30px);
   }
 
   .home-feature-grid {

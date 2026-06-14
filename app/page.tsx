@@ -51,7 +51,7 @@ const screenshots = [
 ];
 
 export const metadata: Metadata = pageMetadata({
-  description: "Track satellites live, plan visible passes, use Sky Mode, follow launches and space news, and get AI Orbit Intelligence on iPhone.",
+  description: "Track satellites live, plan visible passes, use Sky Mode, follow launches and space news, and explore trusted orbital context on iPhone.",
 });
 
 export default function HomePage() {

@@ -63,7 +63,7 @@ export const homeFeatureCards = [
   },
   {
     title: "AI Orbit Intelligence",
-    body: "AI-powered satellite tracking with built-in intelligence for launches, crew missions, news, reentries, close approaches, space weather, and source-backed context."
+    body: "Built-in intelligence for launches, crew missions, news, reentries, close approaches, space weather, and source-backed context."
   },
   {
     title: "Beyond Earth",

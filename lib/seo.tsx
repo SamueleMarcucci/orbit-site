@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { assetPath, site } from "@/lib/site";
 
 const DEFAULT_DESCRIPTION =
-  "Track satellites live, plan visible passes, use Sky Mode, follow launches and space news, and get AI Orbit Intelligence on iPhone.";
+  "Track satellites live, plan visible passes, use Sky Mode, follow launches and space news, and explore trusted orbital context on iPhone.";
 
 export type JsonLdData = Record<string, unknown>;
 
@@ -24,7 +24,7 @@ export function pageMetadata({
 }): Metadata {
   const url = canonical(path);
   return {
-    title: title || { absolute: "Live Orbit | AI-Powered Satellite Tracker for iPhone" },
+    title: title || { absolute: "Live Orbit | Track Satellites from Your iPhone" },
     description,
     alternates: { canonical: url },
     robots: noindex ? { index: false, follow: true } : { index: true, follow: true },

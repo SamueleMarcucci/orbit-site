@@ -51,11 +51,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: assetPath("/favicon.ico") },
-      { url: assetPath("/assets/live-orbit-search-icon-96.png"), type: "image/png", sizes: "96x96" },
+      { url: assetPath("/assets/live-orbit-google-icon-48.png"), type: "image/png", sizes: "48x48" },
+      { url: assetPath("/assets/live-orbit-google-icon-96.png"), type: "image/png", sizes: "96x96" },
+      { url: assetPath("/assets/live-orbit-google-icon-192.png"), type: "image/png", sizes: "192x192" },
+      { url: assetPath("/assets/live-orbit-google-icon-512.png"), type: "image/png", sizes: "512x512" },
+      { url: assetPath("/favicon.ico"), type: "image/x-icon", sizes: "any" },
       { url: assetPath("/assets/live-orbit-search-icon.png"), type: "image/png", sizes: "1024x1024" },
       { url: assetPath("/assets/live-orbit-google-icon.png"), type: "image/png", sizes: "1024x1024" }
     ],
+    shortcut: assetPath("/favicon.ico"),
     apple: assetPath("/assets/live-orbit-search-icon.png")
   }
 };

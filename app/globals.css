@@ -1407,37 +1407,6 @@ body:has(.minimal-page) .site-footer {
   margin-top: 18px;
 }
 
-body:has(.not-found) .site-header {
-  border-color: rgb(29 29 31 / 0.08);
-  background: rgb(255 255 255 / 0.74);
-  box-shadow: 0 12px 34px rgb(0 0 0 / 0.06);
-}
-
-body:has(.not-found) .brand-lockup,
-body:has(.not-found) .site-nav a {
-  color: #424245;
-}
-
-body:has(.not-found) .nav-action {
-  background: #0071e3;
-  color: white;
-}
-
-body:has(.not-found) .site-footer {
-  border-top-color: #d2d2d7;
-  color: #1d1d1f;
-}
-
-body:has(.not-found) .footer-command p,
-body:has(.not-found) .footer-meta {
-  color: #6e6e73;
-}
-
-body:has(.not-found) .footer-command a,
-body:has(.not-found) .footer-links a {
-  color: #424245;
-}
-
 .site-footer {
   display: grid;
   grid-template-columns: 0.75fr 1.25fr 0.7fr 0.9fr;

@@ -10,7 +10,7 @@ export function SiteFooter() {
         <span>Live Orbit</span>
       </div>
       <div className="footer-command">
-        <p>Prelaunch satellite tracking for iPhone. Availability will be announced when release is real.</p>
+        <p>AI-powered satellite tracking for iPhone. Availability will be announced when release is real.</p>
         <a href={launchHref}>Join the launch list</a>
       </div>
       <nav aria-label="Footer navigation" className="footer-links">

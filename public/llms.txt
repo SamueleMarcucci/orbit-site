@@ -1,6 +1,6 @@
 # Live Orbit
 
-Live Orbit is a prelaunch iPhone app by Apps Made Better LLC for satellite tracking, pass planning, Sky Mode, space news, insights, and orbital data context.
+Live Orbit is an iPhone app by Apps Made Better LLC for live satellite tracking, visible pass planning, Sky Mode, space news, launches, and AI Orbit Intelligence.
 
 ## Canonical pages
 - Home: https://liveorbitapp.com/

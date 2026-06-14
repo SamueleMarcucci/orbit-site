@@ -51,7 +51,7 @@ const screenshots = [
 ];
 
 export const metadata: Metadata = pageMetadata({
-  description: "Live Orbit is a prelaunch iPhone app for live satellite tracking, pass planning, Sky Mode, space news, insights, and trusted orbital data.",
+  description: "Track satellites live, plan visible passes, use Sky Mode, follow launches and space news, and get AI Orbit Intelligence on iPhone.",
 });
 
 export default function HomePage() {

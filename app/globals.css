@@ -195,8 +195,9 @@ body:has(.minimal-page) .site-footer {
   --screenshot-gap: clamp(14px, 2.2vw, 30px);
   --screenshot-width: clamp(258px, 27vw, 360px);
   --carousel-slide-x: 0px;
-  width: min(100%, 1680px);
-  max-width: 100%;
+  width: min(calc(100vw - 8px), 1680px);
+  max-width: calc(100vw - 8px);
+  margin-inline: calc((100% - min(calc(100vw - 8px), 1680px)) / 2);
   overflow: hidden;
   contain: layout paint;
   pointer-events: none;

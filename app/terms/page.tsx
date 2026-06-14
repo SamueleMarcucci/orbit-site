@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { breadcrumbJsonLd, JsonLd, pageMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Terms",
-  description: "Live Orbit terms and safety limits."
-};
+  description: "Live Orbit terms and safety limits.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (
     <article className="minimal-page">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Live Orbit", path: "/" }, { name: "Terms", path: "/terms" }])} />
       <header>
         <Link href="/" prefetch={false}>Live Orbit</Link>
         <h1>Terms</h1>

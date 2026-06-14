@@ -12,7 +12,7 @@ const supportOptions = [
 
 export function SupportContactForm() {
   return (
-    <form className="apple-form support-form" action={`https://formsubmit.co/${site.companyEmail}`} method="POST">
+    <form className="apple-form support-form" action={`https://formsubmit.co/${site.companyEmail}`} method="POST" data-analytics-event="support_form_submit" data-analytics-label="Support form">
       <input type="hidden" name="_subject" value="Live Orbit support request" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_next" value={`${site.url}/support/thanks/`} />

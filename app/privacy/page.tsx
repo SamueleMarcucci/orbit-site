@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-export const metadata: Metadata = {
+import { breadcrumbJsonLd, JsonLd, pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
   title: "Privacy",
   description:
-    "Live Orbit privacy policy for App Store privacy labels, location, analytics, diagnostics, support, purchases, identifiers, and local app data."
-};
+    "Live Orbit privacy policy for App Store privacy labels, location, analytics, diagnostics, support, purchases, identifiers, and local app data.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (
     <article className="minimal-page">
+      <JsonLd data={breadcrumbJsonLd([{ name: "Live Orbit", path: "/" }, { name: "Privacy", path: "/privacy" }])} />
       <header>
         <Link href="/" prefetch={false}>Live Orbit</Link>
         <h1>Privacy</h1>

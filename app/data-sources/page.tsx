@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { dataSourceSections } from "@/lib/content";
+import { breadcrumbJsonLd, JsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Data Sources",
-  description: "Live Orbit data source credits for satellite data, reference data, maps, and imagery."
-};
+  description: "Live Orbit data source credits for satellite data, reference data, maps, and imagery.",
+  path: "/data-sources",
+});
 
 export default function DataSourcesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Live Orbit", path: "/" }, { name: "Data Sources", path: "/data-sources" }])} />
       <PageHero
         code="SOURCE/LEDGER"
         title="Credits belong in the interface."

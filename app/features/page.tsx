@@ -2,15 +2,18 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { SectionLabel } from "@/components/section-label";
 import { capabilityCells, sequence } from "@/lib/content";
+import { breadcrumbJsonLd, JsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Features",
-  description: "Live Orbit feature manifest for globe tracking, pass predictions, Sky Mode, search, insights, and news."
-};
+  description: "Live Orbit feature manifest for globe tracking, pass predictions, Sky Mode, search, insights, and news.",
+  path: "/features",
+});
 
 export default function FeaturesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Live Orbit", path: "/" }, { name: "Features", path: "/features" }])} />
       <PageHero
         code="FEATURE/MANIFEST"
         title="A field instrument, not a fake command center."

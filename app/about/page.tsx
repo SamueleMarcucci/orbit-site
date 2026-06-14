@@ -2,16 +2,19 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { LaunchLink } from "@/components/launch-link";
 import { PageHero } from "@/components/page-hero";
+import { breadcrumbJsonLd, JsonLd, pageMetadata } from "@/lib/seo";
 import { assetPath } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
-  description: "About Live Orbit, a prelaunch iPhone satellite tracking app."
-};
+  description: "About Live Orbit, a prelaunch iPhone satellite tracking app.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: "Live Orbit", path: "/" }, { name: "About", path: "/about" }])} />
       <PageHero
         code="ABOUT/ORIGIN"
         title="Built from the app outward."

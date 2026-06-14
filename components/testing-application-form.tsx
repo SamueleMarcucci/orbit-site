@@ -4,7 +4,7 @@ const interests = ["Satellite tracking", "Visible passes", "Sky Mode", "Launches
 
 export function TestingApplicationForm() {
   return (
-    <form className="apple-form submission-form" action={`https://formsubmit.co/${site.companyEmail}`} method="POST">
+    <form className="apple-form submission-form" action={`https://formsubmit.co/${site.companyEmail}`} method="POST" data-analytics-event="testflight_application_submit" data-analytics-label="TestFlight application">
       <input type="hidden" name="_subject" value="Live Orbit TestFlight application" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_next" value={`${site.url}/testing/thanks/`} />

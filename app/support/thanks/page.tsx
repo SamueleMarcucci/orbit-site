@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Message Sent",
-  description: "Your Live Orbit support message was submitted."
-};
+  description: "Your Live Orbit support message was submitted.",
+  path: "/support/thanks",
+  noindex: true,
+});
 
 export default function SupportThanksPage() {
   return (

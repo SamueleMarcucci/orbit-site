@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Application Sent",
-  description: "Your Live Orbit TestFlight application was submitted."
-};
+  description: "Your Live Orbit TestFlight application was submitted.",
+  path: "/testing/thanks",
+  noindex: true,
+});
 
 export default function TestingThanksPage() {
   return (

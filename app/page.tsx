@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { HomeFaqList } from "@/components/home-faq-list";
 import { ScreenshotCarousel } from "@/components/screenshot-carousel";
 import { homeFeatureCards, homepageFaq } from "@/lib/content";
+import { faqJsonLd, JsonLd, organizationJsonLd, pageMetadata, softwareJsonLd, websiteJsonLd } from "@/lib/seo";
 import { assetPath } from "@/lib/site";
 
 const screenshots = [
@@ -48,9 +50,14 @@ const screenshots = [
   }
 ];
 
+export const metadata: Metadata = pageMetadata({
+  description: "Live Orbit is a prelaunch iPhone app for live satellite tracking, pass planning, Sky Mode, space news, insights, and trusted orbital data.",
+});
+
 export default function HomePage() {
   return (
     <section className="download-landing" aria-labelledby="download-title">
+      <JsonLd data={[organizationJsonLd(), websiteJsonLd(), softwareJsonLd(), faqJsonLd(homepageFaq)]} />
       <div className="download-brand">
         <Image
           src={assetPath("/assets/live-orbit-app-icon.png")}
@@ -62,7 +69,7 @@ export default function HomePage() {
         <h1 id="download-title">Live Orbit</h1>
         <p className="promise-line">Track satellites live from your iPhone.</p>
         <p className="platform-line">Built for iPhone</p>
-        <Link className="download-button" href="/testing/">
+        <Link className="download-button" href="/testing/" data-analytics-event="testflight_cta_click" data-analytics-label="Home Apply for TestFlight">
           Apply for TestFlight
         </Link>
         <p className="launch-note">Coming soon, expected in the next week or two.</p>
@@ -96,7 +103,7 @@ export default function HomePage() {
       <footer className="download-footer">
         <p>© 2026 Apps Made Better LLC</p>
         <nav aria-label="Footer">
-          <a href="/support/">Support</a>
+          <a href="/support/" data-analytics-event="footer_support_click">Support</a>
           <a href="/privacy/">Privacy</a>
           <a href="/terms/">Terms</a>
         </nav>

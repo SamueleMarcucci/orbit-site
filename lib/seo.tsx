@@ -2,13 +2,35 @@ import type { Metadata } from "next";
 import { assetPath, site, socialPreviewImage } from "@/lib/site";
 
 const DEFAULT_DESCRIPTION =
-  "A native iPhone app for live satellites, visible passes, Sky Mode, launches, space news, and trusted orbital context.";
+  "Live Orbit is a native iPhone satellite tracker for live satellites, visible passes, Sky Mode, launches, space news, and source-backed orbital context.";
+
+const SOFTWARE_FEATURES = [
+  "Live 3D orbit tracking",
+  "Visible satellite pass planning",
+  "Sky Mode pointing",
+  "Radio signal context",
+  "Orbit Intelligence for launches, crew missions, news, reentries, close approaches, and space weather",
+  "Moon, Sun, Mars, and deep-space mission context",
+];
+
+const SOFTWARE_SCREENSHOTS = [
+  "/assets/app-store-loa/screen-earth.png",
+  "/assets/app-store-loa/screen-passes.png",
+  "/assets/app-store-loa/screen-sky.png",
+  "/assets/app-store-loa/screen-look-up.png",
+  "/assets/app-store-loa/screen-deep-dive.png",
+  "/assets/app-store-loa/screen-beyond-earth.png",
+];
 
 export type JsonLdData = Record<string, unknown>;
 
 export function canonical(path = "/") {
   const normalized = path === "/" ? "/" : `/${path.replace(/^\/|\/$/g, "")}/`;
   return `${site.url}${normalized}`;
+}
+
+function absoluteAsset(path: string) {
+  return `${site.url}${assetPath(path)}`;
 }
 
 export function pageMetadata({
@@ -24,7 +46,7 @@ export function pageMetadata({
 }): Metadata {
   const url = canonical(path);
   return {
-    title: title || { absolute: "Live Orbit | Satellite Tracking, Built for iPhone" },
+    title: title || { absolute: "Live Orbit | Native Satellite Tracker for iPhone" },
     description,
     alternates: { canonical: url },
     robots: noindex ? { index: false, follow: true } : { index: true, follow: true },
@@ -53,6 +75,7 @@ export function organizationJsonLd(): JsonLdData {
     legalName: "Apps Made Better LLC",
     url: "https://appsmadebetter.com/",
     email: site.companyEmail,
+    sameAs: [site.url],
   };
 }
 
@@ -75,11 +98,16 @@ export function softwareJsonLd(): JsonLdData {
     applicationCategory: "LifestyleApplication",
     operatingSystem: "iOS",
     description: DEFAULT_DESCRIPTION,
+    image: absoluteAsset(socialPreviewImage),
+    screenshot: SOFTWARE_SCREENSHOTS.map(absoluteAsset),
+    featureList: SOFTWARE_FEATURES,
+    inLanguage: "en",
     publisher: { "@id": "https://appsmadebetter.com/#organization" },
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/PreOrder",
       url: canonical("/testing"),
+      seller: { "@id": "https://appsmadebetter.com/#organization" },
     },
   };
 }

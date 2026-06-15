@@ -24,13 +24,13 @@ const body = Geist({
 export const metadata: Metadata = {
   metadataBase: new URL(basePath ? "https://samuelemarcucci.github.io" : site.url),
   title: {
-    default: "Live Orbit | Satellite Tracking, Built for iPhone",
+    default: "Live Orbit | Native Satellite Tracker for iPhone",
     template: "%s | Live Orbit"
   },
-  description: "A native iPhone app for live satellites, visible passes, Sky Mode, launches, space news, and trusted orbital context.",
+  description: "Live Orbit is a native iPhone satellite tracker for live satellites, visible passes, Sky Mode, launches, space news, and source-backed orbital context.",
   openGraph: {
-    title: "Live Orbit",
-    description: "Satellite tracking built for iPhone with visible passes, Sky Mode, launches, news, and trusted orbital context.",
+    title: "Live Orbit | Native Satellite Tracker for iPhone",
+    description: "Track satellites live from your iPhone with visible passes, Sky Mode, launches, news, and source-backed orbital context.",
     url: site.url,
     siteName: "Live Orbit",
     images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit app icon, wordmark, and download button" }],
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Live Orbit",
-    description: "Satellite tracking built for iPhone with visible passes, Sky Mode, launches, news, and trusted orbital context.",
+    title: "Live Orbit | Native Satellite Tracker for iPhone",
+    description: "Track satellites live from your iPhone with visible passes, Sky Mode, launches, news, and source-backed orbital context.",
     images: [assetPath(socialPreviewImage)]
   },
   alternates: {

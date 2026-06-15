@@ -51,7 +51,7 @@ const screenshots = [
 ];
 
 export const metadata: Metadata = pageMetadata({
-  description: "A native iPhone app for live satellites, visible passes, Sky Mode, launches, space news, and trusted orbital context.",
+  description: "Live Orbit is a native iPhone satellite tracker for live satellites, visible passes, Sky Mode, launches, space news, and source-backed orbital context.",
 });
 
 export default function HomePage() {

@@ -91,7 +91,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             `}
           </Script>
         ) : null}
-        {gaId && !gtmId ? (
+        {gaId ? (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
             <Script id="ga4" strategy="afterInteractive">

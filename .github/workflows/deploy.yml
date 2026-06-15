@@ -34,6 +34,7 @@ jobs:
       - name: Build
         env:
           NEXT_PUBLIC_GTM_ID: GTM-NGHNSLPP
+          NEXT_PUBLIC_GA_ID: G-6LKGEN84VG
         run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

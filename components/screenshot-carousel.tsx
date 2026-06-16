@@ -147,11 +147,12 @@ export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
                     <Image
                       src={assetPath(screenshot.src)}
                       alt=""
-                      width={1242}
-                      height={2688}
-                      loading={groupIndex === 0 && screenshotIndex < visibleCount ? "eager" : "lazy"}
-                      fetchPriority={groupIndex === 0 && screenshotIndex < visibleCount ? "high" : "auto"}
-                      preload={groupIndex === 0 && screenshotIndex < visibleCount}
+                      width={744}
+                      height={1610}
+                      loading={groupIndex === 0 && screenshotIndex === 0 ? "eager" : "lazy"}
+                      fetchPriority={groupIndex === 0 && screenshotIndex === 0 ? "high" : "auto"}
+                      preload={groupIndex === 0 && screenshotIndex === 0}
+                      sizes="(max-width: 639px) 78vw, 360px"
                       draggable={false}
                     />
                   </div>

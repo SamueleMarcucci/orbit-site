@@ -9,43 +9,43 @@ import { assetPath } from "@/lib/site";
 
 const screenshots = [
   {
-    src: "/assets/app-store-loa/screen-earth.png",
+    src: "/assets/app-store-loa/screen-earth.webp",
     alt: "Live Orbit Earth view iPhone mockup"
   },
   {
-    src: "/assets/app-store-loa/screen-passes.png",
+    src: "/assets/app-store-loa/screen-passes.webp",
     alt: "Live Orbit pass results iPhone mockup"
   },
   {
-    src: "/assets/app-store-loa/screen-sky.png",
+    src: "/assets/app-store-loa/screen-sky.webp",
     alt: "Live Orbit space news iPhone mockup"
   },
   {
-    src: "/assets/app-store-loa/screen-look-up.png",
+    src: "/assets/app-store-loa/screen-look-up.webp",
     alt: "Live Orbit Sky Mode iPhone mockup"
   },
   {
-    src: "/assets/app-store-loa/screen-deep-dive.png",
+    src: "/assets/app-store-loa/screen-deep-dive.webp",
     alt: "Live Orbit satellite detail iPhone mockup"
   },
   {
-    src: "/assets/app-store-loa/screen-beyond-earth.png",
+    src: "/assets/app-store-loa/screen-beyond-earth.webp",
     alt: "Live Orbit Moon Sun and Mars iPhone mockup"
   },
   {
-    src: "/assets/app-store-loa/screen-radio.png",
+    src: "/assets/app-store-loa/screen-radio.webp",
     alt: "Live Orbit radio signals iPhone mockup"
   },
   {
-    src: "/assets/app-store-loa/screen-events.png",
+    src: "/assets/app-store-loa/screen-events.webp",
     alt: "Live Orbit space events iPhone mockup"
   },
   {
-    src: "/assets/app-store-loa/screen-search.png",
+    src: "/assets/app-store-loa/screen-search.webp",
     alt: "Live Orbit search filters iPhone mockup"
   },
   {
-    src: "/assets/app-store-loa/screen-languages.png",
+    src: "/assets/app-store-loa/screen-languages.webp",
     alt: "Live Orbit language settings iPhone mockup"
   }
 ];
@@ -65,6 +65,7 @@ export default function HomePage() {
           width={132}
           height={132}
           priority
+          sizes="132px"
         />
         <h1 id="download-title">Live Orbit</h1>
         <p className="promise-line">Track satellites live from your iPhone.</p>

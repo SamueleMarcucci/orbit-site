@@ -14,12 +14,12 @@ const SOFTWARE_FEATURES = [
 ];
 
 const SOFTWARE_SCREENSHOTS = [
-  "/assets/app-store-loa/screen-earth.png",
-  "/assets/app-store-loa/screen-passes.png",
-  "/assets/app-store-loa/screen-sky.png",
-  "/assets/app-store-loa/screen-look-up.png",
-  "/assets/app-store-loa/screen-deep-dive.png",
-  "/assets/app-store-loa/screen-beyond-earth.png",
+  "/assets/app-store-loa/screen-earth.webp",
+  "/assets/app-store-loa/screen-passes.webp",
+  "/assets/app-store-loa/screen-sky.webp",
+  "/assets/app-store-loa/screen-look-up.webp",
+  "/assets/app-store-loa/screen-deep-dive.webp",
+  "/assets/app-store-loa/screen-beyond-earth.webp",
 ];
 
 export type JsonLdData = Record<string, unknown>;

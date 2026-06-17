@@ -193,7 +193,7 @@ body:has(.minimal-page) .site-footer {
 
 .download-screenshots {
   --screenshot-gap: clamp(14px, 2.2vw, 30px);
-  --screenshot-width: clamp(258px, 27vw, 360px);
+  --screenshot-width: clamp(516px, 54vw, 720px);
   --carousel-slide-x: 0px;
   width: min(100vw, 1680px);
   max-width: 100vw;
@@ -2108,7 +2108,7 @@ body:has(.cinematic-home) .site-footer {
   }
 
   .download-screenshots {
-    --screenshot-width: min(78vw, 354px);
+    --screenshot-width: min(92vw, 430px);
   }
 
   .download-screenshots img {

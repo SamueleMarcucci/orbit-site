@@ -396,12 +396,21 @@ body:has(.minimal-page) .site-footer {
 }
 
 .home-faq-list {
+  width: 100%;
   display: grid;
+  gap: 0;
   border-top: 1px solid #d2d2d7;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .home-faq-item {
   border-bottom: 1px solid #d2d2d7;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
 }
 
 .home-faq-item button {
@@ -413,7 +422,9 @@ body:has(.minimal-page) .site-footer {
   gap: 18px;
   padding: 0;
   border: 0;
+  border-radius: 0;
   background: transparent;
+  box-shadow: none;
   color: #1d1d1f;
   cursor: pointer;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;

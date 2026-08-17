@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { TestingApplicationForm } from "@/components/testing-application-form";
 import { breadcrumbJsonLd, JsonLd, pageMetadata } from "@/lib/seo";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
-  title: "TestFlight",
-  description: "Apply to test Live Orbit before launch.",
+  title: "Download Live Orbit",
+  description: "Download Live Orbit from the App Store.",
   path: "/testing",
+  noindex: true,
 });
 
 export default function TestingPage() {
   return (
     <article className="minimal-page form-page">
-      <JsonLd data={breadcrumbJsonLd([{ name: "Live Orbit", path: "/" }, { name: "TestFlight", path: "/testing" }])} />
+      <JsonLd data={breadcrumbJsonLd([{ name: "Live Orbit", path: "/" }, { name: "Download Live Orbit", path: "/testing" }])} />
       <header>
         <Link href="/" prefetch={false}>Live Orbit</Link>
-        <h1>TestFlight</h1>
-        <p>Apply to test Live Orbit before launch. Submit the form and you will be taken to a confirmation page.</p>
+        <h1>Download Live Orbit</h1>
+        <p>Live Orbit is available on the App Store for iPhone.</p>
       </header>
 
       <section className="form-card">
-        <h2>Tester application</h2>
-        <TestingApplicationForm />
+        <a className="download-button" href={site.appStoreUrl}>Download the App</a>
       </section>
     </article>
   );

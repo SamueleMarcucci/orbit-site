@@ -2,7 +2,7 @@
 
 Visual archetype: Tactical Telemetry and CRT Terminal.
 
-Substrate: dark only, tinted near-black background, white phosphor foreground, aviation red as the only broad accent. Terminal green may appear only as one prelaunch status signal.
+Substrate: dark only, tinted near-black background, white phosphor foreground, aviation red as the only broad accent. Terminal green may appear only as a restrained status signal.
 
 Typography:
 - Macro: heavy compressed sans, uppercase, tight tracking, large clamp-based scale.

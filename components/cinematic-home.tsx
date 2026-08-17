@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { OrbitalCanvas } from "@/components/orbital-canvas";
 import { assetPath, launchHref, site } from "@/lib/site";
 
-const truths = ["Prelaunch only", "No account required", "Location by iOS permission", "Not for navigation"];
+const truths = ["Available on the App Store", "No account required", "Location by iOS permission", "Not for navigation"];
 
 const revealWords = "A satellite pass becomes real when the sky has direction, time, and a reason to look up.".split(" ");
 
@@ -130,7 +130,7 @@ export function CinematicHome() {
         <div>
           <a href="/support/">Support</a>
           <a href="/privacy/">Privacy</a>
-          <a href={launchHref}>Join</a>
+          <a href={launchHref}>Download</a>
         </div>
       </nav>
 
@@ -154,11 +154,11 @@ export function CinematicHome() {
           </p>
           <div className="hero-actions">
             <a className="cinema-button cinema-button-primary" href={launchHref}>
-              Join the launch list
+              Download the App
               <span aria-hidden="true">-&gt;</span>
             </a>
-            <a className="cinema-button cinema-button-quiet" href="/testing/">
-              Apply for TestFlight
+            <a className="cinema-button cinema-button-quiet" href="/support/">
+              Contact support
             </a>
           </div>
           <ul className="hero-proof" aria-label="Product truths">
@@ -182,7 +182,7 @@ export function CinematicHome() {
       <section className="feature-silence" aria-label="Product proof">
         <div className="feature-silence-copy cinematic-rise">
           <p className="cinema-kicker">Built from the app outward</p>
-          <h2>No fake telemetry. No store claim. No filler graphics.</h2>
+          <h2>No fake telemetry. Clear store availability. No filler graphics.</h2>
         </div>
         <div className="quiet-feature-list">
           {quietFeatures.map(([title, body]) => (
@@ -246,11 +246,11 @@ export function CinematicHome() {
       <section className="final-cinematic" aria-labelledby="final-title">
         <OrbitalCanvas mode="final" className="orbital-canvas final-canvas" />
         <div className="final-copy cinematic-rise">
-          <p className="cinema-kicker">Live Orbit is prelaunch</p>
-          <h2 id="final-title">Be there when the release window opens.</h2>
-          <p>Join the launch list for release timing, TestFlight news if available later, and product updates from {site.supportEmail}.</p>
+          <p className="cinema-kicker">Live Orbit for iPhone</p>
+          <h2 id="final-title">Track what is above you.</h2>
+          <p>Download Live Orbit from the App Store, or contact {site.supportEmail} for support.</p>
           <a className="cinema-button cinema-button-primary" href={launchHref}>
-            Join the launch list
+            Download the App
             <span aria-hidden="true">-&gt;</span>
           </a>
         </div>

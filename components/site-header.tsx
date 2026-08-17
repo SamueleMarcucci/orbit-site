@@ -17,7 +17,7 @@ export function SiteHeader() {
         ))}
       </nav>
       <a className="nav-action" href={launchHref}>
-        Join
+        Download
       </a>
     </header>
   );

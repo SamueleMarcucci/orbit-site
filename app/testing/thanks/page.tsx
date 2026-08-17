@@ -3,8 +3,8 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Application Sent",
-  description: "Your Live Orbit TestFlight application was submitted.",
+  title: "Download Live Orbit",
+  description: "Download Live Orbit from the App Store.",
   path: "/testing/thanks",
   noindex: true,
 });
@@ -14,12 +14,12 @@ export default function TestingThanksPage() {
     <article className="minimal-page thanks-page">
       <header>
         <Link href="/" prefetch={false}>Live Orbit</Link>
-        <h1>Application sent.</h1>
-        <p>Thanks for applying to test Live Orbit. If there is room in TestFlight, you will hear back by email.</p>
+        <h1>Live Orbit is available.</h1>
+        <p>Download Live Orbit from the App Store for iPhone.</p>
       </header>
 
       <section className="thanks-actions">
-        <Link href="/" prefetch={false}>Back to Live Orbit</Link>
+        <a href="https://apps.apple.com/us/app/live-orbit/id6794325315">Download the App</a>
         <Link href="/support/" prefetch={false}>Contact support</Link>
       </section>
     </article>

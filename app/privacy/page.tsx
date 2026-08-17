@@ -22,8 +22,8 @@ export default function PrivacyPage() {
       <div className="minimal-ledger">
         <section>
           <h2>Last updated</h2>
-          <p>June 12, 2026.</p>
-          <p>Live Orbit is provided by Apps Made Better LLC, a Texas company.</p>
+          <p>August 17, 2026.</p>
+          <p>Live Orbit is provided by Apps Made Better LLC.</p>
           <p>
             Legal and privacy requests: <a href="mailto:founder@appsmadebetter.com">founder@appsmadebetter.com</a>.
           </p>
@@ -71,7 +71,7 @@ export default function PrivacyPage() {
           <h2>Location and permissions</h2>
           <p>Live Orbit may ask for precise location to calculate visible passes, observer position, local sky alignment, AR and Sky Mode pointing, weather or sky context, alerts, and other location-based satellite features.</p>
           <p>Camera access is used for AR views. Motion, compass, and device orientation data are used for AR and Sky Mode alignment. Calendar access is used only if you choose to save satellite pass events. Notifications are used for pass, launch, and major news alerts you choose to enable.</p>
-          <p>Some location-based features may involve app or backend requests that include your location, approximate location, coordinates, observer context, or derived sky context when needed to provide the feature. Exact backend logging and retention for location-bearing requests requires owner and attorney confirmation.</p>
+          <p>Some location-based features may involve app or backend requests that include your location, approximate location, coordinates, observer context, or derived sky context when needed to provide the feature. Retention can vary by the service used to provide the feature.</p>
           <p>Live Orbit&apos;s App Store privacy label lists Precise Location as used for App Functionality and not linked to your identity. Location, camera, motion, calendar, and notification permissions can be changed in iOS Settings.</p>
         </section>
 
@@ -113,19 +113,15 @@ export default function PrivacyPage() {
           <h2>Retention and deletion</h2>
           <p>We retain information as long as reasonably necessary to provide Live Orbit, maintain subscriptions and diagnostics, respond to support or privacy requests, secure services, comply with law, and improve reliability.</p>
           <p>For no-account local data, use in-app Settings controls to clear caches or broader local app data on your device. For support emails, diagnostics, privacy requests, or data already sent, contact <a href="mailto:founder@appsmadebetter.com">founder@appsmadebetter.com</a>.</p>
-          <p>Specific retention periods for Firebase, Cloudflare/backend logs, API caches, OpenAI or other AI-provider settings, support emails, diagnostics, and third-party providers require owner and attorney confirmation.</p>
+          <p>Retention periods vary by data type and service provider. We review those settings as the product and its service providers change.</p>
         </section>
 
         <section>
           <h2>Children and international users</h2>
-          <p>Live Orbit is not intended for children under 13. If Live Orbit is later directed to children under 13 or knowingly collects data from them, it needs a separate COPPA and children&apos;s privacy review before launch or release.</p>
-          <p>Live Orbit may be used worldwide. Data may be processed in the United States and in service-provider regions. GDPR, UK GDPR, California privacy law, Texas privacy law, and other international privacy obligations require review by a licensed attorney.</p>
+          <p>Live Orbit is not intended for children under 13. If you believe a child has provided personal information to us, contact us at <a href="mailto:founder@appsmadebetter.com">founder@appsmadebetter.com</a>.</p>
+          <p>Live Orbit may be used worldwide. Data may be processed in the United States and in service-provider regions.</p>
         </section>
 
-        <section>
-          <h2>Attorney and owner review</h2>
-          <p>This policy is a product privacy notice, not legal advice. Apps Made Better LLC should have this policy reviewed by a licensed attorney before launch, especially for privacy-law coverage, children&apos;s privacy, international users, subscriptions and refunds, AI disclosures, data-source licensing, retention, and deletion procedures.</p>
-        </section>
       </div>
     </article>
   );

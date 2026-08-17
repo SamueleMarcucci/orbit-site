@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { HomeFaqList } from "@/components/home-faq-list";
 import { ScreenshotCarousel } from "@/components/screenshot-carousel";
 import { homeFeatureCards, homepageFaq } from "@/lib/content";
 import { faqJsonLd, JsonLd, organizationJsonLd, pageMetadata, softwareJsonLd, websiteJsonLd } from "@/lib/seo";
-import { assetPath } from "@/lib/site";
+import { assetPath, site } from "@/lib/site";
 
 const screenshots = [
   {
@@ -70,10 +69,10 @@ export default function HomePage() {
         <h1 id="download-title">Live Orbit</h1>
         <p className="promise-line">Track satellites live from your iPhone.</p>
         <p className="platform-line">Built for iPhone</p>
-        <Link className="download-button" href="/testing/" data-analytics-event="testflight_cta_click" data-analytics-label="Home Apply for TestFlight">
-          Apply for TestFlight
-        </Link>
-        <p className="launch-note">Coming soon, expected in the next week or two.</p>
+        <a className="download-button" href={site.appStoreUrl} data-analytics-event="app_store_cta_click" data-analytics-label="Home Download the App">
+          Download the App
+        </a>
+        <p className="launch-note">Available on the App Store.</p>
       </div>
 
       <ScreenshotCarousel screenshots={screenshots} />

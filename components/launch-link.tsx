@@ -5,7 +5,7 @@ type LaunchLinkProps = {
   className?: string;
 };
 
-export function LaunchLink({ label = "Join launch list", className = "" }: LaunchLinkProps) {
+export function LaunchLink({ label = "Download the App", className = "" }: LaunchLinkProps) {
   return (
     <a className={`launch-link ${className}`} href={launchHref}>
       <span>{label}</span>

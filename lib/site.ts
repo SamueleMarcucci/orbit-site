@@ -2,12 +2,12 @@ export const site = {
   name: "Live Orbit",
   domain: "liveorbitapp.com",
   url: "https://www.liveorbitapp.com",
+  appStoreUrl: "https://apps.apple.com/us/app/live-orbit/id6794325315",
   companyEmail: "founder@appsmadebetter.com",
-  supportEmail: "support@liveorbitapp.com",
-  launchSubject: "Live Orbit launch list"
+  supportEmail: "support@liveorbitapp.com"
 };
 
-export const launchHref = `mailto:${site.supportEmail}?subject=${encodeURIComponent(site.launchSubject)}`;
+export const launchHref = site.appStoreUrl;
 
 export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 

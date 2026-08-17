@@ -1,6 +1,6 @@
 export const systemFacts = [
-  ["STATUS", "PRELAUNCH"],
-  ["AVAILABILITY", "NOT ON APP STORE"],
+  ["STATUS", "AVAILABLE"],
+  ["AVAILABILITY", "APP STORE"],
   ["ACCOUNT", "NOT REQUIRED"],
   ["CONTACT", "SUPPORT@LIVEORBITAPP.COM"]
 ];
@@ -34,8 +34,8 @@ export const homeFeatureCards = [
 
 export const trustLedger = [
   {
-    term: "No store claim",
-    detail: "The site treats Live Orbit as prelaunch until a real public release or TestFlight URL exists."
+    term: "App Store availability",
+    detail: "Live Orbit is publicly available from the App Store."
   },
   {
     term: "No fake telemetry",
@@ -61,8 +61,8 @@ export const supportTopics = [
 
 export const homepageFaq = [
   {
-    question: "How can I test Live Orbit?",
-    answer: "Tap Apply for TestFlight and send a short tester application. If there is room in the testing group, you will get an invite through Apple’s TestFlight app when a build is ready."
+    question: "How do I download Live Orbit?",
+    answer: "Tap Download the App to open Live Orbit’s App Store listing, then download it from Apple on your iPhone."
   },
   {
     question: "Do I need an account?",

@@ -2,7 +2,7 @@
 
 ## Product
 
-Live Orbit is a prelaunch native iPhone satellite tracker published by Apps Made Better LLC.
+Live Orbit is a native iPhone satellite tracker published by Apps Made Better LLC.
 
 Primary search positioning:
 
@@ -36,7 +36,7 @@ Track satellites live from your iPhone.
 
 ## Current Availability
 
-Live Orbit is prelaunch. The website may invite users to apply for TestFlight, but must not claim public App Store download availability until a real public listing exists.
+Live Orbit is available on the App Store: https://apps.apple.com/us/app/live-orbit/id6794325315. The website should link to this verified listing for download.
 
 ## Claims To Avoid
 
@@ -44,7 +44,6 @@ Live Orbit is prelaunch. The website may invite users to apply for TestFlight, b
 - Fake user counts
 - Fake satellite counts
 - Fake rankings, awards, or press quotes
-- Public download claims before release
 - Safety-critical use claims
 - iOS version claims unless confirmed by the actual app target and launch copy
 

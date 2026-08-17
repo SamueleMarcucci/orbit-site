@@ -2,7 +2,7 @@
 
 Launch website for Live Orbit, rebuilt as a static Next.js export.
 
-The site is intentionally pre-App Store. It does not claim public availability, does not show an App Store badge, and uses `support@liveorbitapp.com` for launch-list and support contact.
+Live Orbit is publicly available on the App Store at `https://apps.apple.com/us/app/live-orbit/id6794325315`. The site links directly to the listing and uses `support@liveorbitapp.com` for support contact.
 
 ## Commands
 

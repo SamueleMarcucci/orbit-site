@@ -25,9 +25,9 @@ export default function TermsPage() {
           <p>Live Orbit is provided by Apps Made Better LLC for satellite watching, education, planning, and general space exploration. You are responsible for using the app safely and following applicable laws.</p>
         </section>
         <section>
-          <h2>Subscriptions, trials, cancellation, and refunds</h2>
-          <p>Live Orbit Pro may be offered through monthly and yearly auto-renewable subscriptions. Apple displays the final localized price, billing period, trial eligibility, taxes, and purchase terms before you confirm a purchase.</p>
-          <p>If Apple offers a free trial, it converts to a paid auto-renewable subscription unless canceled before the trial ends. Subscriptions renew automatically unless canceled through Apple Account or App Store subscription settings.</p>
+          <h2>In-app purchases, cancellation, and refunds</h2>
+          <p>Live Orbit may offer optional in-app purchases, including subscriptions, through the App Store. Apple displays the applicable price, billing period, taxes, trial eligibility, and purchase terms before you confirm a purchase.</p>
+          <p>Subscriptions renew automatically unless canceled through your Apple Account or App Store subscription settings. Any free trial offered by Apple converts to a paid subscription unless canceled before the trial ends.</p>
           <p>Apple processes App Store payments, cancellations, and refund requests. Apps Made Better LLC does not receive your full payment card information or process App Store refunds directly.</p>
         </section>
         <section>

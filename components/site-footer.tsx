@@ -10,8 +10,8 @@ export function SiteFooter() {
         <span>Live Orbit</span>
       </div>
       <div className="footer-command">
-        <p>Native satellite tracking for iPhone. Availability will be announced when release is real.</p>
-        <a href={launchHref}>Join the launch list</a>
+        <p>Native satellite tracking for iPhone, available on the App Store.</p>
+        <a href={launchHref}>Download the App</a>
       </div>
       <nav aria-label="Footer navigation" className="footer-links">
         {navItems.map((item) => (

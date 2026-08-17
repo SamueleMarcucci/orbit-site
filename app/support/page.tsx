@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Support",
-  description: "Contact Live Orbit support and join the launch list.",
+  description: "Contact Live Orbit support.",
   path: "/support",
 });
 

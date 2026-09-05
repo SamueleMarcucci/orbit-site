@@ -15,7 +15,7 @@ export function assetPath(path: string) {
   return `${basePath}${path}`;
 }
 
-export const socialPreviewImage = "/og-live-orbit-preview.png";
+export const socialPreviewImage = "/og-live-orbit-september.png";
 
 export const navItems = [
   { href: "/support/", label: "Support" },

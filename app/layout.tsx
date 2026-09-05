@@ -1,25 +1,14 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Archivo_Black, Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import { AnalyticsEvents } from "@/components/analytics-events";
 import { assetPath, basePath, site, socialPreviewImage } from "@/lib/site";
+import { DEFAULT_DESCRIPTION, JsonLd, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
-const display = Archivo_Black({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: "400"
-});
-
-const mono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-});
-
-const body = Geist({
-  subsets: ["latin"],
-  variable: "--font-body",
-});
+const body = localFont({ src: "./fonts/instrument-sans.woff2", variable: "--font-body", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(basePath ? "https://samuelemarcucci.github.io" : site.url),
@@ -27,13 +16,13 @@ export const metadata: Metadata = {
     default: "Live Orbit | Native Satellite Tracker for iPhone",
     template: "%s | Live Orbit"
   },
-  description: "Live Orbit is a native iPhone satellite tracker for live satellites, visible passes, Sky Mode, launches, space news, and source-backed orbital context.",
+  description: DEFAULT_DESCRIPTION,
   openGraph: {
     title: "Live Orbit | Native Satellite Tracker for iPhone",
     description: "Track satellites live from your iPhone with visible passes, Sky Mode, launches, news, and source-backed orbital context.",
     url: site.url,
     siteName: "Live Orbit",
-    images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit app icon, wordmark, and download button" }],
+    images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit: Look up. There’s more. Satellite tracking for iPhone." }],
     type: "website"
   },
   twitter: {
@@ -47,21 +36,19 @@ export const metadata: Metadata = {
   },
   robots: {
     index: true,
-    follow: true
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1
   },
   icons: {
     icon: [
-      { url: assetPath("/assets/live-orbit-google-icon-48.png"), type: "image/png", sizes: "48x48" },
-      { url: assetPath("/assets/live-orbit-google-icon-96.png"), type: "image/png", sizes: "96x96" },
-      { url: assetPath("/assets/live-orbit-google-icon-192.png"), type: "image/png", sizes: "192x192" },
-      { url: assetPath("/assets/live-orbit-google-icon-512.png"), type: "image/png", sizes: "512x512" },
-      { url: assetPath("/favicon.ico"), type: "image/x-icon", sizes: "any" },
-      { url: assetPath("/assets/live-orbit-search-icon.png"), type: "image/png", sizes: "1024x1024" },
-      { url: assetPath("/assets/live-orbit-google-icon.png"), type: "image/png", sizes: "1024x1024" }
+      { url: assetPath("/assets/september/app-icon-48.png"), type: "image/png", sizes: "48x48" },
+      { url: assetPath("/assets/september/app-icon-192.png"), type: "image/png", sizes: "192x192" }
     ],
-    shortcut: assetPath("/favicon.ico"),
-    apple: assetPath("/assets/live-orbit-search-icon.png")
-  }
+    apple: assetPath("/assets/september/app-icon-180.png")
+  },
+  manifest: assetPath("/manifest.webmanifest")
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -69,8 +56,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <html lang="en" className={`${display.variable} ${mono.variable} ${body.variable}`}>
+    <html lang="en" className={body.variable}>
       <body>
+        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         {gtmId ? (
           <noscript>
             <iframe
@@ -108,7 +96,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         <AnalyticsEvents />
+        <SiteHeader />
         <main id="content">{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

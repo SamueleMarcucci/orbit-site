@@ -5,7 +5,7 @@ import { assetPath } from "@/lib/site";
 export default function NotFound() {
   return (
     <section className="not-found">
-      <Image src={assetPath("/assets/live-orbit-home-icon.png")} alt="Live Orbit app icon" width={104} height={104} priority />
+      <Image src={assetPath("/assets/september/app-icon-192.png")} alt="Live Orbit app icon" width={104} height={104} priority />
       <samp>404</samp>
       <h1>Page not found.</h1>
       <p>This page does not exist, or the link has moved.</p>

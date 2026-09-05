@@ -1,25 +1,24 @@
 import type { Metadata } from "next";
 import { assetPath, site, socialPreviewImage } from "@/lib/site";
 
-const DEFAULT_DESCRIPTION =
-  "Live Orbit is a native iPhone satellite tracker for live satellites, visible passes, Sky Mode, launches, space news, and source-backed orbital context.";
+export const DEFAULT_DESCRIPTION =
+  "Track satellites on iPhone with Live Orbit. Explore Earth in 3D, plan visible passes, and find satellites with Sky Mode. Free with in-app purchases.";
 
 const SOFTWARE_FEATURES = [
-  "Live 3D orbit tracking",
+  "Satellite tracking around Earth",
   "Visible satellite pass planning",
-  "Sky Mode pointing",
-  "Radio signal context",
-  "Orbit Intelligence for launches, crew missions, news, reentries, close approaches, and space weather",
-  "Moon, Sun, Mars, and deep-space mission context",
+  "Sky Mode and AR guidance",
+  "Satellite details and search",
+  "Radio observation recordings",
+  "Space news",
 ];
 
-const SOFTWARE_SCREENSHOTS = [
-  "/assets/app-store-loa/screen-earth.webp",
-  "/assets/app-store-loa/screen-passes.webp",
-  "/assets/app-store-loa/screen-sky.webp",
-  "/assets/app-store-loa/screen-look-up.webp",
-  "/assets/app-store-loa/screen-deep-dive.webp",
-  "/assets/app-store-loa/screen-beyond-earth.webp",
+export const SOFTWARE_SCREENSHOTS = [
+  "/assets/september/earth-1440.webp",
+  "/assets/september/passes-880.webp",
+  "/assets/september/sky-880.webp",
+  "/assets/september/radio-880.webp",
+  "/assets/september/news-880.webp",
 ];
 
 export type JsonLdData = Record<string, unknown>;
@@ -49,18 +48,18 @@ export function pageMetadata({
     title: title || { absolute: "Live Orbit | Native Satellite Tracker for iPhone" },
     description,
     alternates: { canonical: url },
-    robots: noindex ? { index: false, follow: true } : { index: true, follow: true },
+    robots: noindex ? { index: false, follow: true } : { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
     openGraph: {
-      title: title ? `${title} | ${site.name}` : site.name,
+      title: title ? `${title} | ${site.name}` : "Live Orbit | Native Satellite Tracker for iPhone",
       description,
       url,
       siteName: site.name,
-      images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit app icon, wordmark, and download button" }],
+      images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit: Look up. There’s more. Satellite tracking for iPhone." }],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: title ? `${title} | ${site.name}` : site.name,
+      title: title ? `${title} | ${site.name}` : "Live Orbit | Native Satellite Tracker for iPhone",
       description,
       images: [assetPath(socialPreviewImage)],
     },
@@ -75,7 +74,9 @@ export function organizationJsonLd(): JsonLdData {
     legalName: "Apps Made Better LLC",
     url: "https://appsmadebetter.com/",
     email: site.companyEmail,
-    sameAs: [site.url],
+    logo: "https://appsmadebetter.com/assets/apps-made-better-avatar-512.png",
+    founder: { "@type": "Person", "@id": "https://appsmadebetter.com/about/#founder", name: "Samuele Marcucci", url: "https://appsmadebetter.com/about/" },
+    address: { "@type": "PostalAddress", addressRegion: "TX", addressCountry: "US" },
   };
 }
 
@@ -95,18 +96,23 @@ export function softwareJsonLd(): JsonLdData {
     "@id": `${site.url}/#software`,
     name: site.name,
     url: `${site.url}/`,
-    applicationCategory: "LifestyleApplication",
+    applicationCategory: "ReferenceApplication",
     operatingSystem: "iOS",
     description: DEFAULT_DESCRIPTION,
-    image: absoluteAsset(socialPreviewImage),
+    image: absoluteAsset("/assets/september/app-icon-512.png"),
     screenshot: SOFTWARE_SCREENSHOTS.map(absoluteAsset),
     featureList: SOFTWARE_FEATURES,
     inLanguage: "en",
+    installUrl: site.appStoreUrl,
+    sameAs: [site.appStoreUrl],
     publisher: { "@id": "https://appsmadebetter.com/#organization" },
     offers: {
       "@type": "Offer",
-      availability: "https://schema.org/PreOrder",
-      url: canonical("/testing"),
+      price: "0",
+      priceCurrency: "USD",
+      description: "Free to download with in-app purchases.",
+      availability: "https://schema.org/InStock",
+      url: site.appStoreUrl,
       seller: { "@id": "https://appsmadebetter.com/#organization" },
     },
   };

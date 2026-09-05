@@ -1,3 +1,5 @@
+# Public pages and images are crawlable, including by search and AI search crawlers.
+# Search access is independent of model training policies.
 User-agent: *
 Allow: /
 

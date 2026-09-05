@@ -1,13 +1,13 @@
-# Live Orbit Website Product Context
+# Live Orbit website
 
-Register: brand
+Live Orbit is an independent iPhone app from Apps Made Better LLC. Its website introduces satellite tracking, visible pass planning, Sky Mode and AR, public radio recordings, search, and space news. The verified primary destination is https://apps.apple.com/us/app/live-orbit/id6794325315. It is free to download with in-app purchases; the App Store listing is authoritative for current pricing and compatibility.
 
-Live Orbit is an iPhone app for following satellites, visible passes, Sky Mode and AR pointing, search, insights, news, and trusted orbital data.
+September 2026 direction: a professional, Apple-inspired product website matching the founder's newly supplied App Store artwork. This request supersedes the previous tactical/terminal design brief. Use direct, warm language, clear product details, and the real supplied screenshots. Do not invent ratings, downloads, awards, reviews, satellite totals, or social proof.
 
-Primary users are satellite watchers, space-curious beginners, and orbital-data enthusiasts who need a site that feels precise, trustworthy, and clear about the app's App Store availability.
+Company facts: Apps Made Better LLC is based in Texas. Its founder, Samuele Marcucci, lives in New York City. These facts describe different subjects. Do not describe the company as headquartered in NYC.
 
-The website must not use fake usage numbers, fake satellite counts, fake operators, fake timestamps, or fake mission claims. The primary action links to the verified App Store listing: `https://apps.apple.com/us/app/live-orbit/id6794325315`.
+The Apps Made Better website has a compact overview at `/work/live-orbit/`. This dedicated website contains the fuller product presentation. Downloads go directly to Apple's listing. Support, privacy, terms, and the existing testing routes remain available.
 
-Tone: mechanical, exacting, field-issued. Simple copy, confident claims, clear safety limits.
+Only local implementation and validation are authorized in this redesign. Publishing, pushing to the deploying branch, or changing the production Cloudflare routing requires explicit authorization.
 
-Anti-references: generic dark SaaS landing pages, purple AI gradients, rounded icon-card grids, fake dashboard telemetry, and hero metric templates.
+Search improvements (September 5, 2026): a static `/guides/` collection covers satellite tracking on iPhone, ISS sightings, and visible passes. Sources and publication dates are visible. Metadata and image sitemaps are generated from site content; testing and confirmation pages stay excluded. The public App Store listing was rechecked for iPhone availability, Reference category, and free download with in-app purchases. No ratings are hardcoded.

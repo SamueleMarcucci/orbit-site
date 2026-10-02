@@ -1,0 +1,85 @@
+{
+  "version": "2026-10-02",
+  "sections": [
+    {
+      "title": "Last updated",
+      "paragraphs": [
+        "October 2, 2026. Live Orbit is an iOS app provided by Apps Made Better LLC, a Texas company. Legal and privacy contact: founder@appsmadebetter.com."
+      ]
+    },
+    {
+      "title": "Summary",
+      "paragraphs": [
+        "Live Orbit does not require an account. You can use the app without creating a Live Orbit profile, username, or password.",
+        "The app is designed to minimize data collection, but it still uses device permissions, Apple purchase systems, Firebase diagnostics, support submissions, public data APIs, Cloudflare/API backend services, and AI-assisted services for Live Orbit Pro features."
+      ]
+    },
+    {
+      "title": "Local app data",
+      "paragraphs": [
+        "Favorites, watchlists, recent searches, pass alerts, launch alerts, observing sessions, display preferences, notification preferences, language settings, and downloaded caches are stored on your device.",
+        "You can clear temporary caches or clear broader local app data in Settings. Removing the app also removes most app-local data from the device, but it does not delete Apple purchase records or support messages and diagnostics that you already sent."
+      ]
+    },
+    {
+      "title": "Location, camera, motion, calendar, and notifications",
+      "paragraphs": [
+        "Location is used, when you allow it, to calculate visible passes, sky position, observer context, and AR pointing. Live Orbit requests when-in-use location access. You can change permission in iOS Settings.",
+        "Depending on the feature, Live Orbit may send coordinates or observer context to Apple Maps for maps and place names, a Live Orbit-operated licensed weather gateway for weather and air-quality context, NASA/JPL Horizons for observer-based Moon, Sun, and Mars calculations, and KeepTrack for range, azimuth, elevation, and radio-pass calculations. Weather coordinates are rounded; Maps, Horizons, and KeepTrack requests may use more precise observer coordinates. If the licensed weather gateway is not configured, weather context is shown as unavailable rather than sent to a free-use endpoint. Location-related requests are handled under the retention and deletion practices described below.",
+        "Camera access is used for AR pointing views. Motion and compass data are used to understand device orientation for sky and AR alignment. These permissions are requested only when related features need them.",
+        "Calendar access is used when you choose to save a satellite pass to your calendar. Notifications are used for user-selected pass, launch, and major news alerts."
+      ]
+    },
+    {
+      "title": "Analytics, crashes, and performance",
+      "paragraphs": [
+        "Analytics and diagnostics are optional and off unless you choose to enable them in Settings. Your choice is separate from accepting the Terms of Use, and paid features do not require analytics consent. You can withdraw consent at any time in Settings; collection is disabled immediately and queued unsent crash reports are deleted.",
+        "Basic usage counts are controlled separately in Settings when the service is available. They summarize feature use, foreground session duration ranges, and loading outcomes without an installation identifier or individual activity history. Existing analytics opt-outs are preserved. Unsent counters remain on this device for up to seven days. Short-lived random report receipts prevent duplicate counting and are retained for up to ten days; aggregate totals are retained for up to ninety days. Turning sharing off discards unsent reports. These aggregate reports go to Live Orbit and are not forwarded to Google Analytics. Network providers process connection metadata to deliver requests and prevent abuse.",
+        "Basic usage counts are enabled by default when the service is available, except where you have previously turned analytics off. You can turn Basic Usage Counts off in Settings. Extended aggregate insights require both Basic Usage Counts and Share Analytics & Diagnostics. These can include locally calculated active-installation and return milestones, permission categories, performance ranges, and purchase-flow outcomes. Active installations are estimates, not unique people.",
+        "When you enable analytics and diagnostics, Live Orbit uses Firebase Analytics, Crashlytics, and Performance Monitoring to understand product interaction, crashes, non-fatal errors, launch and network performance, and app health. Firebase may process app instance identifiers, device and OS information, product interaction events, crash logs, performance traces, and diagnostic metadata. Live Orbit does not use this to create a public account.",
+        "Product interaction events may include feature use, permission state, hashed search categories, and free or Pro entitlement state. Some diagnostic and performance events may also be recorded as analytics events.",
+        "Live Orbit does not use IDFA, show an AppTrackingTransparency prompt, include in-app ad placements, or integrate marketing email in the app. If advertising, marketing, tracking, data broker integrations, or materially different backend services are added later, Live Orbit's App Store privacy answers and this policy should be updated."
+      ]
+    },
+    {
+      "title": "Purchases and subscriptions",
+      "paragraphs": [
+        "Live Orbit Pro may be offered with monthly and yearly subscriptions. Apple shows final pricing, billing periods, eligibility, taxes, and any configured free trial before purchase.",
+        "Live Orbit Pro purchases are billed by Apple through the App Store. Apps Made Better LLC does not process App Store payments or refunds directly. Refund eligibility and refund requests are handled by Apple under Apple's App Store policies and applicable law.",
+        "Live Orbit receives StoreKit product and transaction information needed to unlock or restore access. The app does not receive your full payment card information from Apple."
+      ]
+    },
+    {
+      "title": "Support reports and diagnostics",
+      "paragraphs": [
+        "Support reports can include an optional reply email, your issue text, visible context such as the screen or item being reported, and optional diagnostics.",
+        "Diagnostics can include app version, device model, recent app log lines, crash notes, and other technical details you choose to include. Do not include secrets, payment card details, or unnecessary personal information in support messages."
+      ]
+    },
+    {
+      "title": "Cloudflare, APIs, and AI-assisted content",
+      "paragraphs": [
+        "Live Orbit may use Cloudflare-hosted or API backend services to fetch orbit intelligence, catalogs, insight cards, source-backed summaries, and related content. Those services may receive normal request metadata such as IP address, time, endpoint, and requested subject identifiers.",
+        "Our server-side catalog importer retrieves satellite metadata from Space-Track, CelesTrak, Jonathan McDowell's GCAT, and other public data providers. This importer uses satellite identifiers to match records and does not send your location, saved searches, or favorites to those providers. It publishes shared catalog snapshots for app downloads; ordinary app and backend requests still involve the connection metadata described in this policy.",
+        "Live Orbit uses Apple's App Attest service to help protect backend requests. App Attest key identifiers and cryptographic assertions are sent to Live Orbit's Cloudflare-hosted backend so it can verify that requests come from an authentic app installation.",
+        "Orbit Intelligence is enabled for Live Orbit Pro users. App or backend requests may send satellite facts, source snippets, identifiers, or user-selected context to OpenAI or other AI services to generate or refine informational text.",
+        "AI-assisted content may be incomplete, inaccurate, or outdated. It is informational only and is not for navigation, safety, satellite operations, collision avoidance, emergency use, or professional reliance."
+      ]
+    },
+    {
+      "title": "Children and international users",
+      "paragraphs": [
+        "Live Orbit is not directed to children under 13, and children under 13 should not use the app or submit personal information. If you believe a child under 13 has provided personal information, contact founder@appsmadebetter.com so the request can be reviewed.",
+        "Live Orbit may be used worldwide. Data may be processed in the United States and in service-provider regions. Depending on where you live, you may have rights to request access, correction, deletion, restriction, objection, portability, or appeal for personal information handled by Live Orbit."
+      ]
+    },
+    {
+      "title": "Retention, deletion, and privacy requests",
+      "paragraphs": [
+        "Live Orbit retains information as long as reasonably necessary to provide the app, maintain subscriptions and diagnostics, respond to support or privacy requests, secure services, comply with law, and improve reliability.",
+        "Retention periods vary by data type and service. Local caches and preferences can be cleared on-device; support emails, diagnostics, backend logs, analytics, crash reports, API caches, and provider records are retained only as long as reasonably needed for the purposes described in this policy, unless a longer period is required by law, security, dispute, tax, accounting, or platform obligations.",
+        "For no-account local data, use Settings to clear caches or broader local app data on your device. For support emails, diagnostics, or privacy requests already sent, contact founder@appsmadebetter.com."
+      ]
+    }
+  ]
+}

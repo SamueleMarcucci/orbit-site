@@ -27,3 +27,18 @@ node tools/live-orbit-qa.mjs
 The export is in `out/`. The existing GitHub Pages workflow deploys pushes to `main`; no commit, push, or deployment was performed as part of this local redesign. The public URL remains https://www.liveorbitapp.com/ and download actions use the verified Apple listing.
 
 Support and testing forms retain their existing delivery endpoint. Local checks do not transmit submissions. Original product artwork remains in the parent workspace, and the media generation and social-preview scripts produce the files checked into this site's `public/` directory.
+
+## Privacy policy source
+
+`lib/privacy-policy.json` is exported from Live Orbit's canonical
+`Trackingsoftware/LegalContent.swift`; do not independently rewrite its paragraphs.
+From the app checkout, run:
+
+```sh
+python3 Tools/LegalRelease/export_privacy_policy.py --output /path/to/orbit-site/lib/privacy-policy.json
+python3 Tools/LegalRelease/export_privacy_policy.py --check /path/to/orbit-site/lib/privacy-policy.json
+```
+
+The Next.js privacy page renders that snapshot. Keep the legacy `privacy/index.html`
+policy text in sync when refreshing it. The October 2, 2026 snapshot includes the
+server-side catalog metadata importer's data handling.

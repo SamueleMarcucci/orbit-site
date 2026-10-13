@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { assetPath, site, socialPreviewImage } from "@/lib/site";
 
 export const DEFAULT_DESCRIPTION =
-  "Track satellites on iPhone with Live Orbit. Explore Earth in 3D, plan visible passes, and find satellites with Sky Mode. Free with in-app purchases.";
+  "Track satellites on iPhone and iPad with Live Orbit. Explore Earth in 3D, plan visible passes, and find satellites with Sky Mode. Free with in-app purchases.";
 
 const SOFTWARE_FEATURES = [
   "Satellite tracking around Earth",
@@ -45,21 +45,21 @@ export function pageMetadata({
 }): Metadata {
   const url = canonical(path);
   return {
-    title: title || { absolute: "Live Orbit | Native Satellite Tracker for iPhone" },
+    title: title || { absolute: "Live Orbit | Satellite Tracker for iPhone & iPad" },
     description,
     alternates: { canonical: url },
     robots: noindex ? { index: false, follow: true } : { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
     openGraph: {
-      title: title ? `${title} | ${site.name}` : "Live Orbit | Native Satellite Tracker for iPhone",
+      title: title ? `${title} | ${site.name}` : "Live Orbit | Satellite Tracker for iPhone & iPad",
       description,
       url,
       siteName: site.name,
-      images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit: Look up. There’s more. Satellite tracking for iPhone." }],
+      images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit: Look up. There’s more. Satellite tracking on iPhone and iPad." }],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: title ? `${title} | ${site.name}` : "Live Orbit | Native Satellite Tracker for iPhone",
+      title: title ? `${title} | ${site.name}` : "Live Orbit | Satellite Tracker for iPhone & iPad",
       description,
       images: [assetPath(socialPreviewImage)],
     },
@@ -97,7 +97,7 @@ export function softwareJsonLd(): JsonLdData {
     name: site.name,
     url: `${site.url}/`,
     applicationCategory: "ReferenceApplication",
-    operatingSystem: "iOS",
+    operatingSystem: ["iOS", "iPadOS"],
     description: DEFAULT_DESCRIPTION,
     image: absoluteAsset("/assets/september/app-icon-512.png"),
     screenshot: SOFTWARE_SCREENSHOTS.map(absoluteAsset),

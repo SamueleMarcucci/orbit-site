@@ -1,6 +1,6 @@
 # Live Orbit
 
-The product website for Live Orbit, an iPhone satellite tracker from Apps Made Better LLC. Built with Next.js 16, React 19, a locally hosted font, and a static export. The September redesign uses the founder's supplied screenshots and new orange app icon.
+The product website for Live Orbit, an iOS and iPadOS satellite tracker from Apps Made Better LLC. Built with Next.js 16, React 19, a locally hosted font, and a static export. The September redesign uses the founder's supplied screenshots and new orange app icon.
 
 ## Local development
 
@@ -42,3 +42,26 @@ python3 Tools/LegalRelease/export_privacy_policy.py --check /path/to/orbit-site/
 The Next.js privacy page renders that snapshot. Keep the legacy `privacy/index.html`
 policy text in sync when refreshing it. The October 2, 2026 snapshot includes the
 server-side catalog metadata importer's data handling.
+
+
+## Search reach update — October 12, 2026
+
+This isolated branch starts from public production commit `448748d03c7c7dc06766ab3cd2395f713fb89957`. The older company-workspace checkout was not modified. Publication of this branch was authorized on October 12, 2026. Directory drafts remain separate from the website release.
+
+The site now exports eleven observing and product guides, a features page, and eighteen indexable HTML routes. The sitemap includes the existing data-credit page. Homepage, hub, contextual, and related-guide links make every indexable page reachable in at most two links from the homepage. Product copy and SoftwareApplication markup describe iOS and iPadOS, confirmed against Apple's public version 2.2 feed on October 12. Existing privacy, credit, support, and testing behavior is preserved.
+
+Run the export contract check after the standard checks:
+
+```sh
+npm run lint
+npm run typecheck
+npm run build
+python3 tools/verify-search-export.py
+node tools/preview-reach.mjs
+```
+
+The local preview is `http://127.0.0.1:4342/`. The local-only render runner is `http://127.0.0.1:4342/__qa/`; its Check every page control checks all eighteen public routes at 375, 768, and 1440 pixels. Its iframe viewport checks are layout checks, not simulated physical-device tests. Preview responses carry an HTTP noindex header; the exported production pages retain their normal indexing directives. Neither local test helper is exported as a public route.
+
+The guides show editorial review dates. Existing publication dates remain on the three existing guides. The eight new guides use October 12, 2026, the approved publication date. Update modification dates only for changed content. The sources and article metadata share a publisher identity and truthful citations. The optional existing llms.txt navigation has been corrected; it is not required for Google AI search. FAQ markup is not a promise of FAQ rich results or AI citations.
+
+Release through a reviewed branch/PR only after explicit authorization. The deployment workflow runs on main and includes the existing analytics configuration. Before publishing, fetch current main again and reconcile any changes. After publishing, verify the homepage, every sitemap route, robots.txt, media, and canonical metadata at https://www.liveorbitapp.com/. Only then submit the updated sitemap, request relevant guide recrawls, and perform owner-authorized directory submissions. Do not use the general Google Indexing API for these guide pages.

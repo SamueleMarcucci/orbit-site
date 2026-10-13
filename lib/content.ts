@@ -62,7 +62,7 @@ export const supportTopics = [
 export const homepageFaq = [
   {
     question: "What is Live Orbit?",
-    answer: "Live Orbit is a satellite tracking app for iPhone from Apps Made Better LLC. It combines an Earth view, satellite search, visible pass planning, Sky Mode and AR guidance, radio observation recordings, and space news."
+    answer: "Live Orbit is a satellite tracking app for iPhone and iPad from Apps Made Better LLC. It combines an Earth view, satellite search, visible pass planning, Sky Mode and AR guidance, radio observation recordings, and space news."
   },
   {
     question: "Can I use Live Orbit to plan an ISS sighting?",
@@ -78,7 +78,7 @@ export const homepageFaq = [
   },
   {
     question: "How does Live Orbit use my location?",
-    answer: "Your location is used to show what is visible from where you are. It helps calculate passes, align the sky view, and make the app feel local to you. You stay in control of location access from iPhone Settings."
+    answer: "Your location is used to show what is visible from where you are. It helps calculate passes, align the sky view, and make the app feel local to you. You stay in control of location access from your device’s Settings."
   },
   {
     question: "What can I track?",
@@ -89,8 +89,8 @@ export const homepageFaq = [
     answer: "Satellites move fast, and their paths are updated from public orbit data. As newer data comes in, pass times can shift a little. Live Orbit is meant to make those changes easier to understand."
   },
   {
-    question: "Will it work on iPad or Mac?",
-    answer: "Live Orbit is designed for iPhone. Check the App Store listing for the latest device and operating system requirements."
+    question: "Can I use Live Orbit on iPad?",
+    answer: "Yes. Live Orbit supports iOS and iPadOS, with an iPad workspace for the larger screen. Check the App Store listing for current device and operating system requirements."
   }
 ];
 

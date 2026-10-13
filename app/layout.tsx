@@ -13,22 +13,22 @@ const body = localFont({ src: "./fonts/instrument-sans.woff2", variable: "--font
 export const metadata: Metadata = {
   metadataBase: new URL(basePath ? "https://samuelemarcucci.github.io" : site.url),
   title: {
-    default: "Live Orbit | Native Satellite Tracker for iPhone",
+    default: "Live Orbit | Satellite Tracker for iPhone & iPad",
     template: "%s | Live Orbit"
   },
   description: DEFAULT_DESCRIPTION,
   openGraph: {
-    title: "Live Orbit | Native Satellite Tracker for iPhone",
-    description: "Track satellites live from your iPhone with visible passes, Sky Mode, launches, news, and source-backed orbital context.",
+    title: "Live Orbit | Satellite Tracker for iPhone & iPad",
+    description: "Track satellites on iPhone and iPad with visible passes, Sky Mode, launches, news, and source-backed orbital context.",
     url: site.url,
     siteName: "Live Orbit",
-    images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit: Look up. There’s more. Satellite tracking for iPhone." }],
+    images: [{ url: assetPath(socialPreviewImage), width: 1200, height: 630, alt: "Live Orbit: Look up. There’s more. Satellite tracking on iPhone and iPad." }],
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Live Orbit | Native Satellite Tracker for iPhone",
-    description: "Track satellites live from your iPhone with visible passes, Sky Mode, launches, news, and source-backed orbital context.",
+    title: "Live Orbit | Satellite Tracker for iPhone & iPad",
+    description: "Track satellites on iPhone and iPad with visible passes, Sky Mode, launches, news, and source-backed orbital context.",
     images: [assetPath(socialPreviewImage)]
   },
   alternates: {

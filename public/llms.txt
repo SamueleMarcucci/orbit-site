@@ -1,18 +1,33 @@
 # Live Orbit
 
-Live Orbit is an iPhone app from Apps Made Better LLC, an independent app publisher based in Texas. Founder Samuele Marcucci lives in New York City.
+Live Orbit is a satellite tracking app for iOS and iPadOS from Apps Made Better LLC, an independent app publisher based in Texas. Founder Samuele Marcucci lives in New York City.
 
-Explore satellites around Earth, visible pass predictions, Sky Mode and AR guidance, public radio recordings, search, and space news. Satellite positions and passes are estimates based on orbital data. The app is free to download with in-app purchases.
+Explore calculated satellite positions on a 3D globe, search by name or NORAD ID, plan visible passes, and use Sky Mode and AR guidance. Time Mode explores calculated positions up to a week backward or forward. Available SatNOGS recordings are playback of ground-station observations, not direct satellite reception by an iPhone or iPad.
 
-- App Store: https://apps.apple.com/us/app/live-orbit/id6794325315
-- Website: https://www.liveorbitapp.com/
-- Support: https://www.liveorbitapp.com/support/
-- Privacy: https://www.liveorbitapp.com/privacy/
-- Terms: https://www.liveorbitapp.com/terms/
-- Guides: https://www.liveorbitapp.com/guides/
-- Satellite tracking on iPhone: https://www.liveorbitapp.com/guides/satellite-tracking-iphone/
-- Seeing the ISS: https://www.liveorbitapp.com/guides/how-to-see-iss/
-- Understanding visible passes: https://www.liveorbitapp.com/guides/visible-satellite-passes/
-- Publisher: https://appsmadebetter.com/
+Free to download with in-app purchases. Some features require Live Orbit Pro. No Live Orbit account is required. The App Store listing and the in-app purchase screen are authoritative for current compatibility, availability, and pricing. Satellite positions, passes, and pointing are estimates.
 
-The App Store listing is authoritative for current availability, compatibility, and pricing. No download counts, ratings, or endorsements are claimed here.
+## Product
+- [Website](https://www.liveorbitapp.com/)
+- [Features and purchase information](https://www.liveorbitapp.com/features/)
+- [App Store](https://apps.apple.com/us/app/live-orbit/id6794325315)
+- [Support](https://www.liveorbitapp.com/support/)
+- [Privacy](https://www.liveorbitapp.com/privacy/)
+- [Data credits](https://www.liveorbitapp.com/credits/)
+- [Terms](https://www.liveorbitapp.com/terms/)
+- [Publisher](https://appsmadebetter.com/)
+
+## Guides
+- [All satellite tracking guides](https://www.liveorbitapp.com/guides/)
+- [Getting started on iPhone and iPad](https://www.liveorbitapp.com/guides/satellite-tracking-iphone/)
+- [The iPad workspace](https://www.liveorbitapp.com/guides/satellite-tracking-ipad/)
+- [Seeing the ISS](https://www.liveorbitapp.com/guides/how-to-see-iss/)
+- [Understanding visible passes](https://www.liveorbitapp.com/guides/visible-satellite-passes/)
+- [Identifying a moving light](https://www.liveorbitapp.com/guides/identify-satellite-night-sky/)
+- [Sky Mode and AR](https://www.liveorbitapp.com/guides/sky-mode-ar-satellite-tracking/)
+- [TLE, NORAD ID, and epoch](https://www.liveorbitapp.com/guides/satellite-orbit-data-tle-norad/)
+- [Satellite radio recordings](https://www.liveorbitapp.com/guides/satellite-radio-recordings/)
+- [Time Mode](https://www.liveorbitapp.com/guides/time-mode-satellite-tracking/)
+- [Starlink satellite trains](https://www.liveorbitapp.com/guides/starlink-satellite-trains/)
+- [Printable observing checklist](https://www.liveorbitapp.com/guides/satellite-observing-checklist/)
+
+This file is a navigation aid, not a Google indexing requirement or a promise of inclusion in AI answers. The linked public HTML is the primary source. No ratings, download totals, rankings, or endorsements are claimed here.

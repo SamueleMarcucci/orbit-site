@@ -1,6 +1,6 @@
 # Live Orbit website
 
-Live Orbit is an independent iPhone app from Apps Made Better LLC. Its website introduces satellite tracking, visible pass planning, Sky Mode and AR, public radio recordings, search, and space news. The verified primary destination is https://apps.apple.com/us/app/live-orbit/id6794325315. It is free to download with in-app purchases; the App Store listing is authoritative for current pricing and compatibility.
+Live Orbit is an independent iOS and iPadOS app from Apps Made Better LLC. Its website introduces satellite tracking, visible pass planning, Sky Mode and AR, public radio recordings, search, and space news. The verified primary destination is https://apps.apple.com/us/app/live-orbit/id6794325315. It is free to download with in-app purchases; the App Store listing is authoritative for current pricing and compatibility.
 
 September 2026 direction: a professional, Apple-inspired product website matching the founder's newly supplied App Store artwork. This request supersedes the previous tactical/terminal design brief. Use direct, warm language, clear product details, and the real supplied screenshots. Do not invent ratings, downloads, awards, reviews, satellite totals, or social proof.
 

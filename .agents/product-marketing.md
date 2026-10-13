@@ -2,13 +2,13 @@
 
 ## Product
 
-Live Orbit is a native iPhone satellite tracker published by Apps Made Better LLC.
+Live Orbit is a native iOS and iPadOS satellite tracker published by Apps Made Better LLC.
 
 Primary search positioning:
 
-Live Orbit | Native Satellite Tracker for iPhone
+Live Orbit | Satellite Tracker for iPhone & iPad
 
-Avoid using "AI-powered satellite tracker" as the main title. AI can be mentioned as a product feature through Orbit Intelligence, but the top-level positioning should stay understandable and iPhone-native.
+Avoid using "AI-powered satellite tracker" as the main title. AI can be mentioned as a product feature through Orbit Intelligence, but the top-level positioning should stay understandable and native to iPhone and iPad.
 
 ## Publisher
 
@@ -16,18 +16,18 @@ Apps Made Better LLC is the publisher. The company site is https://appsmadebette
 
 ## Audience
 
-- Space-curious iPhone users who want to know what satellites are overhead
+- Space-curious iPhone and iPad users who want to know what satellites are overhead
 - Satellite watchers who want visible pass timing and direction
 - People following Starlink, launches, crew missions, and space news
 - Beginners who need the app to explain what to look for instead of showing raw orbit tables
 
 ## Core Promise
 
-Track satellites live from your iPhone.
+Explore satellites on iPhone and iPad.
 
 ## Strongest Product Differentiators
 
-- Native iPhone-first product experience
+- Native iPhone and iPad experience
 - Live 3D Earth view with real satellite positions
 - Visible pass planning with local viewing context
 - Sky Mode pointing for finding satellites overhead

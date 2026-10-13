@@ -1,25 +1,37 @@
+import { expandedGuides } from "@/lib/expanded-guides";
+
 export type Guide = {
   slug: string; title: string; description: string; summary: string;
-  sections: { title: string; paragraphs: string[]; steps?: string[] }[];
+  sections: { title: string; paragraphs: string[]; steps?: string[]; links?: { label: string; href: string }[]; table?: { headers: string[]; rows: string[][] } }[];
   sources: { name: string; url: string }[];
+  category: "Getting started" | "Observing" | "Understanding the data";
+  publishedAt?: string;
+  modifiedAt: string;
+  reviewedAt: string;
+  relatedSlugs: string[];
+  image?: { path: string; alt: string; caption: string };
 };
-export const guideDate = "2026-09-05";
+export const contentUpdatedAt = "2026-10-12";
 export const guides: Guide[] = [
   {
     slug: "satellite-tracking-iphone",
-    title: "How to track satellites on iPhone",
-    description: "Start satellite tracking on iPhone with Live Orbit. Learn how the Earth view, satellite search, visible passes, and Sky Mode fit together.",
-    summary: "Start with a satellite on the map, check whether it has a visible pass from your location, then use sky guidance to look in the right direction. Live Orbit brings those parts of satellite tracking together on iPhone.",
+    category: "Getting started", publishedAt: "2026-09-05", modifiedAt: contentUpdatedAt, reviewedAt: contentUpdatedAt,
+    relatedSlugs: ["satellite-tracking-ipad", "sky-mode-ar-satellite-tracking", "visible-satellite-passes"],
+    title: "How to track satellites on iPhone and iPad",
+    description: "Start satellite tracking on iPhone and iPad with Live Orbit. Learn how the Earth view, satellite search, visible passes, and Sky Mode fit together.",
+    summary: "Start with a satellite on the map, check whether it has a visible pass from your location, then use sky guidance to look in the right direction. Live Orbit brings those parts of satellite tracking together on iPhone and iPad.",
     sections: [
       { title: "Choose what you want to find", paragraphs: ["The Earth view helps you explore satellites in orbit. Search is useful when you already have an object in mind, such as the International Space Station. Looking at the map and planning an observation answer different questions: where an object is, and whether you can see it.", "For a first session, keep it simple. Pick one object, look through its details, and concentrate on one upcoming viewing opportunity. A crowded globe does not need to become a crowded observing list."] },
       { title: "Turn a satellite into an observing plan", paragraphs: ["Live Orbit includes visible pass planning and Sky Mode. Use the pass information to prepare before you head outside, rather than trying to interpret every part of the app as a satellite crosses the sky."], steps: ["Confirm that the viewing location is the place where you will actually be observing.", "Choose a visible pass and read its timing and sky direction. Check which time zone the displayed time uses.", "Find a place with an open view in that direction and arrive before the pass begins.", "Use Sky Mode to orient yourself, then look up from the screen. Treat the guidance and predicted path as estimates."] },
       { title: "What the phone is doing", paragraphs: ["Live Orbit displays satellite tracking information and can use your location to provide local viewing context. Its radio section offers observation recordings when they are available. Playing a recording is different from receiving a satellite transmission directly with your phone.", "A map position alone is not a promise that an object is visible to your eyes. A visible-pass prediction, your actual surroundings, and sky conditions all matter. If you are having trouble, send the satellite name, viewing location, local time, and what you expected to see to Live Orbit support."] },
-      { title: "Download and compatibility", paragraphs: ["Live Orbit is an iPhone app published by Apps Made Better LLC. It is free to download with in-app purchases. Use the App Store listing for current device requirements, availability, and purchase options."] },
+      { title: "Download and compatibility", paragraphs: ["Live Orbit is an iOS and iPadOS app published by Apps Made Better LLC. It is free to download with in-app purchases. Use the App Store listing for current device requirements, availability, and purchase options."] },
     ],
     sources: [{ name: "Live Orbit on the App Store", url: "https://apps.apple.com/us/app/live-orbit/id6794325315" }],
   },
   {
     slug: "how-to-see-iss",
+    category: "Observing", publishedAt: "2026-09-05", modifiedAt: contentUpdatedAt, reviewedAt: contentUpdatedAt,
+    relatedSlugs: ["visible-satellite-passes", "satellite-observing-checklist", "identify-satellite-night-sky"],
     title: "How to see the ISS from your location",
     description: "Plan an International Space Station sighting: choose a visible ISS pass, understand elevation and direction, and prepare your view of the sky.",
     summary: "To see the International Space Station, find a visible pass for your observing location, check where it will appear, and be outside a few minutes early. The station is visible by reflected sunlight, so an overhead pass is not always a visible one.",
@@ -29,10 +41,12 @@ export const guides: Guide[] = [
       { title: "Make the observation easy", paragraphs: ["Prepare the app before the pass so that your attention can stay on the sky. You do not need to study every satellite detail during a short viewing opportunity."], steps: ["Confirm the start time and the direction where the station should appear.", "Be ready a few minutes early, with a clear view of that part of the sky.", "Use the predicted direction or Sky Mode as guidance, and look for a moving point of light.", "If you miss it, check the next visible opportunity rather than assuming the next orbit will be visible from the same spot."] },
       { title: "Why it may fade or fail to appear", paragraphs: ["NASA explains that the ISS can disappear as it moves into Earth’s shadow. Cloud and an obstructed view can also spoil an otherwise useful pass. A sighting prediction describes an opportunity, not a guaranteed observation.", "Keep your location and pass information current. If the time or direction seems wrong in Live Orbit, contact support with the pass date, satellite name, location, and a screenshot of the prediction. That gives us something specific to investigate."] },
     ],
-    sources: [{ name: "NASA: Spot the Station frequently asked questions", url: "https://www.nasa.gov/missions/station/spot-the-station-frequently-asked-questions/" }, { name: "NASA: Understanding ISS sighting information", url: "https://spotthestation.nasa.gov/message_example.cfm" }],
+    sources: [{ name: "NASA: Spot the Station frequently asked questions", url: "https://www.nasa.gov/missions/station/spot-the-station-frequently-asked-questions/" }],
   },
   {
     slug: "visible-satellite-passes",
+    category: "Observing", publishedAt: "2026-09-05", modifiedAt: "2026-09-05", reviewedAt: contentUpdatedAt,
+    relatedSlugs: ["how-to-see-iss", "satellite-orbit-data-tle-norad", "time-mode-satellite-tracking"],
     title: "Understanding visible satellite passes",
     description: "Learn the difference between an overhead satellite pass and a visible one, how to read a pass prediction, and why satellite pass times can change.",
     summary: "A satellite passing above your horizon is not necessarily visible. A useful observing prediction brings together the object’s estimated path, your location, and viewing conditions. Read the whole pass, not just its start time.",
@@ -45,4 +59,13 @@ export const guides: Guide[] = [
     ],
     sources: [{ name: "CelesTrak: Orbital prediction accuracy and data updates", url: "https://celestrak.org/columns/v04n05/index.php" }],
   },
+  ...expandedGuides,
 ];
+
+export const guideCategories = ["Getting started", "Observing", "Understanding the data"] as const;
+export function relatedGuides(guide: Guide) {
+  return guide.relatedSlugs.map(slug => guides.find(item => item.slug === slug)).filter((item): item is Guide => Boolean(item));
+}
+export function formatGuideDate(date: string) {
+  return new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
+}

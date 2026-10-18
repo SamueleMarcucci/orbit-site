@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { analyticsClickTarget } from "@/lib/analytics-click-target";
 
 declare global {
   interface Window {
@@ -17,7 +18,7 @@ function sendEvent(name: string, params: Record<string, string>) {
 export function AnalyticsEvents() {
   useEffect(() => {
     function handleClick(event: MouseEvent) {
-      const target = event.target instanceof Element ? event.target.closest<HTMLElement>("[data-analytics-event]") : null;
+      const target = analyticsClickTarget(event.target instanceof Element ? event.target.closest<HTMLElement>("[data-analytics-event]") : null);
       if (!target) return;
 
       sendEvent(target.dataset.analyticsEvent || "site_click", {

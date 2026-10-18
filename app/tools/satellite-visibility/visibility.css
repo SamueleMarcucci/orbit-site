@@ -1,0 +1,41 @@
+.visibility-page { max-width: 1100px; }
+.visibility-page header { max-width: 880px; }
+.visibility-scope { margin-top: 24px; max-width: 720px; color: #53564d; font-size: 14px; line-height: 1.7; }
+.visibility-interactive { margin-top: 52px; padding-block: 32px; border-block: 1px solid var(--line); }
+.visibility-interactive > h2 { font-size: 30px; letter-spacing: -.035em; line-height: 1.25; }
+.visibility-lab { display: grid; grid-template-columns: minmax(230px, .8fr) minmax(0, 1.4fr); gap: 40px; margin-top: 32px; align-items: start; }
+.visibility-controls { min-width: 0; margin: 0; padding: 0; border: 0; }
+.visibility-controls legend { padding: 0; font-size: 20px; font-weight: 600; letter-spacing: -.025em; }
+.visibility-controls > p { color: #62645c; font-size: 14px; line-height: 1.7; margin-top: 10px; }
+.visibility-control { display: flex; align-items: flex-start; gap: 14px; padding-block: 22px; cursor: pointer; border-bottom: 1px solid var(--line); }
+.visibility-control input { flex-shrink: 0; width: 22px; height: 22px; margin-top: 2px; accent-color: #0066cc; }
+.visibility-control-title { display: block; font-size: 16px; font-weight: 600; line-height: 1.5; }
+.visibility-control-title > span { color: #6b6f61; margin-right: 8px; font-size: 12px; font-weight: 400; }
+.visibility-control-detail { display: block; margin-top: 7px; font-size: 14px; line-height: 1.6; color: #62645c; }
+.visibility-figure { margin: 0; }
+.visibility-figure svg { display: block; width: 100%; height: auto; border-radius: 16px; }
+.visibility-figure figcaption { margin-top: 12px; color: #62645c; font-size: 13px; line-height: 1.6; }
+.visibility-result { margin-top: 26px; }
+.visibility-result-count { color: #62645c; font-size: 13px; }
+.visibility-result h3 { margin-top: 8px; font-size: 25px; letter-spacing: -.03em; line-height: 1.25; }
+.visibility-result > p:last-of-type, .visibility-result li { margin-top: 12px; font-size: 15px; line-height: 1.75; color: #53564d; }
+.visibility-result ul { padding-left: 20px; }
+.visibility-no-script { grid-column: 1 / -1; font-size: 14px; line-height: 1.7; }
+.visibility-worksheet { padding: 28px; background: #f6f6ef; }
+.visibility-worksheet > p:last-child { font-size: 14px; }
+@media (max-width: 700px) {
+  .visibility-interactive { margin-top: 36px; padding-block: 26px; }
+  .visibility-interactive > h2 { font-size: 26px; }
+  .visibility-lab { grid-template-columns: 1fr; gap: 28px; margin-top: 26px; }
+  .visibility-control { padding-block: 18px; }
+  .visibility-worksheet { padding: 22px; }
+  .visibility-result h3 { font-size: 23px; }
+}
+@media print {
+  .visibility-page { max-width: none; }
+  .visibility-controls { display: none; }
+  .visibility-lab { display: block; }
+  .visibility-example { max-width: 550px; }
+  .visibility-interactive { break-inside: avoid; }
+  .visibility-worksheet { padding: 0; background: none; }
+}

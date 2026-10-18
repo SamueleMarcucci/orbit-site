@@ -1,0 +1,11 @@
+.press-facts { margin: 1.5rem 0; }
+.press-facts > div { display: grid; grid-template-columns: minmax(9rem, 1fr) 2fr; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--line, #deded9); }
+.press-facts dt { font-weight: 600; }
+.press-facts dd { margin: 0; overflow-wrap: anywhere; }
+.press-workflow li { margin-bottom: .85rem; }
+.press-media-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin: 1.5rem 0; }
+.press-media-grid figure { margin: 0; min-width: 0; }
+.press-media-grid img { display: block; width: 100%; height: auto; max-height: 30rem; object-fit: contain; background: #eee; }
+.press-media-grid figcaption { font-size: .9rem; margin-top: .65rem; }
+.press-media-grid figcaption a { display: block; }
+@media (max-width: 640px) { .press-facts > div { grid-template-columns: 1fr; gap: .25rem; } .press-media-grid { grid-template-columns: 1fr; } }

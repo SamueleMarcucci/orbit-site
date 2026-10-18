@@ -115,7 +115,7 @@ h1, h2, h3 { text-wrap: balance; }
 .footer-top p { color: #696d61; font-size: 12px; }
 .footer-top .brand { font-size: 20px; }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 18px; color: #696d60; font-size: 11px; }
-.footer-bottom nav { display: flex; gap: 24px; }
+.footer-bottom nav { display: flex; flex-wrap: wrap; gap: 4px 24px; min-width: 0; }
 .footer-bottom a { display: inline-flex; align-items: center; min-height: 44px; }
 .footer-bottom a:hover { text-decoration: underline; }
 .company-credit { gap: 9px; }

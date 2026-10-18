@@ -1,0 +1,111 @@
+{
+  "source_listing": "https://apps.apple.com/us/app/live-orbit-satellite-tracker/id6794325315",
+  "version_association": "2.2",
+  "fetched_on": "2026-10-18",
+  "rights_basis": "User owns Live Orbit and explicitly authorized this press package. Apple CDN listing artwork copied as product promotional assets; no Apple endorsement or independent observation claim.",
+  "assets": [
+    {
+      "name": "iphone-overview",
+      "source_template": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/dd/7e/30/dd7e3065-4368-c3e7-38f5-52281ed63625/Group_258.jpg/{w}x{h}{c}.{f}",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/dd/7e/30/dd7e3065-4368-c3e7-38f5-52281ed63625/Group_258.jpg/1242x2688bb.jpg",
+      "expected_dimensions": [
+        1242,
+        2688
+      ],
+      "output": "media/iphone-overview.jpg",
+      "provenance": "Official artwork associated with Apple US listing version2.2 on2026-10-18. App Store artwork; not a live-use demonstration or independent observation.",
+      "actual_dimensions": [
+        1242,
+        2688
+      ],
+      "format": "JPEG",
+      "sha256": "5a8495621ffe269a7e040c92dfaeebffad0694a74c2a82d3e58e7d5927ac2021",
+      "bytes": 248992,
+      "fetched_on": "2026-10-18",
+      "content_modifications": "none; original Apple CDN-rendered JPEG preserved byte for byte",
+      "visible_content": "Angled iPhone showing Sky Mode markers and a satellite direction card; slogan See satellites effortlessly. Official marketing artwork."
+    },
+    {
+      "name": "iphone-pass-results",
+      "source_template": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/56/07/62/560762da-c826-6bcd-3c8a-abb9c87a8cf6/image_50__U00281_U0029.jpg/{w}x{h}{c}.{f}",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/56/07/62/560762da-c826-6bcd-3c8a-abb9c87a8cf6/image_50__U00281_U0029.jpg/1242x2688bb.jpg",
+      "expected_dimensions": [
+        1242,
+        2688
+      ],
+      "output": "media/iphone-pass-results.jpg",
+      "provenance": "Official artwork associated with Apple US listing version2.2 on2026-10-18. App Store artwork; not a live-use demonstration or independent observation.",
+      "actual_dimensions": [
+        1242,
+        2688
+      ],
+      "format": "JPEG",
+      "sha256": "1f235f04d234dd1939a62c8bc629a35abbf621aae0a5f4841b6ab955659852d2",
+      "bytes": 375631,
+      "fetched_on": "2026-10-18",
+      "content_modifications": "none; original Apple CDN-rendered JPEG preserved byte for byte",
+      "visible_content": "iPhone showing Pass Results cards; slogan Plan Every Pass. Dates/times are artwork examples, not current predictions."
+    },
+    {
+      "name": "ipad-workspace",
+      "source_template": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/5b/72/1e/5b721e1c-6141-d7a1-1c80-e586073cd176/01-now-on-ipad.png/{w}x{h}{c}.{f}",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/5b/72/1e/5b721e1c-6141-d7a1-1c80-e586073cd176/01-now-on-ipad.png/2752x2064bb.jpg",
+      "expected_dimensions": [
+        2752,
+        2064
+      ],
+      "output": "media/ipad-workspace.jpg",
+      "provenance": "Official artwork associated with Apple US listing version2.2 on2026-10-18. App Store artwork; not a live-use demonstration or independent observation.",
+      "actual_dimensions": [
+        2752,
+        2064
+      ],
+      "format": "JPEG",
+      "sha256": "b7c58ac6cede4b605695b97f1303fff58e6231a30f91f6c22818c05a68842947",
+      "bytes": 524648,
+      "fetched_on": "2026-10-18",
+      "content_modifications": "none; original Apple CDN-rendered JPEG preserved byte for byte",
+      "visible_content": "iPad Earth workspace with Plan a Pass entry point and cached count32,088; slogan Now on iPad. Count is historical artwork content, not current inventory."
+    },
+    {
+      "name": "ipad-pass-planning",
+      "source_template": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/19/0c/c8/190cc895-9fa3-1830-915d-acd25a984028/03-plan-your-next-pass.png/{w}x{h}{c}.{f}",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/19/0c/c8/190cc895-9fa3-1830-915d-acd25a984028/03-plan-your-next-pass.png/2752x2064bb.jpg",
+      "expected_dimensions": [
+        2752,
+        2064
+      ],
+      "output": "media/ipad-pass-planning.jpg",
+      "provenance": "Official artwork associated with Apple US listing version2.2 on2026-10-18. App Store artwork; not a live-use demonstration or independent observation.",
+      "actual_dimensions": [
+        2752,
+        2064
+      ],
+      "format": "JPEG",
+      "sha256": "da718c66d120008e3dad98c6e06e9a1c64e0cfc1579afa2391f164175d5a5919",
+      "bytes": 534014,
+      "fetched_on": "2026-10-18",
+      "content_modifications": "none; original Apple CDN-rendered JPEG preserved byte for byte",
+      "visible_content": "iPad Earth workspace with Plan a Pass entry point; slogan Plan your next pass. Does not depict a completed pass result."
+    },
+    {
+      "name": "app-icon",
+      "source_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b4/66/c7/b466c72f-d7ad-b6d0-30c1-422ca2a05245/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "expected_dimensions": [
+        512,
+        512
+      ],
+      "output": "media/live-orbit-icon.jpg",
+      "provenance": "Apple public listing icon associated with version2.2 on2026-10-18.",
+      "actual_dimensions": [
+        512,
+        512
+      ],
+      "format": "JPEG",
+      "sha256": "fb3dc7af684fde17ef83a5d9ef315d6d3cf9e9ae6867a3a05621c1e96c5f5a39",
+      "bytes": 30246,
+      "fetched_on": "2026-10-18",
+      "content_modifications": "none; original Apple CDN-rendered JPEG preserved byte for byte"
+    }
+  ]
+}

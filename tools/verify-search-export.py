@@ -97,6 +97,7 @@ indexable = {route for route, page in pages.items() if 'noindex' not in page.met
 require(set(sitemap) == {HOST + route for route in indexable}, 'Sitemap must match every indexable HTML route exactly')
 require(len([route for route in indexable if route.startswith('/guides/') and route != '/guides/']) == 11, 'Expected eleven substantive guides')
 require('/credits/' in indexable, 'Data attribution route omitted')
+require('/tools/satellite-visibility/' in indexable, 'Satellite visibility learning tool omitted')
 
 for route, page in pages.items():
     if route in ('/_not-found/', '/404/'):
@@ -127,7 +128,7 @@ for route, page in pages.items():
     for node in page.schema:
         for field in ('datePublished', 'dateModified'):
             if field in node:
-                require(date.fromisoformat(node[field]) <= date(2026, 10, 12), f'{route}: future {field}')
+                require(date.fromisoformat(node[field]) <= date.today(), f'{route}: future {field}')
         require('aggregateRating' not in node and 'review' not in node, f'{route}: unsupported review markup')
         if node.get('@type') == 'Article':
             require(node.get('url') == HOST + route and node.get('mainEntityOfPage') == HOST + route, f'{route}: article identity mismatch')
@@ -175,6 +176,12 @@ llms = (ROOT / 'llms.txt').read_text()
 require('iOS and iPadOS' in llms, 'Machine-readable navigation has stale platform wording')
 for href in re.findall(r'https://www\.liveorbitapp\.com/[^)\s]*', llms):
     require(urlparse(href).path in pages, f'llms.txt: broken route {href}')
+
+tool = pages['/tools/satellite-visibility/']
+tool_text = ' '.join(' '.join(tool.text).split())
+for explanation in ('Above your horizon', 'Satellite in sunlight', 'Dark observer sky', 'not a pass prediction', 'not a guarantee'):
+    require(explanation in tool_text, f'Visibility lab missing readable explanation: {explanation}')
+require('/guides/satellite-observing-checklist/' in tool.hrefs, 'Visibility lab must link to the printable observation worksheet')
 
 if errors:
     for error in errors:

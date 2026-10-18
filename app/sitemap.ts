@@ -9,8 +9,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: canonical(), lastModified: contentUpdatedAt, images: [`${site.url}/assets/september/hand-earth-updated-1400.webp`, ...artwork.map(name => `${site.url}/assets/september/${name}-1242.webp`)] },
     ...["/support/", "/privacy/", "/credits/", "/terms/"].map(path => ({ url: canonical(path) })),
+    { url: canonical("/press/"), lastModified: "2026-10-18" },
     { url: canonical("/features/"), lastModified: contentUpdatedAt },
     { url: canonical("/guides/"), lastModified: contentUpdatedAt },
+    { url: canonical("/tools/satellite-visibility/"), lastModified: "2026-10-18" },
     ...guides.map(guide => ({ url: canonical(`/guides/${guide.slug}/`), lastModified: guide.modifiedAt, images: [`${site.url}${guide.image?.path || socialPreviewImage}`] })),
   ];
 }

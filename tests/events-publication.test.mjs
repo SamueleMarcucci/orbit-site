@@ -134,6 +134,8 @@ test('published corrections preserve datePublished and show new modification pro
 test('wrong day subtraction and invented historical publication are rejected', () => {
   assert.throws(() => make({ publishAtUTC: '2026-11-01T04:00:00Z' }), /86400/);
   assert.throws(() => upsertEvents([], [make({ firstPublishedAtUTC: due })]), /previous publication/);
+  assert.throws(() => upsertEvents([make()], [make({ revision: 2, firstPublishedAtUTC: '2026-10-30T05:00:00Z' })], { now: Date.parse(due) - 1000 }), /Unpublished article/);
+  assert.throws(() => make({ timezone: undefined }), /IANA timezone/);
   assert.throws(() => upsertEvents([], [make()], { now: Date.parse(start) }), /backfill/);
   const activation = '2026-11-02T06:00:00Z';
   const event = make({ availableFromUTC: activation });

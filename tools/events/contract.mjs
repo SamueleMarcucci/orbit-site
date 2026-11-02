@@ -19,6 +19,7 @@ export function normalizeEvent(input) {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(event.slug) || ['media', 'assets', 'index', 'feed', 'sitemap'].includes(event.slug)) throw new Error('Invalid or reserved slug');
   if (!Number.isInteger(event.revision) || event.revision < 1) throw new Error('revision must be a positive integer');
   if (!categories.includes(event.category) || !statuses.includes(event.status)) throw new Error('Invalid category/status');
+  if (typeof event.timezone !== 'string' || !event.timezone.trim()) throw new Error('Missing IANA timezone');
   try { new Intl.DateTimeFormat('en-US', { timeZone: event.timezone }).format(); } catch { throw new Error('Invalid IANA timezone'); }
   for (const key of ['startUTC', 'endUTC', 'scheduleVerifiedAtUTC', 'sourceCheckedAtUTC']) event[key] = iso(event[key], key);
   if (Date.parse(event.endUTC) <= Date.parse(event.startUTC)) throw new Error('Event must end after it starts');
@@ -62,6 +63,7 @@ export function upsertEvents(existing, inputs, { now = Date.now(), allowBackfill
     if (events.some(other => other.event_key !== event.event_key && (other.slug === event.slug || other.eventId === event.eventId))) throw new Error(`Duplicate slug/eventId for ${event.event_key}`);
     if (prior) {
       if (prior.slug !== event.slug || prior.eventId !== event.eventId) throw new Error('Stable event_key must preserve slug and eventId');
+      if (!wasPublic(prior, now) && !prior.firstPublishedAtUTC && event.firstPublishedAtUTC) throw new Error('Unpublished article cannot claim a previous publication');
       if (event.revision === prior.revision) {
         event.firstPublishedAtUTC ||= prior.firstPublishedAtUTC;
         event.dateModifiedUTC ||= prior.dateModifiedUTC;

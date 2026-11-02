@@ -4,3 +4,9 @@ node_modules/
 tsconfig.tsbuildinfo
 .DS_Store
 npm-debug.log*
+.events-private/
+.event-assets/
+.generated/
+.wrangler/
+.codex-artifacts/
+worker-configuration.d.ts

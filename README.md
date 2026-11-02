@@ -60,6 +60,11 @@ python3 tools/verify-search-export.py
 node tools/preview-reach.mjs
 ```
 
+Events are served by the existing Cloudflare proxy with server-side publication
+gates. See [the publishing contract](docs/events-publishing.md) for private ingestion,
+release scheduling, validation, deployment order, and verification receipts. The
+static export intentionally contains no Events article bodies or staged images.
+
 The local preview is `http://127.0.0.1:4342/`. The local-only render runner is `http://127.0.0.1:4342/__qa/`; its Check every page control checks all eighteen public routes at 375, 768, and 1440 pixels. Its iframe viewport checks are layout checks, not simulated physical-device tests. Preview responses carry an HTTP noindex header; the exported production pages retain their normal indexing directives. Neither local test helper is exported as a public route.
 
 The guides show editorial review dates. Existing publication dates remain on the three existing guides. The eight new guides use October 12, 2026, the approved publication date. Update modification dates only for changed content. The sources and article metadata share a publisher identity and truthful citations. The optional existing llms.txt navigation has been corrected; it is not required for Google AI search. FAQ markup is not a promise of FAQ rich results or AI citations.

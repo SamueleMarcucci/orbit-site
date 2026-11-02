@@ -1,0 +1,12 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import { notifyIndexNow } from '../../worker/indexnow.ts';
+const root = fileURLToPath(new URL('../../', import.meta.url));
+const receipt = JSON.parse(await readFile(path.join(root, 'publishing/receipt.json'), 'utf8'));
+if (receipt.base !== 'https://www.liveorbitapp.com' || Date.now() - Date.parse(receipt.verifiedAtUTC) > 3600000) throw new Error('Run events:verify against production within the past hour first');
+const urls = ['https://www.liveorbitapp.com/events/', ...receipt.events.filter(event => event.state === 'published_verified').map(event => event.publicURL)];
+const result = await notifyIndexNow(urls);
+const outcome = { submittedAtUTC: new Date().toISOString(), ...result, meaning: 'Notification accepted only; indexing and ranking are not guaranteed.' };
+await writeFile(path.join(root, 'publishing/indexnow-receipt.json'), JSON.stringify(outcome, null, 2) + '\n');
+console.log(JSON.stringify(outcome, null, 2));

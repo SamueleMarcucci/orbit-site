@@ -14,6 +14,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
@@ -36,6 +37,9 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "worker",
+    ".generated",
+    "worker-configuration.d.ts"
   ]
 }

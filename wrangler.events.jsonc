@@ -1,0 +1,21 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "live-orbit-site",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-06-13",
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": ".event-assets",
+    "binding": "EVENT_ASSETS",
+    "run_worker_first": true
+  },
+  "observability": { "enabled": true, "logs": { "enabled": true, "head_sampling_rate": 1, "invocation_logs": false } },
+  "triggers": { "crons": ["*/15 * * * *"] },
+  "routes": [
+    { "pattern": "liveorbitapp.com/", "zone_name": "liveorbitapp.com" },
+    { "pattern": "liveorbitapp.com/*", "zone_name": "liveorbitapp.com" },
+    { "pattern": "www.liveorbitapp.com/", "zone_name": "liveorbitapp.com" },
+    { "pattern": "www.liveorbitapp.com/*", "zone_name": "liveorbitapp.com" }
+  ]
+}

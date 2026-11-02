@@ -4,3 +4,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.liveorbitapp.com/sitemap.xml
+Sitemap: https://www.liveorbitapp.com/events/sitemap.xml

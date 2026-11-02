@@ -31,6 +31,8 @@ jobs:
         run: npm run lint
       - name: Typecheck
         run: npm run typecheck
+      - name: Event release and embargo contract
+        run: npm run test:events
       - name: Build
         env:
           NEXT_PUBLIC_GTM_ID: GTM-NGHNSLPP

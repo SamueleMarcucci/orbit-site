@@ -10,6 +10,10 @@ from urllib.parse import urlparse, unquote
 
 ROOT = Path(__file__).resolve().parents[1] / 'out'
 HOST = 'https://www.liveorbitapp.com'
+# Events are rendered at the existing Cloudflare edge, never in the public static
+# origin. Their route, image, feed and sitemap contracts run in test:events and
+# tools/events/verify-live.mjs; do not add a static placeholder with staged text.
+EDGE_ROUTES = {'/events/'}
 errors = []
 
 def require(condition, message):
@@ -119,7 +123,7 @@ for route, page in pages.items():
             continue
         target = parsed.path or route
         file = ROOT / unquote(target).lstrip('/')
-        require(target in pages or file.is_file(), f'{route}: broken internal link {href}')
+        require(target in pages or target in EDGE_ROUTES or file.is_file(), f'{route}: broken internal link {href}')
         if parsed.fragment and target in pages:
             require(unquote(parsed.fragment) in pages[target].ids, f'{route}: missing anchor {href}')
     if route in indexable:

@@ -30,6 +30,7 @@ export function SiteHeader() {
         <nav aria-label="Primary navigation">
           <Link href="/#discover">Discover</Link>
           <Link href="/#gallery">A closer look</Link>
+          <a href="/events/">Events</a>
           <Link href="/support/">Support</Link>
         </nav>
         <a className="download-button nav-download" href={site.appStoreUrl} aria-label="Download Live Orbit on the App Store" data-analytics-event="app_store_cta_click" data-analytics-label="Navigation download">Download</a>

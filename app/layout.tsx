@@ -32,7 +32,8 @@ export const metadata: Metadata = {
     images: [assetPath(socialPreviewImage)]
   },
   alternates: {
-    canonical: site.url
+    canonical: site.url,
+    types: { "application/rss+xml": `${site.url}/events/feed.xml` }
   },
   robots: {
     index: true,

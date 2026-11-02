@@ -32,8 +32,7 @@ export const metadata: Metadata = {
     images: [assetPath(socialPreviewImage)]
   },
   alternates: {
-    canonical: site.url,
-    types: { "application/rss+xml": `${site.url}/events/feed.xml` }
+    canonical: site.url
   },
   robots: {
     index: true,
@@ -58,6 +57,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
   return (
     <html lang="en" className={body.variable}>
+      <head>
+        <link rel="alternate" type="application/rss+xml" title="Live Orbit Events" href={`${site.url}/events/feed.xml`} />
+      </head>
       <body>
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         {gtmId ? (

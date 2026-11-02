@@ -27,6 +27,7 @@ class Page(HTMLParser):
         self.assets = []
         self.meta = {}
         self.canonical = None
+        self.feeds = []
         self.h1s = 0
         self.main = 0
         self.heading = None
@@ -49,6 +50,8 @@ class Page(HTMLParser):
             self.meta[a.get('name', a.get('property', ''))] = a.get('content', '')
         if tag == 'link' and a.get('rel') == 'canonical':
             self.canonical = a.get('href')
+        if tag == 'link' and a.get('rel') == 'alternate' and a.get('type') == 'application/rss+xml':
+            self.feeds.append(a.get('href'))
         if tag == 'main':
             self.main += 1
         if re.fullmatch('h[1-6]', tag):
@@ -109,6 +112,7 @@ for route, page in pages.items():
     require(page.h1s == 1, f'{route}: expected one H1, found {page.h1s}')
     require(page.main == 1, f'{route}: expected one main landmark')
     require(page.canonical == HOST + route, f'{route}: incorrect canonical {page.canonical}')
+    require(HOST + '/events/feed.xml' in page.feeds, f'{route}: missing Events RSS discovery')
     require(bool(page.meta.get('description')), f'{route}: missing description')
     require(len(page.ids) == len(set(page.ids)), f'{route}: duplicate HTML IDs')
     require(all(b <= a + 1 for a, b in zip(page.heading_levels, page.heading_levels[1:])), f'{route}: skipped heading level')

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "publisherThreadId": "01a19ab0-ad2d-7cd1-af0a-f671f23aa341",
+  "sourceCommit": "3441c879c009e6b8cbbf1839f403098a9b50b032",
+  "productionBaseCommit": "ee319a34a25c690aa1854f539b34624a2ce25fb0",
+  "pullRequest": "https://github.com/SamueleMarcucci/orbit-site/pull/10",
+  "worker": {
+    "name": "live-orbit-site",
+    "versionId": "8c9d69ff-6518-4154-aa6f-77f384e31fe0",
+    "previousVersionId": "fe8e80b2-d675-408d-a169-bee504494b44",
+    "contentDigest": "4341d5ce0e649064",
+    "config": "wrangler.events.jsonc",
+    "workersDevURL": "https://live-orbit-site.marcucci-sam.workers.dev",
+    "releaseMechanism": "Server clock gate on every request; run_worker_first asset gate; no-store article/image/index/RSS/sitemaps.",
+    "notificationCronUTC": "*/15 * * * *",
+    "notificationMechanism": "Existing IndexNow property key; best-effort notification, separate from publication."
+  },
+  "initialAvailabilityAtUTC": "2026-11-02T05:47:00.000Z",
+  "websiteReceipt": "publishing/receipt.json",
+  "indexnowReceipt": "publishing/indexnow-receipt.json",
+  "privateStore": ".events-private/events.json",
+  "ingestionContract": "docs/events-publishing.md",
+  "verification": {
+    "tests": 41,
+    "failures": 0,
+    "nextLint": "passed",
+    "nextTypecheck": "passed",
+    "nextBuild": "passed",
+    "workerTypecheck": "passed",
+    "workerDryRun": "passed",
+    "staticFilesScanned": 233,
+    "staticArticleLeaks": 0,
+    "existingSearchRoutes": 20,
+    "liveHTTPChecks": 55,
+    "browser": "In-app browser: 1440px desktop and 390px mobile; index/article navigation, metadata, hero load, source links, no overflow or blocking console errors.",
+    "evidenceDirectory": ".codex-artifacts/events/2026-11-02"
+  },
+  "googleSearchConsole": {
+    "status": "blocked_pending_account_sign_in_approval",
+    "detail": "Automatic approval review rejected selecting the existing personal Google account. No new grant, account linking, or workaround attempted."
+  },
+  "bingWebmaster": {
+    "status": "blocked_pending_account_sign_in_approval",
+    "indexnowNotification": "accepted HTTP 200; separate from dashboard inspection"
+  }
+}

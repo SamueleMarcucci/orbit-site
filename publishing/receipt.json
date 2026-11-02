@@ -1,0 +1,452 @@
+{
+  "schema_version": 1,
+  "publisherThreadId": "01a19ab0-ad2d-7cd1-af0a-f671f23aa341",
+  "verifiedAtUTC": "2026-11-02T05:47:29.075Z",
+  "base": "https://www.liveorbitapp.com",
+  "checksPassed": 55,
+  "events": [
+    {
+      "event_key": "6826911430",
+      "revision": 2,
+      "eventId": "6826911430",
+      "title": "26 Years Aboard the ISS",
+      "startUTC": "2026-11-02T05:00:00.000Z",
+      "endUTC": "2026-11-09T05:00:00.000Z",
+      "timezone": "America/New_York",
+      "scheduleBasis": "The anniversary is November 2. November 2\u20139 is the Live Orbit editorial event period, beginning and ending at midnight in New York.",
+      "scheduleVerifiedAtUTC": "2026-11-02T05:11:19.615Z",
+      "publishAtUTC": "2026-11-01T05:00:00.000Z",
+      "availabilityAtUTC": "2026-11-02T05:47:00.000Z",
+      "state": "published_verified",
+      "publicURL": "https://www.liveorbitapp.com/events/26-years-aboard-the-iss/",
+      "plannedURL": "https://www.liveorbitapp.com/events/26-years-aboard-the-iss/",
+      "publishedAtUTC": "2026-11-02T05:47:00.000Z",
+      "publicationVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "embargoVerifiedAtUTC": null,
+      "heroSha256": "3c70fa0baf081a751d4662a267760a3da24ec91c0b39664688597c65ae8094b9",
+      "sourceCitations": [
+        "https://www.nasa.gov/reference/international-space-station/",
+        "https://www.nasa.gov/missions/station/spot-the-station-frequently-asked-questions/"
+      ]
+    },
+    {
+      "event_key": "6826912535",
+      "revision": 2,
+      "eventId": "6826912535",
+      "title": "Solar Weather Watch",
+      "startUTC": "2026-10-31T04:00:00.000Z",
+      "endUTC": "2026-11-02T05:00:00.000Z",
+      "timezone": "America/New_York",
+      "scheduleBasis": "This editorial watch ran from October 31 to November 2, 2026, at midnight New York time. It has ended. These dates do not describe a confirmed storm.",
+      "scheduleVerifiedAtUTC": "2026-11-02T05:11:19.615Z",
+      "publishAtUTC": "2026-10-30T04:00:00.000Z",
+      "availabilityAtUTC": "2026-11-02T05:47:00.000Z",
+      "state": "published_verified",
+      "publicURL": "https://www.liveorbitapp.com/events/solar-weather-watch/",
+      "plannedURL": "https://www.liveorbitapp.com/events/solar-weather-watch/",
+      "publishedAtUTC": "2026-11-02T05:47:00.000Z",
+      "publicationVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "embargoVerifiedAtUTC": null,
+      "heroSha256": "63da60813b06f6c9dfe63f83b362cb0fe7964d3d794132a1bc4f3233976dd7a2",
+      "sourceCitations": [
+        "https://www.swpc.noaa.gov/products/planetary-k-index",
+        "https://www.swpc.noaa.gov/phenomena/aurora"
+      ]
+    },
+    {
+      "event_key": "6826912344",
+      "revision": 2,
+      "eventId": "6826912344",
+      "title": "Satellite Train Watch",
+      "startUTC": "2026-10-27T04:00:00.000Z",
+      "endUTC": "2026-11-03T05:00:00.000Z",
+      "timezone": "America/New_York",
+      "scheduleBasis": "October 27\u2013November 3 is the Live Orbit editorial watch period. It is not a launch window or a prediction that a satellite train will be visible from your location.",
+      "scheduleVerifiedAtUTC": "2026-11-02T05:11:19.615Z",
+      "publishAtUTC": "2026-10-26T04:00:00.000Z",
+      "availabilityAtUTC": "2026-11-02T05:47:00.000Z",
+      "state": "published_verified",
+      "publicURL": "https://www.liveorbitapp.com/events/satellite-train-watch/",
+      "plannedURL": "https://www.liveorbitapp.com/events/satellite-train-watch/",
+      "publishedAtUTC": "2026-11-02T05:47:00.000Z",
+      "publicationVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "embargoVerifiedAtUTC": null,
+      "heroSha256": "455418d0e293faff22fb774c3f7000d39cb76d40cf8c826325fccd68ebb22eb2",
+      "sourceCitations": [
+        "https://www.starlink.com/public-files/BrightnessMitigationBestPracticesSatelliteOperators.pdf",
+        "https://www.nasa.gov/missions/station/spot-the-station-frequently-asked-questions/"
+      ]
+    },
+    {
+      "event_key": "6826912246",
+      "revision": 2,
+      "eventId": "6826912246",
+      "title": "Dream Chaser Mission Watch",
+      "startUTC": "2026-11-02T05:00:00.000Z",
+      "endUTC": "2026-11-30T05:00:00.000Z",
+      "timezone": "America/New_York",
+      "scheduleBasis": "November 2\u201330 is an editorial watch beginning and ending at midnight in New York. It is not a confirmed Dream Chaser launch window.",
+      "scheduleVerifiedAtUTC": "2026-11-02T05:11:19.615Z",
+      "publishAtUTC": "2026-11-01T05:00:00.000Z",
+      "availabilityAtUTC": "2026-11-02T05:47:00.000Z",
+      "state": "published_verified",
+      "publicURL": "https://www.liveorbitapp.com/events/dream-chaser-mission-watch/",
+      "plannedURL": "https://www.liveorbitapp.com/events/dream-chaser-mission-watch/",
+      "publishedAtUTC": "2026-11-02T05:47:00.000Z",
+      "publicationVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "embargoVerifiedAtUTC": null,
+      "heroSha256": "e9e9e1241c46ba4bfeb3d24b9445a7da2d8ee473079752c6f14839409b53bec1",
+      "sourceCitations": [
+        "https://www.sierraspace.com/press-releases/dream-chaser-advances-toward-first-flight-eyes-multi-use-applications/"
+      ]
+    },
+    {
+      "event_key": "6826912333",
+      "revision": 2,
+      "eventId": "6826912333",
+      "title": "Starliner Mission Watch",
+      "startUTC": "2026-12-01T05:00:00.000Z",
+      "endUTC": "2026-12-29T05:00:00.000Z",
+      "timezone": "America/New_York",
+      "scheduleBasis": "December 1\u201329 is a Live Orbit editorial watch, beginning and ending at midnight in New York. It is not an announced Starliner launch window.",
+      "scheduleVerifiedAtUTC": "2026-11-02T05:11:19.615Z",
+      "publishAtUTC": "2026-11-30T05:00:00.000Z",
+      "availabilityAtUTC": "2026-11-30T05:00:00.000Z",
+      "state": "scheduled_embargo_verified",
+      "publicURL": null,
+      "plannedURL": "https://www.liveorbitapp.com/events/starliner-mission-watch/",
+      "publishedAtUTC": null,
+      "publicationVerifiedAtUTC": null,
+      "embargoVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "heroSha256": "4964df15045bda65d23c3de52fd4248281743e7508b22727ae3969bf3a439667",
+      "sourceCitations": [
+        "https://www.nasa.gov/news-release/nasa-boeing-share-update-on-commercial-starliner-development-plans/"
+      ]
+    },
+    {
+      "event_key": "amazon-leo-2026",
+      "revision": 1,
+      "eventId": "6829618908",
+      "title": "Amazon Leo Watch",
+      "startUTC": "2026-11-09T05:00:00.000Z",
+      "endUTC": "2026-11-25T05:00:00.000Z",
+      "timezone": "America/New_York",
+      "scheduleBasis": "November 9\u201325 is an editorial watch at midnight New York time. It is separate from the operator\u2019s tentative LV-01 and LE-04 launch targets.",
+      "scheduleVerifiedAtUTC": "2026-11-02T05:11:19.615Z",
+      "publishAtUTC": "2026-11-08T05:00:00.000Z",
+      "availabilityAtUTC": null,
+      "state": "held",
+      "publicURL": null,
+      "plannedURL": "https://www.liveorbitapp.com/events/amazon-leo-watch/",
+      "publishedAtUTC": null,
+      "publicationVerifiedAtUTC": null,
+      "embargoVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "heroSha256": null,
+      "sourceCitations": [
+        "https://www.aboutamazon.com/news/innovation-at-amazon/project-kuiper-satellite-rocket-launch-progress-updates"
+      ],
+      "holdReason": "Approved replacement artwork pending; rejected v2 and preview-only v3 are not released."
+    },
+    {
+      "event_key": "galileo-ten-years-2026",
+      "revision": 1,
+      "eventId": "6829619934",
+      "title": "10 Years of Galileo",
+      "startUTC": "2026-12-15T05:00:00.000Z",
+      "endUTC": "2026-12-22T05:00:00.000Z",
+      "timezone": "America/New_York",
+      "scheduleBasis": "Galileo Initial Services began December 15, 2016. December 15\u201322, 2026 is the Live Orbit anniversary event, at midnight New York time.",
+      "scheduleVerifiedAtUTC": "2026-11-02T05:11:19.615Z",
+      "publishAtUTC": "2026-12-14T05:00:00.000Z",
+      "availabilityAtUTC": null,
+      "state": "held",
+      "publicURL": null,
+      "plannedURL": "https://www.liveorbitapp.com/events/10-years-of-galileo/",
+      "publishedAtUTC": null,
+      "publicationVerifiedAtUTC": null,
+      "embargoVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "heroSha256": null,
+      "sourceCitations": [
+        "https://www.euspa.europa.eu/pressroom/press-releases/galileo-begins-delivery-initial-services"
+      ],
+      "holdReason": "Approved replacement artwork pending; rejected v2 and preview-only v3 are not released."
+    }
+  ],
+  "checks": [
+    {
+      "url": "https://www.liveorbitapp.com/events/",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/feed.xml",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/sitemap.xml",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/sitemap.xml",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/26-years-aboard-the-iss/",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/26-years-aboard-the-iss/768.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/26-years-aboard-the-iss/1536.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/26-years-aboard-the-iss/2400.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/solar-weather-watch/",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/solar-weather-watch/768.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/solar-weather-watch/1536.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/solar-weather-watch/2400.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/satellite-train-watch/",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/satellite-train-watch/768.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/satellite-train-watch/1536.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/satellite-train-watch/2400.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/dream-chaser-mission-watch/",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/dream-chaser-mission-watch/768.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/dream-chaser-mission-watch/1536.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/dream-chaser-mission-watch/2400.webp",
+      "status": 200,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/starliner-mission-watch/",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/starliner-mission-watch/768.webp",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/starliner-mission-watch/1536.webp",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/starliner-mission-watch/2400.webp",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/starliner-mission-watch/index.html",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/starliner-mission-watch/data.json",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/starliner-mission-watch/?preview=true&now=2099-01-01",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/starliner-mission-watch.html",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://samuelemarcucci.github.io/orbit-site/events/starliner-mission-watch/",
+      "status": 404,
+      "cacheControl": null
+    },
+    {
+      "url": "https://samuelemarcucci.github.io/orbit-site/events/media/starliner-mission-watch/2400.webp",
+      "status": 404,
+      "cacheControl": null
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/amazon-leo-watch/",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/amazon-leo-watch/768.webp",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/amazon-leo-watch/1536.webp",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/amazon-leo-watch/2400.webp",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/amazon-leo-watch/index.html",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/amazon-leo-watch/data.json",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/amazon-leo-watch/?preview=true&now=2099-01-01",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/amazon-leo-watch.html",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://samuelemarcucci.github.io/orbit-site/events/amazon-leo-watch/",
+      "status": 404,
+      "cacheControl": null
+    },
+    {
+      "url": "https://samuelemarcucci.github.io/orbit-site/events/media/amazon-leo-watch/2400.webp",
+      "status": 404,
+      "cacheControl": null
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/10-years-of-galileo/",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/10-years-of-galileo/768.webp",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/10-years-of-galileo/1536.webp",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/media/10-years-of-galileo/2400.webp",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/10-years-of-galileo/index.html",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/10-years-of-galileo/data.json",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/10-years-of-galileo/?preview=true&now=2099-01-01",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/10-years-of-galileo.html",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://samuelemarcucci.github.io/orbit-site/events/10-years-of-galileo/",
+      "status": 404,
+      "cacheControl": null
+    },
+    {
+      "url": "https://samuelemarcucci.github.io/orbit-site/events/media/10-years-of-galileo/2400.webp",
+      "status": 404,
+      "cacheControl": null
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/data.json",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/events/index.html",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/.generated/events-data.ts",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/.events-private/events.json",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    },
+    {
+      "url": "https://www.liveorbitapp.com/worker/index.js.map",
+      "status": 404,
+      "cacheControl": "no-store, max-age=0"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "publisherThreadId": "01a19ab0-ad2d-7cd1-af0a-f671f23aa341",
-  "verifiedAtUTC": "2026-11-02T05:47:29.075Z",
+  "verifiedAtUTC": "2026-11-02T06:09:52.999Z",
   "base": "https://www.liveorbitapp.com",
   "checksPassed": 55,
   "events": [
@@ -21,7 +21,7 @@
       "publicURL": "https://www.liveorbitapp.com/events/26-years-aboard-the-iss/",
       "plannedURL": "https://www.liveorbitapp.com/events/26-years-aboard-the-iss/",
       "publishedAtUTC": "2026-11-02T05:47:00.000Z",
-      "publicationVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "publicationVerifiedAtUTC": "2026-11-02T06:09:52.999Z",
       "embargoVerifiedAtUTC": null,
       "heroSha256": "3c70fa0baf081a751d4662a267760a3da24ec91c0b39664688597c65ae8094b9",
       "sourceCitations": [
@@ -45,7 +45,7 @@
       "publicURL": "https://www.liveorbitapp.com/events/solar-weather-watch/",
       "plannedURL": "https://www.liveorbitapp.com/events/solar-weather-watch/",
       "publishedAtUTC": "2026-11-02T05:47:00.000Z",
-      "publicationVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "publicationVerifiedAtUTC": "2026-11-02T06:09:52.999Z",
       "embargoVerifiedAtUTC": null,
       "heroSha256": "63da60813b06f6c9dfe63f83b362cb0fe7964d3d794132a1bc4f3233976dd7a2",
       "sourceCitations": [
@@ -69,7 +69,7 @@
       "publicURL": "https://www.liveorbitapp.com/events/satellite-train-watch/",
       "plannedURL": "https://www.liveorbitapp.com/events/satellite-train-watch/",
       "publishedAtUTC": "2026-11-02T05:47:00.000Z",
-      "publicationVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "publicationVerifiedAtUTC": "2026-11-02T06:09:52.999Z",
       "embargoVerifiedAtUTC": null,
       "heroSha256": "455418d0e293faff22fb774c3f7000d39cb76d40cf8c826325fccd68ebb22eb2",
       "sourceCitations": [
@@ -93,7 +93,7 @@
       "publicURL": "https://www.liveorbitapp.com/events/dream-chaser-mission-watch/",
       "plannedURL": "https://www.liveorbitapp.com/events/dream-chaser-mission-watch/",
       "publishedAtUTC": "2026-11-02T05:47:00.000Z",
-      "publicationVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "publicationVerifiedAtUTC": "2026-11-02T06:09:52.999Z",
       "embargoVerifiedAtUTC": null,
       "heroSha256": "e9e9e1241c46ba4bfeb3d24b9445a7da2d8ee473079752c6f14839409b53bec1",
       "sourceCitations": [
@@ -117,7 +117,7 @@
       "plannedURL": "https://www.liveorbitapp.com/events/starliner-mission-watch/",
       "publishedAtUTC": null,
       "publicationVerifiedAtUTC": null,
-      "embargoVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "embargoVerifiedAtUTC": "2026-11-02T06:09:52.999Z",
       "heroSha256": "4964df15045bda65d23c3de52fd4248281743e7508b22727ae3969bf3a439667",
       "sourceCitations": [
         "https://www.nasa.gov/news-release/nasa-boeing-share-update-on-commercial-starliner-development-plans/"
@@ -140,7 +140,7 @@
       "plannedURL": "https://www.liveorbitapp.com/events/amazon-leo-watch/",
       "publishedAtUTC": null,
       "publicationVerifiedAtUTC": null,
-      "embargoVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "embargoVerifiedAtUTC": "2026-11-02T06:09:52.999Z",
       "heroSha256": null,
       "sourceCitations": [
         "https://www.aboutamazon.com/news/innovation-at-amazon/project-kuiper-satellite-rocket-launch-progress-updates"
@@ -164,7 +164,7 @@
       "plannedURL": "https://www.liveorbitapp.com/events/10-years-of-galileo/",
       "publishedAtUTC": null,
       "publicationVerifiedAtUTC": null,
-      "embargoVerifiedAtUTC": "2026-11-02T05:47:29.075Z",
+      "embargoVerifiedAtUTC": "2026-11-02T06:09:52.999Z",
       "heroSha256": null,
       "sourceCitations": [
         "https://www.euspa.europa.eu/pressroom/press-releases/galileo-begins-delivery-initial-services"

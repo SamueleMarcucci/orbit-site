@@ -81,6 +81,11 @@ a provider failure may require a manual retry. The weekly coordinator should run
 `npm run events:verify` to reconcile actual states, not call a staged article published.
 The cron performs no research, messaging, App Store, or Instagram operations.
 
+The scheduled callback reads the ownership key from the proxy's explicit GitHub
+origin, because [same-zone fetches cannot target a Worker route](https://developers.cloudflare.com/workers/configuration/routing/routes/).
+The notification payload still gives IndexNow the public canonical keyLocation.
+The manual submission command verifies that canonical location directly.
+
 Each public article includes SSR text, a clean canonical URL, unique metadata,
 large-image previews, Open Graph/Twitter tags, BlogPosting, BreadcrumbList and
 ImageObject, truthful publisher/byline, sources, and links to guides and the app.

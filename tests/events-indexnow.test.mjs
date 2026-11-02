@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { notificationURLs, notifyIndexNow, INDEXNOW_KEY } from '../worker/indexnow.ts';
+import { notificationURLs, notifyIndexNow, INDEXNOW_KEY, INDEXNOW_ORIGIN_KEY_URL } from '../worker/indexnow.ts';
 const due = Date.parse('2026-11-30T05:00:00Z');
 const event = { event_key: 'future-key', slug: 'future-story', status: 'ready', publishAtUTC: new Date(due).toISOString(), availableFromUTC: new Date(due).toISOString(), firstPublishedAtUTC: null, dateModifiedUTC: null };
 test('release notifications include eligible new URLs once in their nominal cron window', () => {
@@ -31,4 +31,17 @@ test('no search request is sent for an empty window; missing ownership proof fai
   assert.equal(calls, 0);
   await assert.rejects(notifyIndexNow(['https://www.liveorbitapp.com/events/example/'], async () => { calls++; return new Response('wrong'); }), /ownership key/);
   assert.equal(calls, 1);
+});
+
+test('the scheduled callback can read the origin key when same-zone fetch bypasses the proxy', async () => {
+  let submission;
+  const fetcher = async (url, init) => {
+    if (url === INDEXNOW_ORIGIN_KEY_URL) return new Response(INDEXNOW_KEY);
+    if (url === 'https://api.indexnow.org/IndexNow') { submission = JSON.parse(init.body); return new Response('', { status: 200 }); }
+    return new Response('Origin path not found', { status: 404 });
+  };
+  const urls = ['https://www.liveorbitapp.com/events/example/'];
+  await assert.rejects(notifyIndexNow(urls, fetcher), /ownership key/);
+  assert.equal((await notifyIndexNow(urls, fetcher, INDEXNOW_ORIGIN_KEY_URL)).status, 200);
+  assert.equal(submission.keyLocation, `https://www.liveorbitapp.com/${INDEXNOW_KEY}.txt`);
 });
